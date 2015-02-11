@@ -1,0 +1,276 @@
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Away3D 4.1 Alpha release</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Away3D 4.1 Alpha release">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Away3D 4.1 Alpha release">
+    <meta property="og:description" content="">
+
+    <meta name="twitter:site" content="@robnet">
+    
+    <meta name="twitter:creator" content="@robnet">
+    
+    <meta name="google-site-verification" content="">
+    
+    <meta property="fb:admins" content="">
+
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="../apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="http://fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic%7COpen+Sans:700,400&amp;subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.min.css?v=222db30219">
+
+    <script type="text/javascript">
+      var ga_ua = 'UA-XXXXX-X';
+      
+      var disqus_shortname = 'infiniteturtles';
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="../assets/js/head-scripts.min.js?v=222db30219"></script>
+
+    <link rel="canonical" href="index.html">
+    
+    <meta property="og:site_name" content="infinite turtles">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Away3D 4.1 Alpha release">
+    <meta property="og:description" content="The more observant among you many have noticed a larger than normal activity-spike on our Github repositories recently, and wondered what was up. Well today wonder no more. Its frankly a relief to get back into a more regular release...">
+    <meta property="og:url" content="http://localhost:2368/away3d-4-1-alpha-release/">
+    <meta property="article:published_time" content="2012-11-15T10:22:20.000Z">
+    <meta property="article:modified_time" content="2012-11-15T10:24:49.000Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Away3D 4.1 Alpha release">
+    <meta name="twitter:description" content="The more observant among you many have noticed a larger than normal activity-spike on our Github repositories recently, and wondered what was up. Well today wonder no more. Its frankly a relief to get back into a more regular release...">
+    <meta name="twitter:url" content="http://localhost:2368/away3d-4-1-alpha-release/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "infinite turtles",
+    "author": {
+        "@type": "Person",
+        "name": "Rob Bateman",
+        "image": "//www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&s=250",
+        "url": "http://localhost:2368/author/rob",
+        "sameAs": null
+    },
+    "headline": "Away3D 4.1 Alpha release",
+    "url": "http://localhost:2368/away3d-4-1-alpha-release/",
+    "datePublished": "2012-11-15T10:22:20.000Z",
+    "dateModified": "2012-11-15T10:24:49.000Z",
+    "description": "The more observant among you many have noticed a larger than normal activity-spike on our Github repositories recently, and wondered what was up. Well today wonder no more. Its frankly a relief to get back into a more regular release..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5">
+    <link rel="alternate" type="application/rss+xml" title="infinite turtles" href="../rss/index.html">
+  </head>
+  <body class="post-template">
+
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="../" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="../rss/index.rss">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          <li class="drawer-list-divider">
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://twitter.com/robnet" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://github.com/rob-bateman" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<section class="wrapper wrapper-post">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post post">
+        <section class="post-container">
+          <header class="post-header">
+            <ul class="post-meta-list">
+              <li class="post-meta-item">
+                <time datetime="2012-11-15" itemprop="datePublished">
+                  2 years ago
+                </time>
+              </li>
+              <li class="post-meta-item">
+                <a href="index.html#disqus_thread" data-disqus-identifier="119">Comments</a>
+              </li>
+            </ul>
+            <h1 itemprop="name headline" class="post-title"><a href="index.html" itemprop="url" data-pjax title="Away3D 4.1 Alpha release">Away3D 4.1 Alpha release</a></h1>
+            <!--h2 itemprop="about" class="post-subtitle"></h2-->
+          </header>
+          <aside class="post-side">
+            <div class="post-author">
+                <a href="index.html" class="post-author-avatar">
+                  <img src="http://www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&amp;s=250" alt="Rob Bateman">
+                </a>
+              <div class="post-author-info">
+                <a href="index.html" class="post-author-name">
+                  Rob Bateman
+                </a>
+                <p class="post-author-bio"></p>
+              </div>
+            </div>
+          </aside>
+          <div itemprop="articleBody" class="post-body">
+            <p><a href="http://away3d.com/comments/away3d_4.1_alpha_release"><img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/11/away3d_4.1_660.jpg" alt="" title="away3d_4.1_660"></a></p>
+
+<p>The more observant among you many have noticed a larger than normal activity-spike on our <a href="https://github.com/away3d">Github repositories</a> recently, and wondered what was up. Well today <a href="http://away3d.com/comments/away3d_4.1_alpha_release">wonder no more</a>.</p>
+
+<p>Its frankly a relief to get back into a more regular release pattern, and this one in particular should hopefully not disappoint. Away3D 4.1 Alpha is one of those things beloved of open source developers everywhere – a <em>feature</em> update. <img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" title=""></p>
+
+<p>Full details of all features in this release can be found over in our blog at Away3D.com, but the highlights include GPU accelerated particles, multipass materials, ATF texture support, realtime reflections, tools and geometry refactors, view volume partitioning, stereoscopic renderers… the list goes on.</p>
+
+<p>However, all good fun must come to an end, and as this is an Alpha version, we are turning to you the community for help on the next stage of 4.1 development – fixing stuff. Any issues with the API, runtime errrors, performance problems etc, we want to hear about it. Use the ultra simple <a href="https://github.com/away3d/away3d-core-fp11/issues">issues tracker in Github</a> to get your message across, and while you’re there, perhaps even have a go at fixing a few!</p>
+
+<p>My main contribution in this release has been around the new particles feature, and I have to make sure I give a shout out to the person who made most of that possible – the utterly awesome <a href="https://github.com/liaocheng">Liao Cheng</a>. For now the team will be powering towards a stable beta, which we will hopefully be revealing more on in the coming weeks.</p>
+          </div>
+          <footer class="post-footer">
+            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+                <a href="index.html" class="post-author-avatar">
+                  <img itemprop="image" src="http://www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&amp;s=250" alt="Rob Bateman">
+                </a>
+              <div class="post-author-info">
+                <h4 class="post-footer-heading">Written By</h4>
+                <a href="index.html" itemprop="url" class="post-author-name">
+                  <span itemprop="name">Rob Bateman</span>
+                </a>
+                <p itemprop="description" class="post-author-bio"></p>
+                <p class="post-info">
+                  <b class="post-info-title">Published on</b>
+                  <time class="post-date">November 15, 2012</time>
+                </p>
+              </div>
+            </div>
+            <div class="post-social">
+              <h4 class="post-footer-heading">Spread the word</h4>
+              <a href="index.html#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+              <a href="index.html#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+              <a href="index.html#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+            </div>
+          </footer>
+        </section>
+      <section itemprop="comment" class="post-comments">
+        <div id="disqus_thread"></div>
+      </section>
+    </article>
+
+    <footer role="contentinfo" class="footer">
+      <p><small>© 2015. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Proudly published with <a href="http://ghost.org" target="_blank">Ghost</a></small></p>
+    </footer>
+  </div>
+</section>
+
+<script type="text/javascript">
+  if(GHOSTIUM.haveDisqus) {
+    var disqus_identifier = '119';
+
+    if(typeof DISQUS !== 'object') {
+      (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    }
+  } else {
+    document.querySelector('.post-comments').remove();
+  }
+</script>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../public/jquery.js?v=222db30219"></script>
+
+    <script src="../assets/js/foot-scripts.min.js?v=222db30219"></script>
+
+    <script type="text/javascript">
+
+      if(GHOSTIUM.haveGA) {
+        (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
+        function(){(g[s].q=g[s].q||[]).push(arguments)});g[s].s=+new Date;
+        t=h.createElement(o);z=h.getElementsByTagName(o)[0];
+        t.src='//www.google-analytics.com/analytics.js';
+        z.parentNode.insertBefore(t,z)}(window,document,'script','ga'));
+        ga('create',ga_ua);ga('send','pageview');
+      }
+
+      if(GHOSTIUM.haveDisqus) {
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+      }
+    </script>
+  </body>

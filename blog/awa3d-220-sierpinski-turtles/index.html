@@ -1,0 +1,276 @@
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Awa3d 2.2: Sierpinski Turtles</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Awa3d 2.2: Sierpinski Turtles">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Awa3d 2.2: Sierpinski Turtles">
+    <meta property="og:description" content="">
+
+    <meta name="twitter:site" content="@robnet">
+    
+    <meta name="twitter:creator" content="@robnet">
+    
+    <meta name="google-site-verification" content="">
+    
+    <meta property="fb:admins" content="">
+
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="../apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="http://fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic%7COpen+Sans:700,400&amp;subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.min.css?v=222db30219">
+
+    <script type="text/javascript">
+      var ga_ua = 'UA-XXXXX-X';
+      
+      var disqus_shortname = 'infiniteturtles';
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="../assets/js/head-scripts.min.js?v=222db30219"></script>
+
+    <link rel="canonical" href="index.html">
+    
+    <meta property="og:site_name" content="infinite turtles">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Awa3d 2.2: Sierpinski Turtles">
+    <meta property="og:description" content="Away3d 2.2 is now released! So it is time to start dipping into the new features available, and demo some of what’s on offer. One of the biggest new features in 2.2 is triangle caching. This is...">
+    <meta property="og:url" content="http://localhost:2368/awa3d-220-sierpinski-turtles/">
+    <meta property="article:published_time" content="2008-09-29T04:42:57.000Z">
+    <meta property="article:modified_time" content="2008-12-22T04:29:18.000Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Awa3d 2.2: Sierpinski Turtles">
+    <meta name="twitter:description" content="Away3d 2.2 is now released! So it is time to start dipping into the new features available, and demo some of what’s on offer. One of the biggest new features in 2.2 is triangle caching. This is...">
+    <meta name="twitter:url" content="http://localhost:2368/awa3d-220-sierpinski-turtles/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "infinite turtles",
+    "author": {
+        "@type": "Person",
+        "name": "Rob Bateman",
+        "image": "//www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&s=250",
+        "url": "http://localhost:2368/author/rob",
+        "sameAs": null
+    },
+    "headline": "Awa3d 2.2: Sierpinski Turtles",
+    "url": "http://localhost:2368/awa3d-220-sierpinski-turtles/",
+    "datePublished": "2008-09-29T04:42:57.000Z",
+    "dateModified": "2008-12-22T04:29:18.000Z",
+    "description": "Away3d 2.2 is now released! So it is time to start dipping into the new features available, and demo some of what’s on offer. One of the biggest new features in 2.2 is triangle caching. This is..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5">
+    <link rel="alternate" type="application/rss+xml" title="infinite turtles" href="../rss/index.html">
+  </head>
+  <body class="post-template">
+
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="../" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="../rss/index.rss">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          <li class="drawer-list-divider">
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://twitter.com/robnet" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://github.com/rob-bateman" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<section class="wrapper wrapper-post">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post post">
+        <section class="post-container">
+          <header class="post-header">
+            <ul class="post-meta-list">
+              <li class="post-meta-item">
+                <time datetime="2008-09-29" itemprop="datePublished">
+                  6 years ago
+                </time>
+              </li>
+              <li class="post-meta-item">
+                <a href="index.html#disqus_thread" data-disqus-identifier="52">Comments</a>
+              </li>
+            </ul>
+            <h1 itemprop="name headline" class="post-title"><a href="index.html" itemprop="url" data-pjax title="Awa3d 2.2: Sierpinski Turtles">Awa3d 2.2: Sierpinski Turtles</a></h1>
+            <!--h2 itemprop="about" class="post-subtitle"></h2-->
+          </header>
+          <aside class="post-side">
+            <div class="post-author">
+                <a href="index.html" class="post-author-avatar">
+                  <img src="http://www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&amp;s=250" alt="Rob Bateman">
+                </a>
+              <div class="post-author-info">
+                <a href="index.html" class="post-author-name">
+                  Rob Bateman
+                </a>
+                <p class="post-author-bio"></p>
+              </div>
+            </div>
+          </aside>
+          <div itemprop="articleBody" class="post-body">
+            <p><a href="http://www.infiniteturtles.co.uk/projects/away3d/demos/SierpinskiTurtles/SierpinskiTurtles.html"><img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2008/10/sierpinskiturtles.jpg" alt="" title="sierpinskiturtles"></a></p>
+
+<p>Away3d 2.2 is now <a href="http://away3d.com/away3d-22-railaway-express">released</a>! So it is time to start dipping into the new features available, and demo some of what’s on offer.</p>
+
+<p>One of the biggest new features in 2.2 is triangle caching. This is a way to speed up scenes with static cameras, and (some) static content. The <a href="http://www.infiniteturtles.co.uk/projects/away3d/demos/SierpinskiTurtles/SierpinskiTurtles.html">demo</a> above shows how Away3d can now handle around 50,000 polys rendered to screen without too much hassle, while maintaining interactivity and framerate. This is accomplished by automatically detecting when a triangle mesh require redrawing, and skipping that step when it isn’t required.</p>
+
+<p>You can view the turtles from any angle, but in order to maintain framerates while moving around, a wireframe model is swapped in from the point the camera starts moving. Once things are static again, triangle caching automatically kicks in. The beauty of this feature is that it will work on your existing Away3d applications without any modifications – if triangle caching can be employed, Away3d will use it!</p>
+
+<p>Source code is available <a href="http://www.infiniteturtles.co.uk/projects/away3d/demos/SierpinskiTurtles/srcview/index.html">here</a>, or in the right-click menu of the demo. The use of ownCanvas in the source is something to note – it essentially allows boundaries to be defined for different areas of caching in a scene. When an object has it’s own drawing canvas with ownCanvas enabled, it has it’s own caching routine that updates separately to other areas of the scene. So if you have a definite separation between objects that are static and objects that move (or in this case have their materials updated), enabling ownCanvas on a moving object will ensure only that container has a redraw triggered, allowing the rest of the scene to remain cached and keeping framerates high.</p>
+
+<p>More demos of the new features of Away3d 2.2 should be arriving here soon. In the meantime, check out the latest <a href="http://code.google.com/p/away3d/">svn source</a> or visit the Away3d <a href="http://away3d.com/downloads">downloads page</a> for zip files.</p>
+          </div>
+          <footer class="post-footer">
+            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+                <a href="index.html" class="post-author-avatar">
+                  <img itemprop="image" src="http://www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&amp;s=250" alt="Rob Bateman">
+                </a>
+              <div class="post-author-info">
+                <h4 class="post-footer-heading">Written By</h4>
+                <a href="index.html" itemprop="url" class="post-author-name">
+                  <span itemprop="name">Rob Bateman</span>
+                </a>
+                <p itemprop="description" class="post-author-bio"></p>
+                <p class="post-info">
+                  <b class="post-info-title">Published on</b>
+                  <time class="post-date">September 29, 2008</time>
+                </p>
+              </div>
+            </div>
+            <div class="post-social">
+              <h4 class="post-footer-heading">Spread the word</h4>
+              <a href="index.html#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+              <a href="index.html#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+              <a href="index.html#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+            </div>
+          </footer>
+        </section>
+      <section itemprop="comment" class="post-comments">
+        <div id="disqus_thread"></div>
+      </section>
+    </article>
+
+    <footer role="contentinfo" class="footer">
+      <p><small>© 2015. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Proudly published with <a href="http://ghost.org" target="_blank">Ghost</a></small></p>
+    </footer>
+  </div>
+</section>
+
+<script type="text/javascript">
+  if(GHOSTIUM.haveDisqus) {
+    var disqus_identifier = '52';
+
+    if(typeof DISQUS !== 'object') {
+      (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    }
+  } else {
+    document.querySelector('.post-comments').remove();
+  }
+</script>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../public/jquery.js?v=222db30219"></script>
+
+    <script src="../assets/js/foot-scripts.min.js?v=222db30219"></script>
+
+    <script type="text/javascript">
+
+      if(GHOSTIUM.haveGA) {
+        (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
+        function(){(g[s].q=g[s].q||[]).push(arguments)});g[s].s=+new Date;
+        t=h.createElement(o);z=h.getElementsByTagName(o)[0];
+        t.src='//www.google-analytics.com/analytics.js';
+        z.parentNode.insertBefore(t,z)}(window,document,'script','ga'));
+        ga('create',ga_ua);ga('send','pageview');
+      }
+
+      if(GHOSTIUM.haveDisqus) {
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+      }
+    </script>
+  </body>

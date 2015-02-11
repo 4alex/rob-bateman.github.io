@@ -1,0 +1,286 @@
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Away3D 3.6.0 / 2.5.2 optimisations and the Influxis Battlecell API</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Away3D 3.6.0 / 2.5.2 optimisations and the Influxis Battlecell API">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Away3D 3.6.0 / 2.5.2 optimisations and the Influxis Battlecell API">
+    <meta property="og:description" content="">
+
+    <meta name="twitter:site" content="@robnet">
+    
+    <meta name="twitter:creator" content="@robnet">
+    
+    <meta name="google-site-verification" content="">
+    
+    <meta property="fb:admins" content="">
+
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="../apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="http://fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic%7COpen+Sans:700,400&amp;subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.min.css?v=222db30219">
+
+    <script type="text/javascript">
+      var ga_ua = 'UA-XXXXX-X';
+      
+      var disqus_shortname = 'infiniteturtles';
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="../assets/js/head-scripts.min.js?v=222db30219"></script>
+
+    <link rel="canonical" href="index.html">
+    
+    <meta property="og:site_name" content="infinite turtles">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Away3D 3.6.0 / 2.5.2 optimisations and the Influxis Battlecell API">
+    <meta property="og:description" content="Last week the latest Away3D release was launched – the FP10-only 3.6.0 version which added some much needed memory and speed optimisations to the main branch of the engine. Now, these updates have been transferred to an interim 3....">
+    <meta property="og:url" content="http://localhost:2368/away3d-360-252-optimisations-and-the-influxis-battlecell-api/">
+    <meta property="article:published_time" content="2010-10-06T06:24:31.000Z">
+    <meta property="article:modified_time" content="2010-10-15T15:02:40.000Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Away3D 3.6.0 / 2.5.2 optimisations and the Influxis Battlecell API">
+    <meta name="twitter:description" content="Last week the latest Away3D release was launched – the FP10-only 3.6.0 version which added some much needed memory and speed optimisations to the main branch of the engine. Now, these updates have been transferred to an interim 3....">
+    <meta name="twitter:url" content="http://localhost:2368/away3d-360-252-optimisations-and-the-influxis-battlecell-api/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "infinite turtles",
+    "author": {
+        "@type": "Person",
+        "name": "Rob Bateman",
+        "image": "//www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&s=250",
+        "url": "http://localhost:2368/author/rob",
+        "sameAs": null
+    },
+    "headline": "Away3D 3.6.0 / 2.5.2 optimisations and the Influxis Battlecell API",
+    "url": "http://localhost:2368/away3d-360-252-optimisations-and-the-influxis-battlecell-api/",
+    "datePublished": "2010-10-06T06:24:31.000Z",
+    "dateModified": "2010-10-15T15:02:40.000Z",
+    "description": "Last week the latest Away3D release was launched – the FP10-only 3.6.0 version which added some much needed memory and speed optimisations to the main branch of the engine. Now, these updates have been transferred to an interim 3...."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5">
+    <link rel="alternate" type="application/rss+xml" title="infinite turtles" href="../rss/index.html">
+  </head>
+  <body class="post-template">
+
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="../" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="../rss/index.rss">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          <li class="drawer-list-divider">
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://twitter.com/robnet" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://github.com/rob-bateman" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<section class="wrapper wrapper-post">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post post">
+        <section class="post-container">
+          <header class="post-header">
+            <ul class="post-meta-list">
+              <li class="post-meta-item">
+                <time datetime="2010-10-06" itemprop="datePublished">
+                  4 years ago
+                </time>
+              </li>
+              <li class="post-meta-item">
+                <a href="index.html#disqus_thread" data-disqus-identifier="98">Comments</a>
+              </li>
+            </ul>
+            <h1 itemprop="name headline" class="post-title"><a href="index.html" itemprop="url" data-pjax title="Away3D 3.6.0 / 2.5.2 optimisations and the Influxis Battlecell API">Away3D 3.6.0 / 2.5.2 optimisations and the Influxis Battlecell API</a></h1>
+            <!--h2 itemprop="about" class="post-subtitle"></h2-->
+          </header>
+          <aside class="post-side">
+            <div class="post-author">
+                <a href="index.html" class="post-author-avatar">
+                  <img src="http://www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&amp;s=250" alt="Rob Bateman">
+                </a>
+              <div class="post-author-info">
+                <a href="index.html" class="post-author-name">
+                  Rob Bateman
+                </a>
+                <p class="post-author-bio"></p>
+              </div>
+            </div>
+          </aside>
+          <div itemprop="articleBody" class="post-body">
+            <p>Last week the latest Away3D release was launched – the FP10-only 3.6.0 version which added some much needed memory and speed optimisations to the main branch of the engine. Now, these updates have been transferred to an interim 3.5.2 version (one that requires no code refactoring) and an equivalent FP9 2.5.2 release, both of which try to includes as many of the bugfixes and optimisations from the FP10 trunk code.</p>
+
+<p>The announcement of the new release appeared alongside a new Away3D demo called <a href="http://influxis.com/battlecell/">BattleCell</a>, the result of a recent collaboration with <a href="http://www.influxis.com/">Influxis</a> which uses both the extra power of the new engine and the peer-to-peer capabilities of Flash 10.1 to produce a realtime 3D multiplayer prototype. Special thanks must go to Influxis dev<a href="http://themindofseantron.blogspot.com/"> Sean McCracken</a>, as well as Away3D coders <a href="http://www.derschmale.com/">David Lenaerts</a> and <a href="http://www.closier.nl/blog/">Fabrice Closier</a>, and 3D designer <a href="http://www.fauxbold.com/">Federico Selmi</a> for their hard work on the project.</p>
+
+<p><a href="http://influxis.com/battlecell/"><img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2010/10/battlecell_01.jpg" alt="battlecell_01" title="battlecell_01"></a></p>
+
+<p>The demo uses a newly developed API for multiplayer games over RTMFP (the new P2P protocol available to Flash 10.1 users). What this allows is many live data connections directly between clients with little to no latency, creating the perfect environment for some serious fragging fun! BattleCell is the name given to both the demo and the underlying AS3 API, the latter written by Sean in order to easily connect multiple users and pass data between clients.</p>
+
+<p><a href="http://influxis.com/battlecell/"><img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2010/10/battlecell_02.jpg" alt="battlecell_02" title="battlecell_02"></a></p>
+
+<p>The <a href="http://influxis.com/battlecell/">BattleCell demo</a> is a typical FPS Deathmatch-style game, complete with room allocation, choice of weapons and a large play area for you to roam. Obstacles in the game include lifts, teleport windows, acid baths and secret tunnels to assist your attacks… but be careful who is lurking round the corner!</p>
+
+<p><a href="http://influxis.com/battlecell/"><img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2010/10/battlecell_03.jpg" alt="battlecell_03" title="battlecell_03"></a></p>
+
+<p>The new 3.6.0 version of Away3D has a completely remodeled core to take full advantage of all native 3D APIs in Flash 10, which results in more stable and less memory-hungry apps. Performance has improved also, and we expect framerates to increase still further as we continue to optimise the new framework. There have been some older class replacements that you need to be aware of when upgrading: both custom classes MatrixAway3D and Number3D have been replaced by the native Matrix3D and Vector3D classes respectively for added speed and stability.</p>
+
+<p><a href="http://influxis.com/battlecell/"><img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2010/10/battlecell_04.jpg" alt="battlecell_04" title="battlecell_04"></a></p>
+
+<p>The Battlecell demo is kindly hosted by Influxis and can be accessed online at <a href="http://www.influxis.com/battlecell">http://www.influxis.com/battlecell</a>. Type in a room name for your friends to join, and a user name so that others can identify you in-game. The game URL can easily be copy-pasted for fast access to a room, and any user leaving the game automatically frees-up their slot for a new user to join. As the APIs are still being tested, a maximum of 4 users can join a single room at once, but we hope to increase this limit in future versions of the demo.</p>
+
+<p>As usual, all updates can be downloaded from the <a href="http://code.google.com/p/away3d/">googlecode svn</a>, or from the <a href="http://away3d.com/wp-admin/away3d.com/downloads">downloads</a> section of away3d.com.Â  For those of you just interested in upgrading your FP10 library without having to worry about existing code breaking, there is a <a href="http://code.google.com/p/away3d/source/browse/#svn/tags/3.5.2%20lib">specially tagged 3.5.2 version</a> of the code that includes all enhancements up to the point where external API adjustments are made. This version is recommended for developers in the middle of a project, who don’t want the hassle of changing their code. A full breakdown of the API changes for 3.6.0 will be posted on the <a href="http://groups.google.com/group/away3d-dev?pli=1">Away3D mailing list</a> in the next few days.</p>
+          </div>
+          <footer class="post-footer">
+            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+                <a href="index.html" class="post-author-avatar">
+                  <img itemprop="image" src="http://www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&amp;s=250" alt="Rob Bateman">
+                </a>
+              <div class="post-author-info">
+                <h4 class="post-footer-heading">Written By</h4>
+                <a href="index.html" itemprop="url" class="post-author-name">
+                  <span itemprop="name">Rob Bateman</span>
+                </a>
+                <p itemprop="description" class="post-author-bio"></p>
+                <p class="post-info">
+                  <b class="post-info-title">Published on</b>
+                  <time class="post-date">October 06, 2010</time>
+                </p>
+              </div>
+            </div>
+            <div class="post-social">
+              <h4 class="post-footer-heading">Spread the word</h4>
+              <a href="index.html#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+              <a href="index.html#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+              <a href="index.html#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+            </div>
+          </footer>
+        </section>
+      <section itemprop="comment" class="post-comments">
+        <div id="disqus_thread"></div>
+      </section>
+    </article>
+
+    <footer role="contentinfo" class="footer">
+      <p><small>© 2015. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Proudly published with <a href="http://ghost.org" target="_blank">Ghost</a></small></p>
+    </footer>
+  </div>
+</section>
+
+<script type="text/javascript">
+  if(GHOSTIUM.haveDisqus) {
+    var disqus_identifier = '98';
+
+    if(typeof DISQUS !== 'object') {
+      (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    }
+  } else {
+    document.querySelector('.post-comments').remove();
+  }
+</script>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../public/jquery.js?v=222db30219"></script>
+
+    <script src="../assets/js/foot-scripts.min.js?v=222db30219"></script>
+
+    <script type="text/javascript">
+
+      if(GHOSTIUM.haveGA) {
+        (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
+        function(){(g[s].q=g[s].q||[]).push(arguments)});g[s].s=+new Date;
+        t=h.createElement(o);z=h.getElementsByTagName(o)[0];
+        t.src='//www.google-analytics.com/analytics.js';
+        z.parentNode.insertBefore(t,z)}(window,document,'script','ga'));
+        ga('create',ga_ua);ga('send','pageview');
+      }
+
+      if(GHOSTIUM.haveDisqus) {
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+      }
+    </script>
+  </body>

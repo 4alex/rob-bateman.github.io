@@ -1,0 +1,238 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>infinite turtles</title><description>Thoughts, stories and ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.5</generator><lastBuildDate>Wed, 11 Feb 2015 18:20:11 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Welcome to Ghost</title><description>&lt;p&gt;You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at &lt;code&gt;&amp;lt;your blog URL&amp;gt;/ghost/&lt;/code&gt;. When you arrive, you can select this post from a list on the left and see a preview of it on the right. Click the little pencil icon at the top of the preview to edit this post and read the next section!&lt;/p&gt;
+
+&lt;h2 id="gettingstarted"&gt;Getting Started&lt;/h2&gt;
+
+&lt;p&gt;Ghost uses something called Markdown for writing. Essentially, it's a shorthand way to manage your post formatting as you write!&lt;/p&gt;
+
+&lt;p&gt;Writing in Markdown is really easy. In the left hand panel of Ghost, you simply write as you normally would. Where appropriate, you can use &lt;em&gt;shortcuts&lt;/em&gt; to &lt;strong&gt;style&lt;/strong&gt; your content. For example, a list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Item number one&lt;/li&gt;
+&lt;li&gt;Item number two
+&lt;ul&gt;&lt;li&gt;A nested item&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;A final item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;or with numbers!&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Remember to buy some milk  &lt;/li&gt;
+&lt;li&gt;Drink the milk  &lt;/li&gt;
+&lt;li&gt;Tweet that I remembered to buy the milk, and drank it&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="links"&gt;Links&lt;/h3&gt;
+
+&lt;p&gt;Want to link to a source? No problem. If you paste in a URL, like &lt;a href="http://ghost.org/"&gt;http://ghost.org&lt;/a&gt; - it'll automatically be linked up. But if you want to customise your anchor text, you can do that too! Here's a link to &lt;a href="http://ghost.org/"&gt;the Ghost website&lt;/a&gt;. Neat.&lt;/p&gt;
+
+&lt;h3 id="whataboutimages"&gt;What about Images?&lt;/h3&gt;
+
+&lt;p&gt;Images work too! Already know the URL of the image you want to include in your article? Simply paste it in like this to make it show up:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://ghost.org/images/ghost.png" alt="The Ghost Logo"&gt;&lt;/p&gt;
+
+&lt;p&gt;Not sure which image you want to use yet? That's ok too. Leave yourself a descriptive placeholder and keep writing. Come back later and drag and drop the image in to upload:&lt;/p&gt;
+
+&lt;h3 id="quoting"&gt;Quoting&lt;/h3&gt;
+
+&lt;p&gt;Sometimes a link isn't enough, you want to quote someone on what they've said. It was probably very wisdomous. Is wisdomous a word? Find out in a future release when we introduce spellcheck! For now - it's definitely a word.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wisdomous - it's definitely a word.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="workingwithcode"&gt;Working with Code&lt;/h3&gt;
+
+&lt;p&gt;Got a streak of geek? We've got you covered there, too. You can write inline &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; blocks really easily with back ticks. Want to show off something more comprehensive? 4 spaces of indentation gets you there.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.awesome-thing {
+    display: block;
+    width: 100%;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="readyforabreak"&gt;Ready for a Break?&lt;/h3&gt;
+
+&lt;p&gt;Throw 3 or more dashes down on any new line and you've got yourself a fancy new divider. Aw yeah.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="advancedusage"&gt;Advanced Usage&lt;/h3&gt;
+
+&lt;p&gt;There's one fantastic secret about Markdown. If you want, you can write plain old HTML and it'll still work! Very flexible.&lt;/p&gt;
+
+&lt;p&gt;&lt;input type="text" placeholder="I'm an input field!"&gt;&lt;/p&gt;
+
+&lt;p&gt;That should be enough to get you started. Have fun - and let us know what you think :)&lt;/p&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">50ce94e8-e15f-4f7f-bbe4-43be0de133bd</guid><category>Getting Started</category><dc:creator>Rob Bateman</dc:creator><pubDate>Sat, 20 Dec 2014 23:11:49 GMT</pubDate></item><item><title>Reasons to be talky</title><description>&lt;p&gt;&lt;a href="http://reasons.to/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2014/08/reasons_logo2014.png" alt="" title="reasons_logo2014"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So this is a little last-minute, but nevertheless extremely welcome – I’ll be speaking at this year’s &lt;a href="http://reasons.to/"&gt;Reasons to be Creative&lt;/a&gt; conference in Brighton in less that two weeks time! The conference is something of a habit for me attendance-wise given the short hop from my home in London, so the opportunity to present some of the great stuff we’ve been researching and working on over the recent months is both a surprise and an honour.&lt;/p&gt;
+
+&lt;p&gt;I’ll be presenting a session called &lt;strong&gt;New Adventures in 3D&lt;a href="http://reasons.to/speakers/index.php?id=robbateman"&gt;&lt;/a&gt;&lt;/strong&gt;, a collection of all the latest bits and pieces of our work at the Away Foundation, mixed in with some observations &amp;amp; insights we have encountered along the way. I’ll be covering some of the more techie aspect of WebGL and Stage3D, and may even show a little code if my fingers are up to it. &lt;img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_wink.gif" alt=";)" title=""&gt; Full details of the session can be found on the conference site &lt;a href="http://reasons.to/speakers/index.php?id=robbateman"&gt;here&lt;/a&gt;.&lt;/p&gt;</description><link>http://localhost:2368/reasons-to-be-talky/</link><guid isPermaLink="false">8d553d4a-aac2-4658-bd1b-b35afd60e92d</guid><category>WebGL</category><dc:creator>Rob Bateman</dc:creator><pubDate>Thu, 21 Aug 2014 08:05:29 GMT</pubDate></item><item><title>You shall have a fish-eye, on a little dish-eye</title><description>&lt;p&gt;&lt;a href="http://infiniteturtles.co.uk/projects/away3d4/examples/Advanced_TerrainDemo/Advanced_TerrainDemo.html"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2014/06/fish-eye.jpg" alt="" title="fish-eye"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2014/06/fish-eye.jpg"&gt;&lt;/a&gt;While experimenting for an Away Studios project, I recently came up against the thorny issue of wide-angled rendering with a high &lt;strong&gt;field of view&lt;/strong&gt; (fov). In Away3D it is possible to set the fov property of the PerspectiveLens to whatever value you feel comfortable with, but this doesn’t necessarily produce the best results at very wide angles (say, above 110 degrees). One solution to this is to post-process the image sent to the view using the same projection distortions seen in a &lt;strong&gt;&lt;a href="http://en.wikipedia.org/wiki/Fisheye_lens"&gt;fish-eye lens&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Fish-eye lenses are all the rage in photography but you tend to see them less in 3D graphics, possibly because they aren’t always the most efficient rendering technique. But when a project demands it, they are a necessary evil and worthy of some consideration. The most recent example of this has to be projection requirements for hardware like the &lt;strong&gt;&lt;a href="http://www.oculusvr.com/"&gt;Oculus Rift&lt;/a&gt;&lt;/strong&gt; where the stereoscopic view requires a certain amount of &lt;strong&gt;&lt;a href="http://en.wikipedia.org/wiki/Distortion_(optics)"&gt;barrel distortion&lt;/a&gt;&lt;/strong&gt; to map correctly to the optics in the headset.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://infiniteturtles.co.uk/projects/away3d4/examples/Advanced_TerrainDemo/Advanced_TerrainDemo.html"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2014/07/fish-eye2.jpg" alt="" title="fish-eye2"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In my particular case, I was rendering a scene for projection onto a 180-degree dome – something you can see in most theme parks these days or IMAX cinemas (i was going to say “planetarium” here but I only just discovered that the &lt;a href="http://en.wikipedia.org/wiki/London_Planetarium"&gt;London Planetarium&lt;/a&gt; was rebranded in 2006 and now hosts something called the “Marvel Superheroes 4D attraction” – so boo to them for making me feel old!). Essentially the screen is made up of several overlapping projectors that feed off a single master image of the projection called a &lt;strong&gt;&lt;a href="http://stardust.ringling.edu/cosmix/fulldome/domemaster/domemaster.html"&gt;Domemaster&lt;/a&gt;&lt;/strong&gt;.  It is this that any video or interactive graphic needs to display if it is to be projected correctly onto the dome, and the distortions present in the Domemaster have similar characteristics to that of a fish-eye lens.&lt;/p&gt;
+
+&lt;p&gt;So how to achieve the effect? There are several methods, but the one I found to give the most pleasing results involves rendering 6 planes to a Skybox, and then rendering the Skybox to the view with a bit of shader trickery. The image below shows the effect in Away3D with  debug images rendered to the skybox instead of a scene – here we have a 180-degree fov set on the shader. An optimisation trick with this approach (unless you have a very high fov) is to move the skybox with the camera so that only 5 sides of the box are visible at any one time.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://infiniteturtles.co.uk/projects/away3d4/examples/Advanced_TerrainDemo/Advanced_TerrainDemo.html"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2014/07/fish-eye3.jpg" alt="" title="fish-eye3"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A strange thing about fish-eye lenses is the impression they give – a very stylised, immersive feel that thanks to massive overuse in fashion and pop-culture has led to a unmistakable association with cool. If you don’t believe me, check out the &lt;a href="http://infiniteturtles.co.uk/projects/away3d4/examples/Advanced_TerrainDemo/Advanced_TerrainDemo.html"&gt;Away3D terrain demo with fish-eye applied&lt;/a&gt; – I defy you to disagree that things look instantly cooler &lt;img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_wink.gif" alt=";)" title=""&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://infiniteturtles.co.uk/projects/away3d4/examples/Advanced_TerrainDemo/srcview/index.html"&gt;Source code&lt;/a&gt; is available for the demo featured here, and the implementation in Away3D has been added to the &lt;a href="https://github.com/away3d/away3d-core-fp11/tree/dev"&gt;dev branch&lt;/a&gt; on github as an additional post-processing effect. So next time your project is lacking a certain something, why not try a fish-eye lens?&lt;/p&gt;</description><link>http://localhost:2368/you-shall-have-a-fish-eye-on-a-little-dish-eye/</link><guid isPermaLink="false">1cc6097d-cc14-40fb-9612-6690e4c7e479</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Tue, 08 Jul 2014 11:07:43 GMT</pubDate></item><item><title>DevGAMM Moscow, Multi-Mania, Typescript training</title><description>&lt;p&gt;Fresh from several months of condensed development, I am finally letting myself out of the house again. The reason? Two conference presentations around some of the new work coming out of The Away Foundation, as well as the second workshop event for the library formally known as &lt;a href="http://typescript.away3d.com/"&gt;Away3D Typescript&lt;/a&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_wink.gif" alt=";)" title=""&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://devgamm.com/moscow2014/en/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2014/05/devgamm_moscow_2014.png" alt="" title="devgamm_moscow_2014"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;First there is the two-day gamesfest that is &lt;a href="http://devgamm.com/moscow2014/en/"&gt;DevGAMM Moscow&lt;/a&gt;, full of cinematic suspense and drama, if their insanely great &lt;a href="https://www.youtube.com/watch?v=p5zKwrbhsPA"&gt;promo video&lt;/a&gt; is anything to go by. Gotta love those Moscovians… This event is being spearheaded by Mr Unity himself &lt;a href="http://blog.devgamm.com/en/2014/announce-unity-devgamm/"&gt;David Helgason&lt;/a&gt;, so plenty to look forward to! Things kick off on the 15th May at the &lt;a href="http://devgamm.com/moscow2014/en/attend/venue/"&gt;Radisson Blu in central Moscow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.multi-mania.be/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2014/05/multi_mania-2014.jpg" alt="" title="multi_mania-2014"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Afterwards, I’ll be railing-it down to Belgium for &lt;a href="http://www.multi-mania.be/"&gt;Multi Mania&lt;/a&gt; in Kortrijk. This is a &lt;strong&gt;free&lt;/strong&gt; conference, and always confounds expectation by also being one of the best so no excuses for missing out! Dates are 19th – 20th May at the &lt;a href="http://multi-mania.be/14/about/the-venue/"&gt;Kortrijk Xpo&lt;/a&gt;, with sessions from a great selection of speakers including the likes of &lt;a href="http://multi-mania.be/14/speakers/peter-elst/"&gt;Peter Elst&lt;/a&gt;, &lt;a href="http://multi-mania.be/14/speakers/sakri-rosenstrom/"&gt;Sakri Rrosenstrom&lt;/a&gt; and &lt;a href="http://multi-mania.be/14/speakers/seb-lee-delisle/"&gt;Seb Lee-Delisle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;At both conferences, I’ll be talking about some of the new work we’ve been busy with in Typescript &amp;amp; WebGL, with further info on our plans over the next few months and where we see things headed, as well as all the latest demos and perhaps even a little live coding just so that you can see how bad my typing really is. The talk is called &lt;strong&gt;Finding AwayJS&lt;/strong&gt; which should give some hint to its contents and direction.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://www.eventbrite.com/e/away3d-typescript-workshop-tickets-11506384907"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2014/05/Away3D-TypeScript-Workshop-6601.jpg" alt="" title="Away3D TypeScript Workshop 660"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Sandwiched between this, I’ll be holding a one day Typescript training workshop in Moscow on the 17th May, directly after DevGAMM. Details for this can be found on our &lt;a href="https://www.eventbrite.com/e/away3d-typescript-workshop-tickets-11506384907"&gt;Eventbrite page&lt;/a&gt; and parallel &lt;a href="http://idecide.timepad.ru/event/121759/"&gt;Timepad&lt;/a&gt; page (the latter to handle local currency). The workshop will be focusing on introductory 3D development natively in the browser, and all the recent goodness we’ve been tinkering with. This is your chance to get first hand training and advice on native web 3D development, with a ton of cool examples and walkthroughs. If the &lt;a href="https://plus.google.com/u/0/photos/+RostyslavSiryk/albums/5954278260280749601"&gt;last Typescript training&lt;/a&gt; was anything to go by, it should also be great fun.&lt;/p&gt;
+
+&lt;p&gt;I can’t believe how long its been since my last post here, so I’m officially declaring this blog re-opened! Looking forward to meeting you all again.&lt;/p&gt;</description><link>http://localhost:2368/devgamm-moscow-multi-mania-typescript-training/</link><guid isPermaLink="false">769c64a4-bdf1-42ef-a2c7-f06976cfb8d3</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Fri, 09 May 2014 10:47:00 GMT</pubDate></item><item><title>Paper prototyping for games - workshop at TechmixMag's Digital Summer Camp</title><description>&lt;p&gt;&lt;a href="http://www.digitalsummercamp.com/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/07/digitalsummercamp_banner.jpg" alt="" title="digitalsummercamp_banner"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;What with all the other stuff going on at the moment, a visit to the Hackney Community College on Friday for this year’s &lt;a href="http://www.digitalsummercamp.com/"&gt;Digital Summer Camp&lt;/a&gt; should be a welcome change. I’ll be working with groups of 12-18 year old throughout out the day, introducing them to the wonderful world of paper prototyping for digital games… with a small incentive that the best idea of the day will be turned into an open source game by The Away Foundation and published online! Should be an interesting day.&lt;/p&gt;</description><link>http://localhost:2368/paper-prototyping-for-games-workshop-at-techmixmags-digital-summer-camp/</link><guid isPermaLink="false">7b433316-2c38-4944-a3ef-eebe16bbaeb0</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Thu, 11 Jul 2013 02:36:22 GMT</pubDate></item><item><title>Digital Shoreditch &amp; Cambridge Game Creators meetup</title><description>&lt;p&gt;&lt;a href="http://digitalshoreditch.com/make-it-do-it-create-it-hack-it/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/05/digital_shoreditch_make_do.jpg" alt="" title="digital_shoreditch_make_do"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As part of the &lt;a href="http://digitalshoreditch.com/"&gt;Digital Shoreditch&lt;/a&gt; festival this year, I will be attending the &lt;strong&gt;Make &amp;amp; Do&lt;/strong&gt; event on the 15th and 16th of May as a presenter for Away3D. The idea with Make &amp;amp; Do is to create something in less than two days, based on a series of challenges set by the organisers. The “thing” can be an idea, demo, interactive game, mobile application… really anything so long as it resides in the digital domain.&lt;/p&gt;
+
+&lt;p&gt;I’ll of course be working with the teams who want to create something using 3D, and we’ll be using Away Builder, Away3D 4.1 and Away Physics to help us on our way. You can read more about the event (and find details of how to sign up) by visiting &lt;a href="http://digitalshoreditch.com/make-it-do-it-create-it-hack-it/"&gt;http://digitalshoreditch.com/make-it-do-it-create-it-hack-it/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.meetup.com/Cambridge-Game-Creators/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/05/Cambridge_game_creators.jpg" alt="" title="Cambridge_game_creators"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A week later, I’ll be heading up to Cambridge to present at the &lt;strong&gt;Cambridge Game Creators&lt;/strong&gt; meeting. This is a regular community event that recently became an official “Adobe Community” for Cambridge and the east of England. I’ll be presenting a session titled &lt;strong&gt;Cross-platform Gaming with Away3D&lt;/strong&gt;, and will have time to go through some of the aspects of Away3D’s integration with the Adobe game Framework SDK, and how we are evolving with new updates and tools in the future. More details will be available on the &lt;a href="http://www.meetup.com/Cambridge-Game-Creators/"&gt;CGC meetup page&lt;/a&gt; in the next few days&lt;/p&gt;</description><link>http://localhost:2368/digital-shoreditch-cambridge-game-creators-meetup/</link><guid isPermaLink="false">200a418d-7948-4df7-9a24-659daf4cc9fb</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Wed, 15 May 2013 11:27:46 GMT</pubDate></item><item><title>Invawayders update, now with more Ash</title><description>&lt;p&gt;&lt;a href="https://www.awaymedia.co.uk/projects/invawayders/Main.html"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/01/invawayders_660.jpg" alt="" title="Invawayders"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Some of you may remember the bundled Away3D game that came with the first &lt;a href="http://gaming.adobe.com/technologies/gamingsdk/"&gt;Adobe Gaming SDK&lt;/a&gt; download towards the end of last year. Called &lt;strong&gt;Invawayders&lt;/strong&gt; (already regretting that title…), it demonstrated a simple Away3D interaction with pixelated 3D space invaders, and had compilation options for both mobile (phone/tablet) and web applications.&lt;/p&gt;
+
+&lt;p&gt;The game has recently had  a bit of a spring clean, and in order to give it a more permenant home, we’ve uploaded to a &lt;a href="https://github.com/awaystudios/Invawayders"&gt;new source repository in github&lt;/a&gt;. The source is arranged in three libraries, a core lib containing all shared assets and logic, and two FB projects for mobile and web publishing respectively. Instructions for installation can be found in the &lt;a href="https://github.com/awaystudios/Invawayders/blob/master/README.md"&gt;README.md&lt;/a&gt; file.&lt;/p&gt;
+
+&lt;p&gt;The game itself plays very similar to the existing Invawayders demo bundled in the Gaming SDK, however this version has a couple of significant updates to it’s code architecture:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The game loop is now managed by the &lt;a href="https://github.com/richardlord/Ash"&gt;Ash framework&lt;/a&gt;, an extremely clean and flexible entity framework for AS3&lt;/li&gt;
+&lt;li&gt;The required Away3D version is has been updated to 4.1 Alpha, taking advantage of some of the new particle APIs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The live versions of the game have also been updated, these can be found in the following locations for each respective platform:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Google Play: &lt;a href="https://play.google.com/store/apps/details?id=air.invawayders&amp;amp;hl=en"&gt;https://play.google.com/store/apps/details?id=air.invawayders&amp;amp;hl=en&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Apple iTunes: &lt;a href="https://itunes.apple.com/gb/app/invawayders/id566559602?mt=8"&gt;https://itunes.apple.com/gb/app/invawayders/id566559602?mt=8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Facebook: &lt;a href="http://apps.facebook.com/invawayders"&gt;http://apps.facebook.com/invawayders&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I am only just getting to grips with Facebook’s new App Center, so it may take a while for me to work out how to link the mobile games from the app page, but according to FB developers, the experience should be “seamless”. At least i finally worked out how to get that “play” button working again on the &lt;a href="https://www.facebook.com/pages/Invawayders/223798951090342"&gt;community page&lt;/a&gt;. Info about the game will appear here from now on now when there are any more updates etc, and if we’re really lucky we should be able to get the username shortcut for the page after 25 likes &lt;img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_smile.gif" alt=":)" title=""&gt;&lt;/p&gt;
+
+&lt;p&gt;Would be interested to hear what people thought of the re-architecture. I’m actually quite liking the approach that Ash places on game development, the conversion took a while to get my head around but after a bit of code wrestling, everything seemed to fall neatly into place. Hopefully I’ll be getting a chance to apply Ash to some more Gaming SDK examples in future.&lt;/p&gt;</description><link>http://localhost:2368/invawayders-update-now-with-more-ash/</link><guid isPermaLink="false">f339e734-19ca-40cd-ba4a-71c6de86adb3</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Fri, 01 Feb 2013 11:54:12 GMT</pubDate></item><item><title>Getting ready for the conslaught</title><description>&lt;p&gt;Earlier this week, around the same time that Adobe was getting all amendy with their &lt;a href="http://www.adobe.com/devnet/flashplatform/whitepapers/roadmap.html"&gt;Flash whitepaper&lt;/a&gt;, we published &lt;a href="http://away3d.com/comments/away_foundation_roadmap_releases"&gt;our updated roadmap&lt;/a&gt; for Away3D &amp;amp; The Away Foundation. If you’ve not yet read it and are interested in what 3D shenanigans to expect from us, nows the time to have a look!&lt;/p&gt;
+
+&lt;p&gt;With a schedule beginning to form, my attention is drawn back to the some of the upcoming events we’ll be attending over the next few months, and in some cases, speaking. The first in line looks to be &lt;a href="http://europe.casualconnect.org/"&gt;Casual Connect Europe&lt;/a&gt;, a games conference hosted in Hamburg from 12th-14th Feb. I’ll be presenting a short talk in the Indie track on Wednesday called &lt;strong&gt;Cross-platform 3D to the Max&lt;/strong&gt;, which will look into some of the savings we can make when balancing performance and quality on the GPU – something applicable to many of today’s games published on tablets and phones.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://europe.casualconnect.org/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/01/casual-connect-660.jpg" alt="" title="Casual Connect"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The 2 days following Casual Connect will be spent joining in with the &lt;a href="http://gaming.adobe.com/events/gamejams/"&gt;Adobe Game Jam&lt;/a&gt; group in Hamburg, where I will be teaming up with Chris Benjaminsen of &lt;a href="http://playerio.com/"&gt;PlayerIO&lt;/a&gt; and seeing how far we can get creating a multiplayer 3D social game. &lt;img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_wink.gif" alt=";)" title=""&gt; The event promises to be a lot of fun, so if you’re around in Hamburg for the 15th &amp;amp; 16th and are interested in joining in or just coming along to observe, sign up for free attendance &lt;a href="http://adobegamejamham.eventbrite.com/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://fitc.ca/event/am13/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/01/fitc-660.jpg" alt="" title="FITC Amsterdam"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After the jammin’, I’ll be heading over to the &lt;a href="http://fitc.ca/event/am13/"&gt;FITC conference in Amsterdam&lt;/a&gt;, where &lt;a href="http://richardolsson.se/"&gt;Richard Olsson&lt;/a&gt; of the &lt;a href="http://away3d.com/team/"&gt;Away3D Core Team&lt;/a&gt; will present a very exciting new talk called &lt;strong&gt;Away3D in The Open, with WebGL and Javascript&lt;/strong&gt;. You can kind of imagine what that is going to be about, and the implications for us at Away3D are potentially very far reaching. However I’m not wanting to steal Richard’s thunder, so for more information you’ll just have to &lt;a href="http://fitc.ca/presentation/away3d-in-the-open-with-webgl-and-javascript/"&gt;go to the talk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://gonchar.me/stage3d/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/01/stag3d-660.jpg" alt="" title="Stage3D Online Conference"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Something to look out for almost directly after FITC, and especially if your a little less mobile, is the &lt;a href="http://gonchar.me/stage3d/"&gt;online Stage3D conference&lt;/a&gt; on Feb 22nd. check the website for details as things get closer, there’s already a strong lineup covering a very wide range of libraries. I’ll be talking about the cross-platform potential of Away3D &amp;amp; other Away Foundation projects, and there will also be a chance for Q&amp;amp;A on where we see things headed in the longer term.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flashgamingsummit.com/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/01/fgs5-660.jpg" alt="" title="FGS 5"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Jumping forward  a few weeks, I’ll be attending the &lt;a href="http://www.flashgamingsummit.com/"&gt;Flash Gaming Summit&lt;/a&gt; event in San Francisco for some shiny gaming nuggets, and this will be closely followed by the obscenely gargantuan &lt;a href="http://www.gdconf.com/"&gt;GDC&lt;/a&gt; conference. The latter will be an interesting opportunity to showcase some new Away3D games to a wider gaming audience at the Adobe expo booth – for those who’ve not yet seen, we are taking submissions for any Away3D game developer interested in being part of the showcase content on the &lt;a href="http://away3d.com/forum/viewthread/3832/"&gt;Away3D user forums&lt;/a&gt;, so if you’ve got something great in development that will have some sort of public release (or even promo video / site launch) on or before GDC, reply to the forum thread and let us know!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://max.adobe.com/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2013/01/MAX_660.jpg" alt="" title="Adobe MAX 2013"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, at the beginning of May, I’ll be returning to the West coast along with Richard to attend the “better late than never” revamped &lt;a href="http://max.adobe.com/"&gt;Adobe Max conference&lt;/a&gt; in LA. We will be presenting a new session titled &lt;a href="https://bit.ly/WdQo3V"&gt;Cross platform gaming with Away3D&lt;/a&gt;, and will be taking a look at some of the recent developments in 3D-land as well as some practical examples of Away3D workflows and optimisations. We will also be attending an &lt;a href="https://bit.ly/Vyu5oi"&gt;Actionscript Gaming Frameworks panel&lt;/a&gt; along with other members of the SDK development teams for Starling and Feathers. Should be an interesting discussion about the current gaming landscape and where the various SDK libraries are headed.&lt;/p&gt;
+
+&lt;p&gt;I’m always open to meeting up with local Away3D groups or companies/developers using our libraries, so if you happen to be in the area at any of the events above and are keen for a chat, please let me know!&lt;/p&gt;</description><link>http://localhost:2368/getting-ready-for-the-conslaught/</link><guid isPermaLink="false">384ecd11-d134-4be4-8ddb-7c6744d668cf</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Thu, 31 Jan 2013 10:30:32 GMT</pubDate></item><item><title>A millon little triangles: coming soon to LFPUG and FlashGamm</title><description>&lt;p&gt;&lt;a href="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/11/a_million_little_triangles_blog.jpg"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/11/a_million_little_triangles_blog.jpg" alt="" title="a_million_little_triangles_blog"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As one of the cornerstone concerns of the recent 4.1 Alpha release of Away3D, GPU optimisation is something we will all have to start paying more attention to in future. The discipline used to be reserved for the hardcore console elite, but these days the application of GPU technology is literally everywhere, and the consumer has wised-up to the importance of smoothly performing and battery-efficient software.&lt;/p&gt;
+
+&lt;p&gt;As a reaction to this, I have been busy preparing a new presentation that takes a look at what GPU optimisation means for the web &amp;amp; mobile industry in general, as well as in the specific case of Flash based products. The talk is called &lt;strong&gt;A Million Little Triangles&lt;/strong&gt;, and I’ll be giving a preview of the session at the&lt;del&gt; newly reformed LFPUG this Thusday&lt;/del&gt;, as well as the upcoming &lt;a href="http://www.flashgamm.com/kyiv2012/en/"&gt;FlashGamm conference&lt;/a&gt; in Kiev, Ukraine in a couple of weeks time. We will take a look at some of the history of accelerated graphics, and some of the general principals that today’s hardware adhere to – principals that make steering round the pitfalls all the easier. Hope you can make it to either one!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Update&lt;/em&gt;*&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sadly, there had been a change of plan on the LFPUG front, now looks like this will be delayed until January.&lt;/p&gt;</description><link>http://localhost:2368/a-millon-little-triangles-coming-soon-to-lfpug-and-flashgamm/</link><guid isPermaLink="false">f66d54d0-0653-4d5b-82dc-5fc064bc8eb4</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Tue, 27 Nov 2012 10:48:56 GMT</pubDate></item><item><title>Away3D 4.1 Alpha release</title><description>&lt;p&gt;&lt;a href="http://away3d.com/comments/away3d_4.1_alpha_release"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/11/away3d_4.1_660.jpg" alt="" title="away3d_4.1_660"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The more observant among you many have noticed a larger than normal activity-spike on our &lt;a href="https://github.com/away3d"&gt;Github repositories&lt;/a&gt; recently, and wondered what was up. Well today &lt;a href="http://away3d.com/comments/away3d_4.1_alpha_release"&gt;wonder no more&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Its frankly a relief to get back into a more regular release pattern, and this one in particular should hopefully not disappoint. Away3D 4.1 Alpha is one of those things beloved of open source developers everywhere – a &lt;em&gt;feature&lt;/em&gt; update. &lt;img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" title=""&gt;&lt;/p&gt;
+
+&lt;p&gt;Full details of all features in this release can be found over in our blog at Away3D.com, but the highlights include GPU accelerated particles, multipass materials, ATF texture support, realtime reflections, tools and geometry refactors, view volume partitioning, stereoscopic renderers… the list goes on.&lt;/p&gt;
+
+&lt;p&gt;However, all good fun must come to an end, and as this is an Alpha version, we are turning to you the community for help on the next stage of 4.1 development – fixing stuff. Any issues with the API, runtime errrors, performance problems etc, we want to hear about it. Use the ultra simple &lt;a href="https://github.com/away3d/away3d-core-fp11/issues"&gt;issues tracker in Github&lt;/a&gt; to get your message across, and while you’re there, perhaps even have a go at fixing a few!&lt;/p&gt;
+
+&lt;p&gt;My main contribution in this release has been around the new particles feature, and I have to make sure I give a shout out to the person who made most of that possible – the utterly awesome &lt;a href="https://github.com/liaocheng"&gt;Liao Cheng&lt;/a&gt;. For now the team will be powering towards a stable beta, which we will hopefully be revealing more on in the coming weeks.&lt;/p&gt;</description><link>http://localhost:2368/away3d-4-1-alpha-release/</link><guid isPermaLink="false">142a0972-a068-4a8a-9ebf-6a465c3672a4</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Thu, 15 Nov 2012 10:22:20 GMT</pubDate></item><item><title>Away3D multi-knight demo</title><description>&lt;p&gt;&lt;a href="http://infiniteturtles.co.uk/projects/away3d4/examples/Intermediate_PerelithKnightMD2/Intermediate_PerelithKnightMD2.html"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/08/multiknight.jpg" alt="" title="multiknight"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The animation system in Away3D has had a fair amount of refactoring in recent times, and as yet, less examples actually demonstrating performance and features. The &lt;a href="http://infiniteturtles.co.uk/projects/away3d4/examples/Intermediate_PerelithKnightMD2/Intermediate_PerelithKnightMD2.html"&gt;demo above&lt;/a&gt; is intended as a first step to rectify this, in this case for the vertex animation system.&lt;/p&gt;
+
+&lt;p&gt;Animation data in this demo is imported via the MD2 format using one of the more well known examples from Quake days, the &lt;a href="http://planetquake.gamespy.com/View.php?view=ModeloftheWeek.Detail&amp;amp;id=22"&gt;Perelith Knight&lt;/a&gt;. One of the great things about MD2 is its small size – the entire swf comes in at a smidge over 700k – an impressive feat considering the variety of animation and textures included.&lt;/p&gt;
+
+&lt;p&gt;Another advantage of vertex animation over other forms such as bones is its playback efficiency. Here we have 400 independently animating avatars with normal maps, specular maps and dynamic shadows, all running at a smooth 30fps on an average machine.&lt;/p&gt;
+
+&lt;p&gt;Full source is available for the demo – just select “View Source” from the right-click menu or use the direct link &lt;a href="http://infiniteturtles.co.uk/projects/away3d4/examples/Intermediate_PerelithKnightMD2/srcview/"&gt;here&lt;/a&gt; to view and download. The demo uses the bleeding-edge build in the &lt;a href="https://github.com/away3d/away3d-core-fp11/tree/dev"&gt;dev branch&lt;/a&gt; of Away3D’s github, so be sure you have updated your source if you are interested in compiling the code.&lt;/p&gt;</description><link>http://localhost:2368/away3d-multi-knight-demo/</link><guid isPermaLink="false">e7c7c99f-8bf2-47eb-878f-28b8827a7daa</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Tue, 21 Aug 2012 03:28:49 GMT</pubDate></item><item><title>Away Foundation / Away3D at Reasons to be Creative</title><description>&lt;p&gt;&lt;a href="http://reasonstobecreative.com/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/08/logo.jpg" alt="" title="logo"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Only a month left until the new format for the creativathon that was &lt;a href="http://localhost:2368/flashonthebeach.com"&gt;Flash on the Beach&lt;/a&gt;, now &lt;a href="http://reasonstobecreative.com/"&gt;Reasons to be Creative&lt;/a&gt;, kicks off in Brighton.&lt;/p&gt;
+
+&lt;p&gt;Being the uneducated heathen that I am, I’ll freely admit to being unfamiliar with the work of at least half the billing this year. But judging by past choices, I don’t doubt it will contain plenty of inspiring and interesting nuggets, the paydirt of any creative conference and the thinking behind why you must absolutely, definitely, without question or worry for your liver, be in attendance. &lt;img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_wink.gif" alt=";)" title=""&gt;&lt;/p&gt;
+
+&lt;p&gt;With the recent upheavals in Away-land, I’m pleased to say there will be plenty of Away3D team members and supporters at the conference, bringing together the very latest on library development and the work of  &lt;a href="http://theawayfoundation.org/"&gt;The Away Foundation&lt;/a&gt;, something that I will be speaking about in my session &lt;a href="http://reasonstobecreative.com/speakers/index.php?id=robbateman"&gt;Forward the Foundation&lt;/a&gt; on Monday.&lt;/p&gt;
+
+&lt;p&gt;Another of our team David Lenaerts will also be presenting on some of the magic he conjures up with the work for dynamic lighting in Away3D, as well as more general principals used in computer graphics in his session &lt;a href="http://reasonstobecreative.com/speakers/index.php?id=davidlenaerts"&gt;A Trick of Light&lt;/a&gt; on Wednesday.&lt;/p&gt;
+
+&lt;p&gt;Tickets are still up for grabs, with &lt;a href="http://reasonstobecreative.com/tickets/"&gt;reduced pricing available&lt;/a&gt; for another 3 days until August 10th, after which the full ticket price is required.&lt;/p&gt;</description><link>http://localhost:2368/away-foundation-away3d-at-reasons-to-be-creative/</link><guid isPermaLink="false">3ff18d34-7c4a-4f67-b4c1-373fd451f3c1</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Tue, 07 Aug 2012 08:14:41 GMT</pubDate></item><item><title>New Away3D 4.0 training in London</title><description>&lt;p&gt;&lt;a href="http://www.lfpug.com/stepping-into-the-3rd-dimension-with-away3d-4-0/"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/07/steppinginto_660x357.jpg" alt="" title="steppinginto_660x357"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A new training course has been announced for all London-based Away3D’ers! Hosted by the LFPUG, &lt;strong&gt;Stepping into the 3rd Dimension&lt;/strong&gt; is a two day workshop which will focus on Away3D 4.0 features and should be suitable for anyone looking to dive into the world of Stage3D-accelerated Flash content. I’ll be taking on my usual role of tutor, with Tink providing backup in the form of lunch arrangements and good vibes &lt;img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_wink.gif" alt=";)" title=""&gt;&lt;/p&gt;
+
+&lt;p&gt;The course is due to be held on the 23rd &amp;amp; 24th of August, priced at a very reasonable £230 + VAT (£276). A full description of topics can be found on &lt;a href="http://www.lfpug.com/stepping-into-the-3rd-dimension-with-away3d-4-0/"&gt;the lfpug training page&lt;/a&gt;, highlights include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Library and examples step-by-step setup&lt;/li&gt;
+&lt;li&gt;Animation systems walkthrough&lt;/li&gt;
+&lt;li&gt;Prefab3D installation and use&lt;/li&gt;
+&lt;li&gt;Publishing on mobile devices&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With a maximum class size of 14, seating is limited so be sure to register on the LFPUG page above asap to guarantee yourself a place, or send a mail direct to the organisers at &lt;a href="http://away3d.com/?URL=mailto%3Atraining%40lfpug.com%3Fsubject%3D%2520The%2520Beginner%2527s%2520Guide%2520to%2520Away3D"&gt;training AT lfpug.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hope to see you there!&lt;/p&gt;</description><link>http://localhost:2368/new-away3d-4-0-training-in-london/</link><guid isPermaLink="false">70b600a6-3a8e-419f-99fc-5e986f5d04df</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Thu, 26 Jul 2012 11:40:35 GMT</pubDate></item><item><title>Adobe announces Away Foundation partnership</title><description>&lt;p&gt;&lt;a href="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/07/BannerAF_660x248.jpg"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/07/BannerAF_660x248.jpg" alt="" title="BannerAF_660x248"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Recently it was announced that Adobe will act as a funding partner to the Away3D engine, after an agreement was made between Adobe and newly formed non-profit organisation The Away Foundation.&lt;/p&gt;
+
+&lt;p&gt;With Away3D, Adobe are hoping to expand their Flash gaming credentials further into 3D-accelerated graphics, alongside the popular 2D-accelerated graphics API Starling.&lt;/p&gt;
+
+&lt;p&gt;You can read more about the Away Foundation and its ties to Adobe and Away3D in a Q&amp;amp;A given to Adobe’s digital media blog by yours truly:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://blogs.adobe.com/digitalmedia/2012/07/qa-with-the-away-foundations-rob-bateman/"&gt;http://blogs.adobe.com/digitalmedia/2012/07/qa-with-the-away-foundations-rob-bateman/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And of course, Away3D has its own description of how this will affect activities in the following post:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://away3d.com/comments/away3d_adobe_and_the_away_foundation"&gt;http://away3d.com/comments/away3d&lt;em&gt;adobe&lt;/em&gt;and&lt;em&gt;the&lt;/em&gt;away_foundation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, The Away Foundation is something that has been in preparation for a few months now, and the primary aim is to create an accessible way for companies to support the work we do, via advertising, development resources and / or sponsorship. You can read more about the various tiers of membership available, as well as latest updates, releases, training and more at the official Away Foundation website: &lt;a href="http://www.theawayfoundation.org/"&gt;http://www.theawayfoundation.org&lt;/a&gt;&lt;/p&gt;</description><link>http://localhost:2368/adobe-announces-away-foundation-partnership/</link><guid isPermaLink="false">df656892-c410-4044-b2d5-ccf088e69d8d</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Mon, 23 Jul 2012 03:49:56 GMT</pubDate></item><item><title>Away3D 4.0 Gold - a valuable update</title><description>&lt;p&gt;&lt;a href="http://away3d.com/comments/away3d_4.0_gold"&gt;&lt;img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2012/07/ReleaseBanner4_660x330.jpg" alt="" title="ReleaseBanner4_660x330"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Another Away3D update has arrived! The Away3D Team released their latest version of Away3D a few days ago – dubbed “4.0 gold” due to the fact that is it the first production-ready version of the Away3D 4.0 engine.&lt;/p&gt;
+
+&lt;p&gt;Full details of the release can be seen in the &lt;a href="http://away3d.com/comments/away3d_4.0_gold"&gt;announcement on away3d.com&lt;/a&gt;. A large part of the work for the update has been around documentation and bug fixing, but there are some notable feature updates to the code for this release including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Starling Integration APIs&lt;/strong&gt; – new demo of functionality can be seen in &lt;a href="http://www.away3d.com/tutorials"&gt;away3d.com/tutorials&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Mouse Interaction and picking APIs&lt;/strong&gt; – offering a variety of picking approaches for optimising performance&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Frame-based animation APIs&lt;/strong&gt; – including unified skeleton &amp;amp; vertex animation apis, and flexible state management.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Established content workflows for designers&lt;/strong&gt; – new demo of functionality can be see at &lt;a href="http://www.away3d.com/tutorials"&gt;away3d.com/tutorials&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Bugfixes, examples and documentation&lt;/strong&gt; – updated docs can be seen online at &lt;a href="http://www.away3d.com/livedocs/away3d/4.0/"&gt;away3d.com/livedocs/away3d/4.0/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As usual, download zips for source, examples and documentation can be found at &lt;a href="http://www.away3d.com/download"&gt;away3d.com/download&lt;/a&gt;, and further updates are expected in the coming weeks, along with more tutorials and support material.&lt;/p&gt;</description><link>http://localhost:2368/away3d-4-0-gold-a-valuable-update/</link><guid isPermaLink="false">63ed0726-b397-4305-94c3-2d51f89ef313</guid><dc:creator>Rob Bateman</dc:creator><pubDate>Fri, 20 Jul 2012 08:52:17 GMT</pubDate></item></channel></rss>

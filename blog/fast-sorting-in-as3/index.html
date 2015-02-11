@@ -1,0 +1,318 @@
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Fast sorting in AS3</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Fast sorting in AS3">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fast sorting in AS3">
+    <meta property="og:description" content="">
+
+    <meta name="twitter:site" content="@robnet">
+    
+    <meta name="twitter:creator" content="@robnet">
+    
+    <meta name="google-site-verification" content="">
+    
+    <meta property="fb:admins" content="">
+
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="../apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="http://fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic%7COpen+Sans:700,400&amp;subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.min.css?v=222db30219">
+
+    <script type="text/javascript">
+      var ga_ua = 'UA-XXXXX-X';
+      
+      var disqus_shortname = 'infiniteturtles';
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="../assets/js/head-scripts.min.js?v=222db30219"></script>
+
+    <link rel="canonical" href="index.html">
+    
+    <meta property="og:site_name" content="infinite turtles">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fast sorting in AS3">
+    <meta property="og:description" content="U A blog article recently caught my eye over at http://www.simppa.fi on z-sorting that i simply couldn’t resist to pick up on. Simo is someone that has great claims to geek-worship – being one of the awesome...">
+    <meta property="og:url" content="http://localhost:2368/fast-sorting-in-as3/">
+    <meta property="article:published_time" content="2009-12-08T08:36:26.000Z">
+    <meta property="article:modified_time" content="2009-12-08T09:10:31.000Z">
+    <meta property="article:tag" content="3d">
+    <meta property="article:tag" content="as3">
+    <meta property="article:tag" content="sorting">
+    <meta property="article:tag" content="speed tests">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Fast sorting in AS3">
+    <meta name="twitter:description" content="U A blog article recently caught my eye over at http://www.simppa.fi on z-sorting that i simply couldn’t resist to pick up on. Simo is someone that has great claims to geek-worship – being one of the awesome...">
+    <meta name="twitter:url" content="http://localhost:2368/fast-sorting-in-as3/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "infinite turtles",
+    "author": {
+        "@type": "Person",
+        "name": "Rob Bateman",
+        "image": "//www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&s=250",
+        "url": "http://localhost:2368/author/rob",
+        "sameAs": null
+    },
+    "headline": "Fast sorting in AS3",
+    "url": "http://localhost:2368/fast-sorting-in-as3/",
+    "datePublished": "2009-12-08T08:36:26.000Z",
+    "dateModified": "2009-12-08T09:10:31.000Z",
+    "keywords": "3d, as3, sorting, speed tests",
+    "description": "U A blog article recently caught my eye over at http://www.simppa.fi on z-sorting that i simply couldn’t resist to pick up on. Simo is someone that has great claims to geek-worship – being one of the awesome..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5">
+    <link rel="alternate" type="application/rss+xml" title="infinite turtles" href="../rss/index.html">
+  </head>
+  <body class="post-template tag-3d tag-as3 tag-sorting tag-speed-tests">
+
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="../" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="../rss/index.rss">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          <li class="drawer-list-divider">
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://twitter.com/robnet" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://github.com/rob-bateman" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<section class="wrapper wrapper-post">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post post tag-3d tag-as3 tag-sorting tag-speed-tests">
+        <section class="post-container">
+          <header class="post-header">
+            <ul class="post-meta-list">
+              <li class="post-meta-item">
+                <time datetime="2009-12-08" itemprop="datePublished">
+                  5 years ago
+                </time>
+              </li>
+                <li class="post-meta-item">
+                    <a itemprop="articleSection" href="http://localhost:2368/tag/3d/" data-pjax>3d</a>, 
+                    <a itemprop="keywords" href="../tag/as3/" data-pjax>as3</a>, 
+                    <a itemprop="keywords" href="../tag/sorting/" data-pjax>sorting</a>, 
+                    <a itemprop="keywords" href="../tag/speed-tests/" data-pjax>speed tests</a> 
+                </li>
+              <li class="post-meta-item">
+                <a href="index.html#disqus_thread" data-disqus-identifier="78">Comments</a>
+              </li>
+            </ul>
+            <h1 itemprop="name headline" class="post-title"><a href="index.html" itemprop="url" data-pjax title="Fast sorting in AS3">Fast sorting in AS3</a></h1>
+            <!--h2 itemprop="about" class="post-subtitle"></h2-->
+          </header>
+          <aside class="post-side">
+            <div class="post-author">
+                <a href="index.html" class="post-author-avatar">
+                  <img src="http://www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&amp;s=250" alt="Rob Bateman">
+                </a>
+              <div class="post-author-info">
+                <a href="index.html" class="post-author-name">
+                  Rob Bateman
+                </a>
+                <p class="post-author-bio"></p>
+              </div>
+            </div>
+          </aside>
+          <div itemprop="articleBody" class="post-body">
+            <p>U<a href="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2009/12/number_sorting.jpg"><img src="http://www.infiniteturtles.co.uk/blog/wp-content/uploads/2009/12/number_sorting.jpg" alt="" title="number_sorting"></a></p>
+
+<p>A blog article recently caught my eye over at <a href="http://www.simppa.fi/blog">http://www.simppa.fi</a> on z-sorting that i simply couldn’t resist to pick up on. <a href="http://www.simppa.fi/blog/?page_id=8">Simo</a> is someone that has great claims to geek-worship – being one of the awesome team that make up <a href="http://evo.bombsquad.org/">evoflash</a> and having a hand in their latest <a href="http://evo.bombsquad.org/sog/">Severity Of Grey</a> demo, while also progressing with some amazing 3D and particle demos in recent blog posts.</p>
+
+<p>The <a href="http://www.simppa.fi/blog/?p=534">latest post</a> is about sorting in AS3, and specifically, z-sorting objects that are being drawn in a 3D scene. Having done a fair amount of research on the topic myself while putting together <a href="http://away3d.com/away3d-lite-v1-0-fastest-and-smallest-3d-engine-in-flash">Away3D Lite</a>, I was very interested in seeing an adapted Insertion Sort method that had essentially been laid down gauntlet-style as ‘The fastest way to z-sort and handle objects in AS3′. How could i resist? <img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_smile.gif" alt=":)" title=""></p>
+
+<p>A sorting algorithm in its most basic form is a function for sorting a list of objects by ordering them in the ascending or descending order of a specified property. When dealing with 3D in Flash, sorting can become one of the most processor intensive operations because it isn’t done by default. Flash happens to have its own sorting functions for Arrays and Vectors, but by and large these aren’t that fast, so coding something faster in AS3 is a realistic proposition. The question is, which algorithm do you use?</p>
+
+<p>If you feel like you’ve missed the sorting-algo boat then fear not! Wikipedia will give you a good grounding in various methods for <a href="http://en.wikipedia.org/wiki/Sorting_algorithm">sorting lists</a>. The <a href="http://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a> method mentioned above is one with a simple premise – start with your unsorted list, create a new empty list, iterate through your unsorted list copying each item to its correct sorted position in your new list using an iterative compare on items already placed in the new list.</p>
+
+<p>In standard use insertion sort is a fairly unimpressive algorithm. But combined with a little coding magic, Simo has transformed it into something that <a href="http://www.simppa.fi/experimental/as3/2009/zsorts/jedivoodoo.swf">appears to beat all others</a>. The success of his approach is based on two simple assertions:</p>
+
+<p>1) Linked lists are faster than vectors when inserting values</p>
+
+<p>2) In most cases in a 3D engine, sorting is performed on a list that is close to already being sorted</p>
+
+<p>I’m a little skeptical about the second point, because the modified Insertion Sort method is heavily influenced by how unsorted a list is to start with. I would agree that if the order of 3D objects in a view are saved on each frame then it could be considered that from one frame to the next, the order of objects doesn’t change dramatically. However, this should be considered the most trivial case when rendering. Times when this is not the case include when objects are moving in the scene, when objects are being added or deleted from the scene, or when objects are moving in and out of view. For an unsorted list, standard Insertion Sort has one of the slowest performance records of any sorting algorithm, with a worst case of <em>n</em><sup>2</sup> iterations.</p>
+
+<p>With the stage now set, I offer a potential challenger to the modified Insertion Sort method! It is the method that <a href="http://away3d.com/away3d-lite-v1-0-fastest-and-smallest-3d-engine-in-flash">Away3D Lite</a> uses as its default sorting algorithm, and is know as <a href="http://en.wikipedia.org/wiki/Radix_sort">Radix Sorting</a>. The biggest advantage with this algorithm is its consistent performance and minimal iterative approach. In all cases, whether sorting a completely sorted or completely unsorted list, the number of iterations required is constant at* 2n*.</p>
+
+<p>Radix Sorting works by taking advantage of the binary nature of numbers stored in a computer program. These numbers can be easily quantised (split into smaller numbers representing the bytes that makeup the value of the original number), and this quantisation allows numbers to be sorted incredibly efficiently. Rather that compare absolute values of numbers, objects in a list are stored in ‘buckets’ that represent a single value of the quantised state of a number. Once all numbers have been placed in their respective bucket, the result can be read out in the correctly sorted order for that quantisation by simply emptying the buckets in sequence.</p>
+
+<p>In general use, Radix Sorting quantises numbers into 8-bit bytes. This means that each iteration sorts the objects into their 8-bit bucket positions for that byte (starting with the byte representing 0x00 – 0xFF, then the byte representing 0x00FF – 0xFFFF, then 0x00FFFF – 0xFFFFFF etc.). Because we are sorting 8-bit numbers, 256 buckets are required for each iteration, to provide a bucket for each possible value. With each byte, only one iteration is required to completely sort the objects into their buckets, and read them out in the correct order. So the quoted number above for * 2n *iterations will allow you to completely sort 16-bit numbers. For 3D in Flash, this appears sufficiently accurate as long as the inverse of z is used for the sorting value.</p>
+
+<p>One of the disadvantages of Radix Sorting is that it only sorts using integers. Because we currently have no byte access to floating point numbers in AS3 <a href="https://bugs.adobe.com/jira/browse/FP-487">(boo Adobe!</a>), z values have to be type-converted to integers on every frame, which is a little annoying as it sucks some of the power out of the algorithm. But despite this, the results are still very impressive, as <a href="http://www.infiniteturtles.co.uk/projects/speedtests/ZSortTest/ZSortTest.html">this example shows</a> (using the <a href="http://www.infiniteturtles.co.uk/projects/speedtests/ZSortTest/srcview/index.html">same source structure</a> as Simo’s original demonstration for comparison).</p>
+
+<p>Here are the results i get when directly comparing the two sorting mechanisms – in each case the list in question is 100000 items long.</p>
+
+<ul>
+<li>Simo Insertion Sort (on sorted list) – 4 ms</li>
+<li>Radix Sort (on sorted list) – 16 ms</li>
+<li>Simo Insertion Sort (on extremely unsorted list) – ????</li>
+<li>Radix Sort (on extremely unsorted list) -16 ms</li>
+</ul>
+
+<p>The default for the ZSortTest demo is to create an already sorted list, which gives an Insertion Sort result of 4ms. Simo doesn’t bother to test an unsorted list in his post, and i think i may know why…. Flash Player times out before you get a result! <img src="http://www.infiniteturtles.co.uk/blog/wp-includes/images/smilies/icon_wink.gif" alt=";)" title=""> His suggestion here is that you use a different sort method when you know a set of objects will be extremely unsorted, but this also implies that in the cases where you are using the algorithm on almost sorted lists, you will still not hit the 4ms benchmark seen here.</p>
+
+<p>Radix Sort on the other hand doesn’t give two hoots what the starting sort nature of the list is, so it is the more consistent sort mechanism, and possibly the most consistent of any.</p>
+
+<p>Picking up on an earlier point on linked lists, I had a crack at improving the Radix Sort score by using linked lists rather than vectors, but bizarrely came out with a slower benchmark score of around 20 ms. This may have something to do with the difference in access speed between bucket vectors containing integers and bucket vectors containing objects. You can try it for yourself with the <a href="http://www.infiniteturtles.co.uk/projects/speedtests/ZSortTest/srcview/index.html">source code</a> – both types are present and it is a simple matter to comment out one type and uncomment the other.</p>
+
+<p>Regardless, all of these methods come out far faster than the closest native sorting method in Flash – the Vector.sortOn() method – which managed a woeful 54 ms in the same test.</p>
+          </div>
+          <footer class="post-footer">
+            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+                <a href="index.html" class="post-author-avatar">
+                  <img itemprop="image" src="http://www.gravatar.com/avatar/b8242495a01877d28be795d90ca1169e?d=404&amp;s=250" alt="Rob Bateman">
+                </a>
+              <div class="post-author-info">
+                <h4 class="post-footer-heading">Written By</h4>
+                <a href="index.html" itemprop="url" class="post-author-name">
+                  <span itemprop="name">Rob Bateman</span>
+                </a>
+                <p itemprop="description" class="post-author-bio"></p>
+                <p class="post-info">
+                  <b class="post-info-title">Published on</b>
+                  <time class="post-date">December 08, 2009</time>
+                </p>
+              </div>
+            </div>
+            <div class="post-social">
+              <h4 class="post-footer-heading">Spread the word</h4>
+              <a href="index.html#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+              <a href="index.html#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+              <a href="index.html#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+            </div>
+          </footer>
+        </section>
+      <section itemprop="comment" class="post-comments">
+        <div id="disqus_thread"></div>
+      </section>
+    </article>
+
+    <footer role="contentinfo" class="footer">
+      <p><small>© 2015. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Proudly published with <a href="http://ghost.org" target="_blank">Ghost</a></small></p>
+    </footer>
+  </div>
+</section>
+
+<script type="text/javascript">
+  if(GHOSTIUM.haveDisqus) {
+    var disqus_identifier = '78';
+
+    if(typeof DISQUS !== 'object') {
+      (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    }
+  } else {
+    document.querySelector('.post-comments').remove();
+  }
+</script>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../public/jquery.js?v=222db30219"></script>
+
+    <script src="../assets/js/foot-scripts.min.js?v=222db30219"></script>
+
+    <script type="text/javascript">
+
+      if(GHOSTIUM.haveGA) {
+        (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
+        function(){(g[s].q=g[s].q||[]).push(arguments)});g[s].s=+new Date;
+        t=h.createElement(o);z=h.getElementsByTagName(o)[0];
+        t.src='//www.google-analytics.com/analytics.js';
+        z.parentNode.insertBefore(t,z)}(window,document,'script','ga'));
+        ga('create',ga_ua);ga('send','pageview');
+      }
+
+      if(GHOSTIUM.haveDisqus) {
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+      }
+    </script>
+  </body>
