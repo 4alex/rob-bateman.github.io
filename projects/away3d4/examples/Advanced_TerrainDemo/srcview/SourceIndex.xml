@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Advanced_TerrainDemo</title>
+	<nodes>
+		<node label="embeds">
+			<node label="skybox">
+				<node icon="imageIcon" label="snow_negative_x.jpg" url="source/embeds/skybox/snow_negative_x.jpg.html"/>
+				<node icon="imageIcon" label="snow_negative_y.jpg" url="source/embeds/skybox/snow_negative_y.jpg.html"/>
+				<node icon="imageIcon" label="snow_negative_z.jpg" url="source/embeds/skybox/snow_negative_z.jpg.html"/>
+				<node icon="imageIcon" label="snow_positive_x.jpg" url="source/embeds/skybox/snow_positive_x.jpg.html"/>
+				<node icon="imageIcon" label="snow_positive_y.jpg" url="source/embeds/skybox/snow_positive_y.jpg.html"/>
+				<node icon="imageIcon" label="snow_positive_z.jpg" url="source/embeds/skybox/snow_positive_z.jpg.html"/>
+			</node>
+			<node label="terrain">
+				<node icon="imageIcon" label="beach.jpg" url="source/embeds/terrain/beach.jpg.html"/>
+				<node icon="imageIcon" label="grass.jpg" url="source/embeds/terrain/grass.jpg.html"/>
+				<node icon="imageIcon" label="rock.jpg" url="source/embeds/terrain/rock.jpg.html"/>
+				<node icon="imageIcon" label="terrain_diffuse.jpg" url="source/embeds/terrain/terrain_diffuse.jpg.html"/>
+				<node icon="imageIcon" label="terrain_heights.jpg" url="source/embeds/terrain/terrain_heights.jpg.html"/>
+				<node icon="imageIcon" label="terrain_normals.jpg" url="source/embeds/terrain/terrain_normals.jpg.html"/>
+				<node icon="imageIcon" label="terrain_splats.png" url="source/embeds/terrain/terrain_splats.png.html"/>
+			</node>
+			<node icon="flaIcon" label="signature.fla" url="source/embeds/signature.fla"/>
+			<node icon="swfIcon" label="signature.swf" url="source/embeds/signature.swf"/>
+			<node icon="imageIcon" label="water_normals.jpg" url="source/embeds/water_normals.jpg.html"/>
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node icon="htmlIcon" label="index.template.html" url="source/html-template/index.template.html"/>
+		</node>
+		<node label="src">
+			<node icon="mxmlAppIcon" selected="true" label="Advanced_TerrainDemo.as" url="source/Advanced_TerrainDemo.as.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 4075K)" url="Advanced_TerrainDemo.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex451_sdk_download">
+	</sdklink>
+</index>

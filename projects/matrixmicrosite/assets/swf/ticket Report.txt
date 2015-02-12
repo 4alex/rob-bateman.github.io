@@ -1,0 +1,107 @@
+ticket.swf Movie Report
+------------------------
+
+Frame #    Frame Bytes    Total Bytes    Scene
+-------    -----------    -----------    ----------------
+      1         216324         216324    Scene 1 (AS 3.0 Classes Export Frame)
+
+Scene                        Shape Bytes    Text Bytes    ActionScript Bytes
+-------------------------    -----------    ----------    ------------------
+Scene 1                                0             0                     0
+
+Symbol                       Shape Bytes    Text Bytes    ActionScript Bytes
+-------------------------    -----------    ----------    ------------------
+Ticket                                37             0                     0
+PointerCursor                          0             0                     0
+Symbol 1                               0             0                     0
+Symbol 84                              0             0                     0
+Symbol 83                              0             0                     0
+Symbol 82                              0             0                     0
+Symbol 81                              0             0                     0
+Symbol 80                              0             0                     0
+Symbol 79                              0             0                     0
+Symbol 78                              0             0                     0
+Symbol 77                              0             0                     0
+Symbol 76                              0             0                     0
+Pointer                                0             0                     0
+Pointer_click                          0             0                     0
+bt_hover                               0             0                     0
+Tween 4                                0             0                     0
+mcProgressBar                          0             0                     0
+mcCountdown                            0             0                     0
+bt_details                             0             0                     0
+approve                                0             0                     0
+EurexButtonLrgShadow                   0             0                     0
+shadow_blurred                         0             0                     0
+bevel_emboss                           0             0                     0
+base                                   0             0                     0
+PdfIcon                                0             0                     0
+Details                                0             0                     0
+footerRed                              0             0                     0
+mcFooterRed                            0             0                     0
+footerGreen                            0             0                     0
+mcFooterGreen                          0             0                     0
+mcAccordion                            0             0                     0
+txt_quoteonthewire                     0             0                     0
+mcTimerSml                             0             0                     0
+mcQuoteOnTheWire                       0             0                     0
+txt_pay                                0             0                     0
+txt_paid                               0             0                     0
+assetArrowActionRed                    0             0                     0
+assetArrowActionGrey                   0             0                     0
+greyArrow                              0             0                     0
+status_quoterequested                  0             0                     0
+status_tradenotification               0             0                     0
+IconGreenTick                          0             0                     0
+status_awaitingresponse                0             0                     0
+bg_progressbar                         0             0                     0
+hdRed                                  0             0                     0
+txt_rfq                                0             0                     0
+hdRFQGlow                              0             0                     0
+hdGreen                                0             0                     0
+hdRFQGlowComplete                      0             0                     0
+mcRequestWindow                        0             0                     0
+Box                                   80             0                     0
+Pin                                    0             0                     0
+AnnotationText1                        0           233                     0
+AnnotationText2                        0           199                     0
+Suspended                              0             0                     0
+Spot                                   0             0                     0
+AnnotationPanel1                       0             0                     0
+AnnotationPanel2                       0             0                     0
+spotSubClip                          283             0                     0
+iPulse                               316             0                     0
+mcTagInfo                              0             0                     0
+arrow                                 46             0                     0
+spotPlaySubClip                      362             0                     0
+hit                                   34             0                     0
+SpotPlay                              35             0                     0
+ShowMeBtn                             34           110                     0
+
+
+Tweened Shapes: 606 bytes
+
+Font Name                 Bytes        Characters    
+----------------------    ---------    --------------
+News Gothic Bold               1021     Sehmow
+News Gothic MT                 3359     .AFGMNQRSTacdefghiklnoprstwy
+
+ActionScript Bytes    Location
+------------------    --------
+             11047    ActionScript 3.0 Classes
+
+Bitmap                     Compressed    Compression
+-----------------------    ----------  --------  -----------
+Background2.png               108463     1026476   Lossless
+Background.png                 13579       73060   Lossless
+FlipFlatpng                    29326      450300   Lossless
+menu.png                        4127      402336   Lossless
+cursorPointer.png                182        1872   Lossless
+pointer.png                      178        2184   Lossless
+menu_transition.png            25539      669392   Lossless
+FlipFlatBack.png                8444      362316   Lossless
+menu2.png                       2923      272160   Lossless
+
+
+
+

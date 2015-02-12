@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of DofAtom</title>
+	<nodes>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="AC_OETags.js" url="source/html-template/AC_OETags.js.txt"/>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+		</node>
+		<node label="src" icon="classpathIcon" expanded="true">
+			<node label="assets">
+				<node label="blue.png" icon="imageIcon" url="source/assets/blue.png.html"/>
+				<node label="green.png" icon="imageIcon" url="source/assets/green.png.html"/>
+				<node label="red.png" icon="imageIcon" url="source/assets/red.png.html"/>
+				<node label="signature.swf" icon="swfIcon" url="source/assets/signature.swf"/>
+			</node>
+			<node selected="true" label="DofAtom.as" icon="mxmlAppIcon" url="source/DofAtom.as.html"/>
+		</node>
+	</nodes>
+</index>

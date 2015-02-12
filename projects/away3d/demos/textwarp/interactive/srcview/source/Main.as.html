@@ -1,0 +1,327 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Main.as</title>
+<link rel="stylesheet" type="text/css" href="../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="ActionScriptComment">/*
+
+Textfield warping example in Away3d
+
+Demonstrates:
+
+How to adapt a textfield onto a 3D bezier path, and animate it through the path.
+
+Code by Alejandro Santander
+palebluedot@gmail.com
+http://www.lidev.com.ar
+
+This code is distributed under the MIT License
+
+Copyright (c)  
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+*/</span>
+
+<span class="ActionScriptpackage">package</span><span class="ActionScriptDefault_Text"></span>
+<span class="ActionScriptBracket/Brace">{</span>
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">cameras</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Camera3D</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">containers</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Scene3D</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">containers</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">View3D</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">core</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">clip</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">RectangleClipping</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">core</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Number3D</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">geom</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">AlignToPath</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">materials</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ColorMaterial</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">materials</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">WireframeMaterial</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">primitives</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Plane</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">primitives</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">TextField3D</span>;
+    
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">com</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">adobe</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">viewsource</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ViewSource</span>;
+    
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">display</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Sprite</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">display</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">StageAlign</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">display</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">StageScaleMode</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">events</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Event</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">events</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">MouseEvent</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">events</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ProgressEvent</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">net</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">URLLoader</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">net</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">URLLoaderDataFormat</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">net</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">URLRequest</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">net</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">navigateToURL</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">text</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">TextField</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">text</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">TextFormat</span>;
+    
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">wumedia</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">vector</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">VectorText</span>;
+
+    <span class="ActionScriptMetadata">SWF</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">'#000000'</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">frameRate</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">'60'</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span>
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptclass">class</span> <span class="ActionScriptDefault_Text">Main</span> <span class="ActionScriptReserved">extends</span> <span class="ActionScriptDefault_Text">Sprite</span>
+    <span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptBracket/Brace"></span>
+        <span class="ActionScriptComment">// Logo asset.
+</span>        <span class="ActionScriptMetadata">Embed</span><span class="ActionScriptString">"assets/assets.swf"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">symbol</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">"AwayLogo"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">LogoAsset</span>:<span class="ActionScriptDefault_Text">Class</span>;
+        
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_scene</span>:<span class="ActionScriptDefault_Text">Scene3D</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_view</span>:<span class="ActionScriptDefault_Text">View3D</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_camera</span>:<span class="ActionScriptDefault_Text">Camera3D</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_width3d</span>:<span class="ActionScriptDefault_Text">Number</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_height3d</span>:<span class="ActionScriptDefault_Text">Number</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_loader</span>:<span class="ActionScriptDefault_Text">URLLoader</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_center</span>:<span class="ActionScriptDefault_Text">Number3D</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Number3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_interactiveSegment</span>:<span class="ActionScriptDefault_Text">InteractiveSegment</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_textfield</span>:<span class="ActionScriptDefault_Text">TextField3D</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_aligner</span>:<span class="ActionScriptDefault_Text">AlignToPath</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_pathLength</span>:<span class="ActionScriptDefault_Text">Number</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_xOffset</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> 0;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_dir</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> 1;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_speed</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> 5;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_textWidth</span>:<span class="ActionScriptDefault_Text">Number</span>;
+        
+        <span class="ActionScriptASDoc">/**
+         * Constructor. 
+         */</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">Main</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">ViewSource</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addMenuItem</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">,</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"srcview/index.html"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>; 
+            
+            <span class="ActionScriptDefault_Text">initStage</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">loadFonts</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Init the away3d logo.
+         */</span>    
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initLogoAndHelp</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">logo</span>:<span class="ActionScriptDefault_Text">Sprite</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">LogoAsset</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">logo</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">stageHeight</span>;
+            <span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">logo</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptDefault_Text">logo</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">MouseEvent</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">MOUSE_DOWN</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">logoMouseDownHandler</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">help</span>:<span class="ActionScriptDefault_Text">TextField</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">TextField</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">help</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">text</span> <span class="ActionScriptOperator">=</span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"*Drag the red nodes to edit the path."</span>;
+            <span class="ActionScriptDefault_Text">help</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">textColor</span> <span class="ActionScriptOperator">=</span> 0xFFFFFF;
+            <span class="ActionScriptDefault_Text">help</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">width</span> <span class="ActionScriptOperator">=</span> 1000;
+            <span class="ActionScriptDefault_Text">help</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">selectable</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">false</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">format</span>:<span class="ActionScriptDefault_Text">TextFormat</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">help</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getTextFormat</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">format</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">font</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptString">"Verdana"</span>;
+            <span class="ActionScriptDefault_Text">format</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">size</span> <span class="ActionScriptOperator">=</span> 10;
+            <span class="ActionScriptDefault_Text">help</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">setTextFormat</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">format</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">help</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Logo on click. 
+         */</span>    
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">logoMouseDownHandler</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">evt</span>:<span class="ActionScriptDefault_Text">MouseEvent</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">navigateToURL</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">URLRequest</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"http://www.away3d.com"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptString">"_blank"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Init the stage settings. 
+         */</span>    
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initStage</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">scaleMode</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">StageScaleMode</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">NO_SCALE</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">align</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">StageAlign</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">TOP_LEFT</span>;
+            
+            <span class="ActionScriptDefault_Text">_width3d</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">stageWidth</span>;
+            <span class="ActionScriptDefault_Text">_height3d</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">stageHeight</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Load the assets swf to extract the fonts vector data.
+         * NOTE: Could be embedded also, just wanted to demonstrate another way to
+         * get vector stuff into 3d. 
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">loadFonts</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">_loader</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">URLLoader</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_loader</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">dataFormat</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">URLLoaderDataFormat</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">BINARY</span>;
+            <span class="ActionScriptDefault_Text">_loader</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">COMPLETE</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onFontsLoadedHandler</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_loader</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">load</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">URLRequest</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"assets/assets.swf"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Continue initialization when fonts are ready. 
+         */</span>   
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">onFontsLoadedHandler</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">evt</span>:<span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">initFonts</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">init3d</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">init3dObjects</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">initLogoAndHelp</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ENTER_FRAME</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">render3d</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Use the swf binary data to extract the fonts.
+         * Wumedia's package at work. 
+         */</span> 
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initFonts</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">VectorText</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">extractFont</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_loader</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">data</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initialize the main 3d elements. 
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">init3d</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">_scene</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Scene3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_camera</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Camera3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptDefault_Text">x</span>:<span class="ActionScriptDefault_Text"></span>0<span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">y</span>:<span class="ActionScriptDefault_Text"></span>0<span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">z</span>:<span class="ActionScriptDefault_Text"></span><span class="ActionScriptOperator">-</span>1000<span class="ActionScriptBracket/Brace">}</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_view</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">View3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptDefault_Text">camera</span>:<span class="ActionScriptDefault_Text">_camera</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">scene</span>:<span class="ActionScriptDefault_Text">_scene</span><span class="ActionScriptBracket/Brace">}</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">x</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_width3d</span><span class="ActionScriptOperator">/</span>2;
+            <span class="ActionScriptDefault_Text">_view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_height3d</span><span class="ActionScriptOperator">/</span>2;
+            <span class="ActionScriptDefault_Text">_view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">clipping</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">RectangleClipping</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptDefault_Text">minX</span>:<span class="ActionScriptDefault_Text"></span><span class="ActionScriptOperator">-</span><span class="ActionScriptDefault_Text">_width3d</span><span class="ActionScriptOperator">/</span>2<span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">maxX</span>:<span class="ActionScriptDefault_Text">_width3d</span><span class="ActionScriptOperator">/</span>2<span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">minY</span>:<span class="ActionScriptDefault_Text"></span><span class="ActionScriptOperator">-</span><span class="ActionScriptDefault_Text">_height3d</span><span class="ActionScriptOperator">/</span>2<span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">maxY</span>:<span class="ActionScriptDefault_Text">_height3d</span><span class="ActionScriptOperator">/</span>2<span class="ActionScriptBracket/Brace">}</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addSourceURL</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"srcview/index.html"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_view</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initiliaze the 3d objects in the scene. 
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">init3dObjects</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptBracket/Brace"></span>
+            <span class="ActionScriptComment">// A plane, just for orientation.
+</span>            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">floor</span>:<span class="ActionScriptDefault_Text">Plane</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Plane</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">floor</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">width</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">floor</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">height</span> <span class="ActionScriptOperator">=</span> 25000;
+            <span class="ActionScriptDefault_Text">floor</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">segmentsW</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">floor</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">segmentsH</span> <span class="ActionScriptOperator">=</span> 12;
+            <span class="ActionScriptDefault_Text">floor</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptOperator">-</span>1500;
+            <span class="ActionScriptDefault_Text">floor</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">material</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">WireframeMaterial</span><span class="ActionScriptBracket/Brace">(</span>0x333333<span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_scene</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">floor</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">// This class is just a quick way to have 
+</span>            <span class="ActionScriptComment">// interactive nodes in the path. Not optimized at all
+</span>            <span class="ActionScriptComment">// but does the trick. For alignment a simple segment is
+</span>            <span class="ActionScriptComment">// all that is needed really.
+</span>            <span class="ActionScriptComment">// The class has some interesting snippets on how to get 3d
+</span>            <span class="ActionScriptComment">// coordinates to screen coordinates and vice versa
+</span>            <span class="ActionScriptComment">// and is not essential for demonstrating textfield alignment
+</span>            <span class="ActionScriptComment">// to paths. 
+</span>            <span class="ActionScriptDefault_Text">_interactiveSegment</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">InteractiveSegment</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_view</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_interactiveSegment</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">ProgressEvent</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">PROGRESS</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">segmentChangingHandler</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_interactiveSegment</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">COMPLETE</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">segmentChangedHandler</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_scene</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_interactiveSegment</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">// A regular 3d text instance.
+</span>            <span class="ActionScriptDefault_Text">_textfield</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">TextField3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"Helvetica"</span><span class="ActionScriptOperator">,</span><span class="ActionScriptDefault_Text"></span> <span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptDefault_Text">text</span>:<span class="ActionScriptBracket/Brace"></span><span class="ActionScriptDefault_Text"></span><span class="ActionScriptString">"Warping text in Away3D"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">size</span>:<span class="ActionScriptDefault_Text"></span>50<span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">textWidth</span>:<span class="ActionScriptDefault_Text"></span>2000<span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_textfield</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">material</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ColorMaterial</span><span class="ActionScriptBracket/Brace">(</span>0xFFFFFF<span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_textWidth</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_textfield</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">objectWidth</span>;
+            <span class="ActionScriptDefault_Text">_scene</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_textfield</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">// This is the class that performs the alignment.
+</span>            <span class="ActionScriptDefault_Text">_aligner</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">AlignToPath</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_textfield</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">_interactiveSegment</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">path</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">// Make first path update.
+</span>            <span class="ActionScriptDefault_Text">refreshPathHighRes</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">// Perform the first alignment.
+</span>            <span class="ActionScriptDefault_Text">updateText</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Updates the path in low quality.
+         */</span>        
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">refreshPathLowRes</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptBracket/Brace"></span>
+            <span class="ActionScriptComment">// The second parameter determines the quality of the alignment.
+</span>            <span class="ActionScriptDefault_Text">_pathLength</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_aligner</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">updatePath</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_interactiveSegment</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">path</span><span class="ActionScriptOperator">,</span> 0.1<span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Updates the path in high quality.
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">refreshPathHighRes</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptBracket/Brace"></span>
+            <span class="ActionScriptComment">// The second parameter determines the quality of the alignment.
+</span>            <span class="ActionScriptDefault_Text">_pathLength</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_aligner</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">updatePath</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_interactiveSegment</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">path</span><span class="ActionScriptOperator">,</span> 0.01<span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Called each time the path is changing.
+         */</span>        
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">segmentChangingHandler</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">evt</span>:<span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">refreshPathLowRes</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Called each time the path has finished changing.
+         */</span>        
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">segmentChangedHandler</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">evt</span>:<span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">refreshPathHighRes</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Simple camera-mouse motion. 
+         */</span>    
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">hoverCamera</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">mX</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mouseX</span> <span class="ActionScriptOperator">&gt;</span> 0 <span class="ActionScriptOperator">?</span> <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mouseX</span> :<span class="ActionScriptDefault_Text"></span> 0;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">mY</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mouseY</span> <span class="ActionScriptOperator">&gt;</span> 0 <span class="ActionScriptOperator">?</span> <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mouseY</span> :<span class="ActionScriptDefault_Text"></span> 0;
+            
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">tarX</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> 1<span class="ActionScriptOperator">*</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">mX</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">stageWidth</span><span class="ActionScriptOperator">/</span>2<span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">tarY</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptOperator">-</span>2.5<span class="ActionScriptOperator">*</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">mY</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">stageHeight</span><span class="ActionScriptOperator">/</span>2<span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">dX</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_camera</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">x</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">tarX</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">dY</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_camera</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">tarY</span>;
+            
+            <span class="ActionScriptDefault_Text">_camera</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">x</span> <span class="ActionScriptOperator">-=</span> <span class="ActionScriptDefault_Text">dX</span><span class="ActionScriptOperator">*</span>0.1;
+            <span class="ActionScriptDefault_Text">_camera</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">-=</span> <span class="ActionScriptDefault_Text">dY</span><span class="ActionScriptOperator">*</span>0.1;
+            <span class="ActionScriptDefault_Text">_camera</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">lookAt</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_center</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Updates the alignment of the text with an incremental offset in x. 
+         * The length of the path is compared to the length of the text
+         * to determine when to change the direction of motion,
+         * otherwise the text would make a loop jump at the end.
+         */</span>    
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">updateText</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptReserved">if</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_xOffset</span> <span class="ActionScriptOperator">+</span> <span class="ActionScriptDefault_Text">_dir</span><span class="ActionScriptOperator">*</span><span class="ActionScriptDefault_Text">_speed</span> <span class="ActionScriptOperator">&gt;</span> <span class="ActionScriptDefault_Text">_pathLength</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">_textWidth</span> <span class="ActionScriptOperator">||</span> <span class="ActionScriptDefault_Text">_xOffset</span> <span class="ActionScriptOperator">+</span> <span class="ActionScriptDefault_Text">_dir</span><span class="ActionScriptOperator">*</span><span class="ActionScriptDefault_Text">_speed</span> <span class="ActionScriptOperator">&lt;</span> 0<span class="ActionScriptBracket/Brace">)</span>
+                <span class="ActionScriptDefault_Text">_dir</span> <span class="ActionScriptOperator">*=</span> <span class="ActionScriptOperator">-</span>1;
+                
+            <span class="ActionScriptDefault_Text">_xOffset</span> <span class="ActionScriptOperator">+=</span> <span class="ActionScriptDefault_Text">_dir</span><span class="ActionScriptOperator">*</span><span class="ActionScriptDefault_Text">_speed</span>;
+            
+            <span class="ActionScriptDefault_Text">_xOffset</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_xOffset</span> <span class="ActionScriptOperator">&gt;</span> <span class="ActionScriptDefault_Text">_pathLength</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">_textWidth</span> <span class="ActionScriptOperator">?</span> 0: <span class="ActionScriptDefault_Text">_xOffset</span>;
+            <span class="ActionScriptDefault_Text">_xOffset</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_xOffset</span> <span class="ActionScriptOperator">&lt;</span> 0 <span class="ActionScriptOperator">?</span> 0 : <span class="ActionScriptDefault_Text">_xOffset</span>;
+            
+            <span class="ActionScriptDefault_Text">_aligner</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">apply</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">_xOffset</span><span class="ActionScriptOperator">,</span> 0<span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Enterframe. 
+         */</span>    
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">render3d</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">evt</span>:<span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">hoverCamera</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">_view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">render</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">updateText</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+<span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span></pre></body>
+</html>

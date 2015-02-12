@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of AwayFLARDemo</title>
+	<nodes>
+		<node label="assets">
+			<node label="camera_para.dat" url="source/assets/camera_para.dat"/>
+			<node label="FLAR-marker.pat" url="source/assets/FLAR-marker.pat"/>
+			<node label="FLAR-marker.pdf" url="source/assets/FLAR-marker.pdf"/>
+			<node label="hanabi-patt.dat" url="source/assets/hanabi-patt.dat"/>
+			<node label="ogre.jpg" icon="imageIcon" url="source/assets/ogre.jpg.html"/>
+			<node label="ogre.md2" url="source/assets/ogre.md2"/>
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="AC_OETags.js" url="source/html-template/AC_OETags.js.txt"/>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+		</node>
+		<node label="src" icon="classpathIcon" expanded="true">
+			<node label="org.libspark.flartoolkit" icon="packageIcon" expanded="true">
+				<node label="FLARException.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/FLARException.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.away3d" icon="packageIcon" expanded="true">
+				<node label="FLARBaseNode.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/away3d/FLARBaseNode.as.html"/>
+				<node label="FLARCamera3D.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/away3d/FLARCamera3D.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core" icon="packageIcon" expanded="true">
+				<node label="FLARCode.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/FLARCode.as.html"/>
+				<node label="FLARMat.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/FLARMat.as.html"/>
+				<node label="FLARSquare.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/FLARSquare.as.html"/>
+				<node label="FLARSquareDetector.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/FLARSquareDetector.as.html"/>
+				<node label="FLARSquareStack.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/FLARSquareStack.as.html"/>
+				<node label="FLARVec.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/FLARVec.as.html"/>
+				<node label="FLARVersion.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/FLARVersion.as.html"/>
+				<node label="IFLARSquareDetector.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/IFLARSquareDetector.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.labeling" icon="packageIcon" expanded="true">
+				<node label="FLARLabeling_ARToolKit.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/labeling/FLARLabeling_ARToolKit.as.html"/>
+				<node label="FLARLabeling_BitmapData.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/labeling/FLARLabeling_BitmapData.as.html"/>
+				<node label="FLARLabelingImage.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/labeling/FLARLabelingImage.as.html"/>
+				<node label="FLARLabelingImageBitmapData.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/labeling/FLARLabelingImageBitmapData.as.html"/>
+				<node label="FLARLabelingLabel.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/labeling/FLARLabelingLabel.as.html"/>
+				<node label="FLARLabelingLabelStack.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/labeling/FLARLabelingLabelStack.as.html"/>
+				<node label="IFLARLabeling.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/labeling/IFLARLabeling.as.html"/>
+				<node label="IFLARLabelingImage.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/labeling/IFLARLabelingImage.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.match" icon="packageIcon" expanded="true">
+				<node label="FLARMatchPatt_Color_WITHOUT_PCA.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/match/FLARMatchPatt_Color_WITHOUT_PCA.as.html"/>
+				<node label="IFLARMatchPatt.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/match/IFLARMatchPatt.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.param" icon="packageIcon" expanded="true">
+				<node label="FLARCameraDistortionFactor.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/param/FLARCameraDistortionFactor.as.html"/>
+				<node label="FLARParam.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/param/FLARParam.as.html"/>
+				<node label="FLARPerspectiveProjectionMatrix.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/param/FLARPerspectiveProjectionMatrix.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.pickup" icon="packageIcon" expanded="true">
+				<node label="FLARColorPatt_O3.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/pickup/FLARColorPatt_O3.as.html"/>
+				<node label="FLARDynamicRatioColorPatt_O3.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/pickup/FLARDynamicRatioColorPatt_O3.as.html"/>
+				<node label="IFLARColorPatt.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/pickup/IFLARColorPatt.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.raster" icon="packageIcon" expanded="true">
+				<node label="FLARBinRaster.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/FLARBinRaster.as.html"/>
+				<node label="FLARRaster_BasicClass.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/FLARRaster_BasicClass.as.html"/>
+				<node label="FLARRaster_BitmapData.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/FLARRaster_BitmapData.as.html"/>
+				<node label="IFLARRaster.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/IFLARRaster.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.raster.rgb" icon="packageIcon" expanded="true">
+				<node label="FLARRgbRaster_BasicClass.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/rgb/FLARRgbRaster_BasicClass.as.html"/>
+				<node label="FLARRgbRaster_BGRA.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/rgb/FLARRgbRaster_BGRA.as.html"/>
+				<node label="FLARRgbRaster_BitmapData.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/rgb/FLARRgbRaster_BitmapData.as.html"/>
+				<node label="IFLARRgbRaster.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/rgb/IFLARRgbRaster.as.html"/>
+				<node label="PixelReader.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/raster/rgb/PixelReader.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.rasterfilter.rgb2bin" icon="packageIcon" expanded="true">
+				<node label="FLARRasterFilter_ARToolkitThreshold.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/rasterfilter/rgb2bin/FLARRasterFilter_ARToolkitThreshold.as.html"/>
+				<node label="FLARRasterFilter_BitmapDataThreshold.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/rasterfilter/rgb2bin/FLARRasterFilter_BitmapDataThreshold.as.html"/>
+				<node label="IFLARRasterFilter_RgbToBin.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/rasterfilter/rgb2bin/IFLARRasterFilter_RgbToBin.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.rasterreader" icon="packageIcon" expanded="true">
+				<node label="FLARBitmapDataReader.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/rasterreader/FLARBitmapDataReader.as.html"/>
+				<node label="FLARBufferFormat.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/rasterreader/FLARBufferFormat.as.html"/>
+				<node label="FLARBufferReader.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/rasterreader/FLARBufferReader.as.html"/>
+				<node label="IFLARBufferReader.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/rasterreader/IFLARBufferReader.as.html"/>
+				<node label="IFLARRgbPixelReader.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/rasterreader/IFLARRgbPixelReader.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.transmat" icon="packageIcon" expanded="true">
+				<node label="FLARTransMat.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/FLARTransMat.as.html"/>
+				<node label="FLARTransMatResult.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/FLARTransMatResult.as.html"/>
+				<node label="FLARTransOffset.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/FLARTransOffset.as.html"/>
+				<node label="IFLARTransMat.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/IFLARTransMat.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.transmat.fitveccalc" icon="packageIcon" expanded="true">
+				<node label="FLARFitVecCalculator.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/fitveccalc/FLARFitVecCalculator.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.transmat.optimize" icon="packageIcon" expanded="true">
+				<node label="FLARRotTransOptimize.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/optimize/FLARRotTransOptimize.as.html"/>
+				<node label="IFLARRotTransOptimize.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/optimize/IFLARRotTransOptimize.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.transmat.rotmatrix" icon="packageIcon" expanded="true">
+				<node label="FLARRotMatrix.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/rotmatrix/FLARRotMatrix.as.html"/>
+				<node label="FLARRotVector.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/transmat/rotmatrix/FLARRotVector.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.types" icon="packageIcon" expanded="true">
+				<node label="FLARDoublePoint2d.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/FLARDoublePoint2d.as.html"/>
+				<node label="FLARDoublePoint3d.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/FLARDoublePoint3d.as.html"/>
+				<node label="FLARIntPoint.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/FLARIntPoint.as.html"/>
+				<node label="FLARIntRect.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/FLARIntRect.as.html"/>
+				<node label="FLARIntSize.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/FLARIntSize.as.html"/>
+				<node label="FLARLinear.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/FLARLinear.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.core.types.matrix" icon="packageIcon" expanded="true">
+				<node label="FLARDoubleMatrix33.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/matrix/FLARDoubleMatrix33.as.html"/>
+				<node label="FLARDoubleMatrix34.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/matrix/FLARDoubleMatrix34.as.html"/>
+				<node label="IFLARDoubleMatrix.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/core/types/matrix/IFLARDoubleMatrix.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.detector" icon="packageIcon" expanded="true">
+				<node label="FLARMultiMarkerDetector.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/detector/FLARMultiMarkerDetector.as.html"/>
+				<node label="FLARMultiMarkerDetectorResult.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/detector/FLARMultiMarkerDetectorResult.as.html"/>
+				<node label="FLARMultiMarkerDetectorResultHolder.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/detector/FLARMultiMarkerDetectorResultHolder.as.html"/>
+				<node label="FLARSingleMarkerDetector.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/detector/FLARSingleMarkerDetector.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.pv3d" icon="packageIcon" expanded="true">
+				<node label="FLARBaseNode.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/pv3d/FLARBaseNode.as.html"/>
+				<node label="FLARCamera3D.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/pv3d/FLARCamera3D.as.html"/>
+			</node>
+			<node label="org.libspark.flartoolkit.utils" icon="packageIcon" expanded="true">
+				<node label="ArrayUtil.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/utils/ArrayUtil.as.html"/>
+				<node label="DoubleValue.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/utils/DoubleValue.as.html"/>
+				<node label="NyObjectStack.as" icon="actionScriptIcon" url="source/org/libspark/flartoolkit/utils/NyObjectStack.as.html"/>
+			</node>
+			<node selected="true" label="AwayFLARDemo.mxml" icon="mxmlAppIcon" url="source/AwayFLARDemo.mxml.html"/>
+			<node label="AwayFLARDemoUI.as" icon="actionScriptIcon" url="source/AwayFLARDemoUI.as.html"/>
+			<node label="AwayFLARView.as" icon="actionScriptIcon" url="source/AwayFLARView.as.html"/>
+		</node>
+	</nodes>
+</index>

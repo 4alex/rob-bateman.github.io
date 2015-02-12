@@ -1,0 +1,171 @@
+assets.swf Movie Report
+------------------------
+
+Frame #    Frame Bytes    Total Bytes    Scene
+-------    -----------    -----------    ----------------
+      1        1010982        1010982    Scene 1 (AS 3.0 Classes Export Frame)
+
+Scene                        Shape Bytes    Text Bytes    ActionScript Bytes
+-------------------------    -----------    ----------    ------------------
+Scene 1                                0             0                     0
+
+Symbol                       Shape Bytes    Text Bytes    ActionScript Bytes
+-------------------------    -----------    ----------    ------------------
+features-lights                        0             0                     0
+S1Btn5                                 0             0                     0
+S1Btn4                                 0             0                     0
+S1Btn3                                 0             0                     0
+S1Btn1                                 0            89                     0
+S1Btn2                                 0             0                     0
+Instructions                          46            75                     0
+riverSub                               0             0                     0
+Symbol 463                             0             0                     0
+River                                  0             0                     0
+Section1InvisibleButtons               0             0                     0
+InTheKnowTop                           0             0                     0
+SoundView                              0             0                     0
+BehindMC                               0            54                     0
+lightHex                              30             0                     0
+NavigationLight                        0             0                     0
+lbl1                                   0            51                     0
+lbl2                                   0            48                     0
+lbl3                                   0            45                     0
+lbl4                                   0            51                     0
+lbl5                                   0            60                     0
+line                                  29             0                     0
+hit                                   26             0                     0
+num_01                                 0            68                     0
+num_02                                 0            38                     0
+num_03                                 0            39                     0
+num_04                                 0            39                     0
+num_05                                 0            39                     0
+Btn1                                   0             0                     0
+Btn2                                   0             0                     0
+Btn3                                   0             0                     0
+Btn4                                   0             0                     0
+Btn5                                   0             0                     0
+box                                   26             0                     0
+msg                                    0             0                     0
+blocker                               30             0                     0
+AlertView                              0             0                     0
+ScatterShape1                         85             0                     0
+ScatterShape2                         43             0                     0
+ScatterShape3                        128             0                     0
+ScatterShape4                        113             0                     0
+ScatterShape5                        114             0                     0
+ScatterShape6                         71             0                     0
+ScatterShape7                         72             0                     0
+ScatterShape8                         86             0                     0
+ScatterShape9                         56             0                     0
+InTheKnowMenuMC                       28           472                     0
+Background                             0             0                     0
+TheFirstEverMC                         0            87                     0
+S5DescriptionMC                        0           280                     0
+TakeTheNextStepMC                      0           139                     0
+InTheKnowMC                            0            70                     0
+Section4ControlBtns                    0             0                     0
+ControlBtns                            0             0                     0
+Testimonials2MC                        0            92                     0
+Testimonials3MC                        0           169                     0
+Testimonials4MC                        0           191                     0
+Testimonials6MC                        0           155                     0
+Testimonials5MC                        0           144                     0
+Testimonials1MC                        0           114                     0
+OverlayView                            0             0                     0
+lowerGlow                              0             0                     0
+upperGlow                              0             0                     0
+LightsLayer                            0             0                     0
+Away3dView                             0             0                     0
+NavigationMenu                         0             0                     0
+Ui                                     0             0                     0
+ratioFrame                            26             0                     0
+btnHit                                 0             0                     0
+IdeasMC                                0             0                     0
+TicketMC                               0             0                     0
+Blotter                                0             0                     0
+PriceGridMC                            0             0                     0
+CurrencyPairsMC                        0             0                     0
+ChartMC                                0             0                     0
+GetMCStage                             0             0                     0
+BehindMC                               0            54                     0
+btn                                   63             0                     0
+matrixLogo                             0             0                     0
+flareHex                               0             0                     0
+arrow                                 64             0                     0
+light                                  0             0                     0
+CarouselBase                          63             0                     0
+CarouselArrowLeft                     52             0                     0
+NextBtn                                0             0                     0
+Tween 1                               54             0                     0
+Loader                               155             0                     0
+bt_blue                               54             0                     0
+hover                                 53             0                     0
+bt_email                               0           102                     0
+mcEmail                               42             0                     0
+bt_tellafriend                         0           105                     0
+mcTellAFriend                          0             0                     0
+SmallLabel                           311           290                     0
+bar1                                   0             0                     0
+bar2                                   0             0                     0
+bar3                                   0             0                     0
+bar4                                   0             0                     0
+bar5                                  22             0                     0
+graphicEQ                              0             0                     0
+MuteBtn                               92            81                     0
+spotSubClip                          212             0                     0
+iPulse                                 0             0                     0
+mcTagInfo                              0             0                     0
+arrow                                 64             0                     0
+spotPlaySubClip                      271             0                     0
+
+
+Tweened Shapes: 1795 bytes
+
+Font Name                 Bytes        Characters    
+----------------------    ---------    --------------
+News Gothic                    1861     BCFHMPadegiklnoprstu
+NewsGoth BT Roman              8981     !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ˆ˜–—‘’‚“”„†‡•…‰‹›€™
+News Gothic MT Bold             709    DEMNOSTU
+NewsGoth BT Bold               9065     !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ˆ˜–—‘’‚“”„†‡•…‰‹›€™
+News Gothic Bold Bold           922     ?MWahirtxy
+News Gothic Bold               3857     012345?ABCDEFGILMNOPRSTUWacdeghiklmnoprstuxy
+
+ActionScript Bytes    Location
+------------------    --------
+            372924    ActionScript 3.0 Classes
+
+Bitmap                     Compressed    Compression
+-----------------------    ----------  --------  -----------
+charts.jpg                      9583     1010000   JPEG Quality=50
+currencypairs.jpg              16420      758268   JPEG Quality=50
+pricegrids.jpg                 16037      956384   JPEG Quality=50
+blotter.jpg                    25530     1034000   JPEG Quality=50
+ticket.jpg                     10244     1026000   JPEG Quality=50
+ideas.jpg                      15086     1040000   JPEG Quality=50
+backingGradient.png           175525     2880000   Lossless
+features-lights.png            56266     2263536   JPEG Quality=90
+light.png                      89095    10824100   JPEG Quality=50
+Bitmap 77                       1148        6400   JPEG Quality=50
+matrixLogo.png                 13134       78988   Lossless
+flareHex.png                    8745      143112   Lossless
+videoplayer.jpg                 3653      734720   JPEG Quality=50
+river-floor-static.png         45263     3001600   JPEG Quality=80
+
+Event Sounds: 11KHz Mono 16 kbps MP3
+
+
+Sound name                 Bytes        Format    
+-----------------------    ---------    ----------
+TestimonialWhoosh.mp3        2407        11KHz Mono 16 kbps MP3
+MenuRoll.mp3                  847        11KHz Mono 16 kbps MP3
+MenuRevealServo2.mp3         1263        11KHz Mono 16 kbps MP3
+MenuClick.mp3                1159        11KHz Mono 16 kbps MP3
+EnviroSound                120031        11KHz Mono 16 kbps MP3
+CarouselServoSound.mp3       1991        11KHz Mono 16 kbps MP3
+Animate3B.mp3                9687        11KHz Mono 16 kbps MP3
+Animate1B.mp3                9999        11KHz Mono 16 kbps MP3
+Animate1A.mp3               10935        11KHz Mono 16 kbps MP3
+
+
+
+

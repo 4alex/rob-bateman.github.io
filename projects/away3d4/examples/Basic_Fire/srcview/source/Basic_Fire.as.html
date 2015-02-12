@@ -1,0 +1,447 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Basic_Fire.as</title>
+<link rel="stylesheet" type="text/css" href="../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="ActionScriptComment">/*
+
+Creating fire effects with particles in Away3D
+
+Demonstrates:
+
+How to setup a particle geometry and particle animationset in order to simulate fire.
+How to stagger particle animation instances with different animator objects running on different timers.
+How to apply fire lighting to a floor mesh using a multipass material.
+
+Code by Rob Bateman &amp; Liao Cheng
+rob@infiniteturtles.co.uk
+http://www.infiniteturtles.co.uk
+liaocheng210@126.com
+
+This code is distributed under the MIT License
+
+Copyright (c) The Away Foundation http://www.theawayfoundation.org
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+*/</span>
+
+<span class="ActionScriptpackage">package</span>
+<span class="ActionScriptBracket/Brace">{</span>
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">display</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">events</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">geom</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">utils</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">animators</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">animators</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">data</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">animators</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">nodes</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">cameras</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">containers</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">controllers</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">core</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">base</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">debug</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">entities</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">lights</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">materials</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">materials</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">lightpickers</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">primitives</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">tools</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">helpers</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">utils</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+    
+    <span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptMetadata">SWF</span><span class="ActionScriptBracket/Brace">(</span>=<span class="ActionScriptString">"#000000"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">frameRate</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">"60"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">quality</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">"LOW"</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptclass">class</span> <span class="ActionScriptDefault_Text">Basic_Fire</span> <span class="ActionScriptReserved">extends</span> <span class="ActionScriptDefault_Text">Sprite</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptReserved">static</span> <span class="ActionScriptReserved">const</span> <span class="ActionScriptDefault_Text">NUM_FIRES</span>:<span class="ActionScriptDefault_Text">uint</span> <span class="ActionScriptOperator">=</span> 10;
+        
+        <span class="ActionScriptComment">//signature swf
+</span>        <span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptMetadata">Embed</span><span class="ActionScriptBracket/Brace">(</span>=<span class="ActionScriptString">"/../embeds/signature.swf"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">symbol</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">"Signature"</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">SignatureSwf</span>:<span class="ActionScriptDefault_Text">Class</span>;
+        
+        <span class="ActionScriptComment">//fire texture
+</span>        <span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptMetadata">Embed</span><span class="ActionScriptBracket/Brace">(</span>=<span class="ActionScriptString">"../embeds/blue.png"</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptReserved">static</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">FireTexture</span>:<span class="ActionScriptDefault_Text">Class</span>;
+        
+        <span class="ActionScriptComment">//plane textures
+</span>        <span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptMetadata">Embed</span><span class="ActionScriptBracket/Brace">(</span>=<span class="ActionScriptString">"/../embeds/floor_diffuse.jpg"</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptReserved">static</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">FloorDiffuse</span>:<span class="ActionScriptDefault_Text">Class</span>;
+        <span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptMetadata">Embed</span><span class="ActionScriptBracket/Brace">(</span>=<span class="ActionScriptString">"/../embeds/floor_specular.jpg"</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptReserved">static</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">FloorSpecular</span>:<span class="ActionScriptDefault_Text">Class</span>;
+        <span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptMetadata">Embed</span><span class="ActionScriptBracket/Brace">(</span>=<span class="ActionScriptString">"/../embeds/floor_normal.jpg"</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptReserved">static</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">FloorNormals</span>:<span class="ActionScriptDefault_Text">Class</span>;
+        
+        <span class="ActionScriptComment">//engine variables
+</span>        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">scene</span>:<span class="ActionScriptDefault_Text">Scene3D</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">camera</span>:<span class="ActionScriptDefault_Text">Camera3D</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">view</span>:<span class="ActionScriptDefault_Text">View3D</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">cameraController</span>:<span class="ActionScriptDefault_Text">HoverController</span>;
+        
+        <span class="ActionScriptComment">//signature variables
+</span>        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">Signature</span>:<span class="ActionScriptDefault_Text">Sprite</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">SignatureBitmap</span>:<span class="ActionScriptDefault_Text">Bitmap</span>;
+        
+        <span class="ActionScriptComment">//material objects
+</span>        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">planeMaterial</span>:<span class="ActionScriptDefault_Text">TextureMultiPassMaterial</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">particleMaterial</span>:<span class="ActionScriptDefault_Text">TextureMaterial</span>;
+        
+        <span class="ActionScriptComment">//light objects
+</span>        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">directionalLight</span>:<span class="ActionScriptDefault_Text">DirectionalLight</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">lightPicker</span>:<span class="ActionScriptDefault_Text">StaticLightPicker</span>;
+        
+        <span class="ActionScriptComment">//particle objects
+</span>        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">fireAnimationSet</span>:<span class="ActionScriptDefault_Text">ParticleAnimationSet</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">particleGeometry</span>:<span class="ActionScriptDefault_Text">ParticleGeometry</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">timer</span>:<span class="ActionScriptDefault_Text">Timer</span>;
+        
+        <span class="ActionScriptComment">//scene objects
+</span>        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">plane</span>:<span class="ActionScriptDefault_Text">Mesh</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">fireObjects</span>:<span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">FireVO</span><span class="ActionScriptBracket/Brace">&gt;</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">FireVO</span><span class="ActionScriptBracket/Brace">&gt;</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        
+        <span class="ActionScriptComment">//navigation variables
+</span>        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">move</span>:<span class="ActionScriptDefault_Text">Boolean</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">false</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">lastPanAngle</span>:<span class="ActionScriptDefault_Text">Number</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">lastTiltAngle</span>:<span class="ActionScriptDefault_Text">Number</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">lastMouseX</span>:<span class="ActionScriptDefault_Text">Number</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">lastMouseY</span>:<span class="ActionScriptDefault_Text">Number</span>;
+        
+        <span class="ActionScriptASDoc">/**
+         * Constructor
+         */</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">Basic_Fire</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">init</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Global initialise function
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">init</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">initEngine</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">initLights</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">initMaterials</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">initParticles</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">initObjects</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">initListeners</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initialise the engine
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initEngine</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">scaleMode</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">StageScaleMode</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">NO_SCALE</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">align</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">StageAlign</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">TOP_LEFT</span>;
+            
+            <span class="ActionScriptDefault_Text">scene</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Scene3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptDefault_Text">camera</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Camera3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptDefault_Text">view</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">View3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">antiAlias</span> <span class="ActionScriptOperator">=</span> 4;
+            <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">scene</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">scene</span>;
+            <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">camera</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">camera</span>;
+            
+            <span class="ActionScriptComment">//setup controller to be used on the camera
+</span>            <span class="ActionScriptDefault_Text">cameraController</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">HoverController</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">camera</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">distance</span> <span class="ActionScriptOperator">=</span> 1000;
+            <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">minTiltAngle</span> <span class="ActionScriptOperator">=</span> 0;
+            <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">maxTiltAngle</span> <span class="ActionScriptOperator">=</span> 90;
+            <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">panAngle</span> <span class="ActionScriptOperator">=</span> 45;
+            <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">tiltAngle</span> <span class="ActionScriptOperator">=</span> 20;
+            
+            <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addSourceURL</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptString">"srcview/index.html"</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">view</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">//add signature
+</span>            <span class="ActionScriptDefault_Text">Signature</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Sprite</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">SignatureSwf</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">SignatureBitmap</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Bitmap</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">BitmapData</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Signature</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">width</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">Signature</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">height</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptOperator">,</span> 0<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">quality</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">StageQuality</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">HIGH</span>;
+            <span class="ActionScriptDefault_Text">SignatureBitmap</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">bitmapData</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">draw</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Signature</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">quality</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">StageQuality</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">LOW</span>;
+            <span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">SignatureBitmap</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">AwayStats</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">view</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initialise the lights
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initLights</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">directionalLight</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">DirectionalLight</span><span class="ActionScriptBracket/Brace">(</span>0<span class="ActionScriptOperator">,</span> -1<span class="ActionScriptOperator">,</span> 0<span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">castsShadows</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">false</span>;
+            <span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">color</span> <span class="ActionScriptOperator">=</span> 0xeedddd;
+            <span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">diffuse</span> <span class="ActionScriptOperator">=</span> .5;
+            <span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ambient</span> <span class="ActionScriptOperator">=</span> .5;
+            <span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">specular</span> <span class="ActionScriptOperator">=</span> 0;
+            <span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ambientColor</span> <span class="ActionScriptOperator">=</span> 0x808090;
+            <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">scene</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptDefault_Text">lightPicker</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">StaticLightPicker</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptBracket/Brace">]</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initialise the materials
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initMaterials</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">planeMaterial</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">TextureMultiPassMaterial</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Cast</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">bitmapTexture</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">FloorDiffuse</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">planeMaterial</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">specularMap</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Cast</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">bitmapTexture</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">FloorSpecular</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">planeMaterial</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">normalMap</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Cast</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">bitmapTexture</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">FloorNormals</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">planeMaterial</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">lightPicker</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">lightPicker</span>;
+            <span class="ActionScriptDefault_Text">planeMaterial</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">repeat</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">true</span>;
+            <span class="ActionScriptDefault_Text">planeMaterial</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mipmap</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">false</span>;
+            <span class="ActionScriptDefault_Text">planeMaterial</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">specular</span> <span class="ActionScriptOperator">=</span> 10;
+            
+            <span class="ActionScriptDefault_Text">particleMaterial</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">TextureMaterial</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Cast</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">bitmapTexture</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">FireTexture</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">particleMaterial</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">blendMode</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">BlendMode</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ADD</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initialise the particles
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initParticles</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            
+            <span class="ActionScriptComment">//create the particle animation set
+</span>            <span class="ActionScriptDefault_Text">fireAnimationSet</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ParticleAnimationSet</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">true</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">//add some animations which can control the particles:
+</span>            <span class="ActionScriptComment">//the global animations can be set directly, because they influence all the particles with the same factor
+</span>            <span class="ActionScriptDefault_Text">fireAnimationSet</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addAnimation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ParticleBillboardNode</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">fireAnimationSet</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addAnimation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ParticleScaleNode</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">ParticlePropertiesMode</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">GLOBAL</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">false</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">false</span><span class="ActionScriptOperator">,</span> 2.5<span class="ActionScriptOperator">,</span> 0.5<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">fireAnimationSet</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addAnimation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ParticleVelocityNode</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">ParticlePropertiesMode</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">GLOBAL</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector3D</span><span class="ActionScriptBracket/Brace">(</span>0<span class="ActionScriptOperator">,</span> 80<span class="ActionScriptOperator">,</span> 0<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">fireAnimationSet</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addAnimation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ParticleColorNode</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">ParticlePropertiesMode</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">GLOBAL</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">false</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">false</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ColorTransform</span><span class="ActionScriptBracket/Brace">(</span>0<span class="ActionScriptOperator">,</span> 0<span class="ActionScriptOperator">,</span> 0<span class="ActionScriptOperator">,</span> 1<span class="ActionScriptOperator">,</span> 0xFF<span class="ActionScriptOperator">,</span> 0x33<span class="ActionScriptOperator">,</span> 0x01<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ColorTransform</span><span class="ActionScriptBracket/Brace">(</span>0<span class="ActionScriptOperator">,</span> 0<span class="ActionScriptOperator">,</span> 0<span class="ActionScriptOperator">,</span> 1<span class="ActionScriptOperator">,</span> 0x99<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">//no need to set the local animations here, because they influence all the particle with different factors.
+</span>            <span class="ActionScriptDefault_Text">fireAnimationSet</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addAnimation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ParticleVelocityNode</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">ParticlePropertiesMode</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">LOCAL_STATIC</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">//set the initParticleFunc. It will be invoked for the local static property initialization of every particle
+</span>            <span class="ActionScriptDefault_Text">fireAnimationSet</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">initParticleFunc</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">initParticleFunc</span>;
+            
+            <span class="ActionScriptComment">//create the original particle geometry
+</span>            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">particle</span>:<span class="ActionScriptDefault_Text">Geometry</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">PlaneGeometry</span><span class="ActionScriptBracket/Brace">(</span>10<span class="ActionScriptOperator">,</span> 10<span class="ActionScriptOperator">,</span> 1<span class="ActionScriptOperator">,</span> 1<span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">false</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">//combine them into a list
+</span>            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">geometrySet</span>:<span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">Geometry</span><span class="ActionScriptBracket/Brace">&gt;</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">Geometry</span><span class="ActionScriptBracket/Brace">&gt;</span>;
+            <span class="ActionScriptReserved">for</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">i</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> 0; <span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">&lt;</span> 500; <span class="ActionScriptDefault_Text">i</span><span class="ActionScriptOperator">++</span><span class="ActionScriptBracket/Brace">)</span>
+                <span class="ActionScriptDefault_Text">geometrySet</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">push</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">particle</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptDefault_Text">particleGeometry</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">ParticleGeometryHelper</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">generateGeometry</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">geometrySet</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initialise the scene objects
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initObjects</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">plane</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Mesh</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">PlaneGeometry</span><span class="ActionScriptBracket/Brace">(</span>1000<span class="ActionScriptOperator">,</span> 1000<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">planeMaterial</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">plane</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">geometry</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">scaleUV</span><span class="ActionScriptBracket/Brace">(</span>2<span class="ActionScriptOperator">,</span> 2<span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">plane</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">=</span> -20;
+            
+            <span class="ActionScriptDefault_Text">scene</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">plane</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">//create fire object meshes from geomtry and material, and apply particle animators to each
+</span>            <span class="ActionScriptReserved">for</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">i</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> 0; <span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">&lt;</span> <span class="ActionScriptDefault_Text">NUM_FIRES</span>; <span class="ActionScriptDefault_Text">i</span><span class="ActionScriptOperator">++</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptBracket/Brace">{</span>
+                <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">particleMesh</span>:<span class="ActionScriptDefault_Text">Mesh</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Mesh</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">particleGeometry</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">particleMaterial</span><span class="ActionScriptBracket/Brace">)</span>;
+                <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">animator</span>:<span class="ActionScriptDefault_Text">ParticleAnimator</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">ParticleAnimator</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">fireAnimationSet</span><span class="ActionScriptBracket/Brace">)</span>;
+                <span class="ActionScriptDefault_Text">particleMesh</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">animator</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">animator</span>;
+                
+                <span class="ActionScriptComment">//position the mesh
+</span>                <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">degree</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">/</span> <span class="ActionScriptDefault_Text">NUM_FIRES</span> <span class="ActionScriptOperator">*</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">PI</span> <span class="ActionScriptOperator">*</span> 2;
+                <span class="ActionScriptDefault_Text">particleMesh</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">x</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">sin</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">degree</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">*</span> 400;
+                <span class="ActionScriptDefault_Text">particleMesh</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">z</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">cos</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">degree</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">*</span> 400;
+                <span class="ActionScriptDefault_Text">particleMesh</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">=</span> 5;
+                
+                <span class="ActionScriptComment">//create a fire object and add it to the fire object vector
+</span>                <span class="ActionScriptDefault_Text">fireObjects</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">push</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">FireVO</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">particleMesh</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">animator</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+                <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">scene</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">particleMesh</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptBracket/Brace">}</span>
+            
+            <span class="ActionScriptComment">//setup timer for triggering each particle aniamtor
+</span>            <span class="ActionScriptDefault_Text">timer</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Timer</span><span class="ActionScriptBracket/Brace">(</span>1000<span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">fireObjects</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">length</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">timer</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">TimerEvent</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">TIMER</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onTimer</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">timer</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">start</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initialise the listeners
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initListeners</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ENTER_FRAME</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onEnterFrame</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">MouseEvent</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">MOUSE_DOWN</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onMouseDown</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">MouseEvent</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">MOUSE_UP</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onMouseUp</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">RESIZE</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onResize</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">onResize</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Initialiser function for particle properties
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">initParticleFunc</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">prop</span>:<span class="ActionScriptDefault_Text">ParticleProperties</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">prop</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">startTime</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">random</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">*</span>5;
+            <span class="ActionScriptDefault_Text">prop</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">duration</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">random</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">*</span> 4 <span class="ActionScriptOperator">+</span> 0.1;
+            
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">degree1</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">random</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">*</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">PI</span> <span class="ActionScriptOperator">*</span> 2;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">degree2</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">random</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">*</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">PI</span> <span class="ActionScriptOperator">*</span> 2;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">r</span>:<span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> 15;
+            <span class="ActionScriptDefault_Text">prop</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">ParticleVelocityNode</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">VELOCITY_VECTOR3D</span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">r</span> <span class="ActionScriptOperator">*</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">sin</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">degree1</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">*</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">cos</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">degree2</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">r</span> <span class="ActionScriptOperator">*</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">cos</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">degree1</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">*</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">cos</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">degree2</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">r</span> <span class="ActionScriptOperator">*</span> <span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">sin</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">degree2</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Returns an array of active lights in the scene
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">getAllLights</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptDefault_Text">Array</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">lights</span>:<span class="ActionScriptDefault_Text">Array</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Array</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptDefault_Text">lights</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">push</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">directionalLight</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptReserved">for each</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">fireVO</span>:<span class="ActionScriptDefault_Text">FireVO</span> <span class="ActionScriptReserved">in</span> <span class="ActionScriptDefault_Text">fireObjects</span><span class="ActionScriptBracket/Brace">)</span>
+                <span class="ActionScriptReserved">if</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">fireVO</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">light</span><span class="ActionScriptBracket/Brace">)</span>
+                    <span class="ActionScriptDefault_Text">lights</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">push</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">fireVO</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">light</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptReserved">return</span> <span class="ActionScriptDefault_Text">lights</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Timer event handler
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">onTimer</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">e</span>:<span class="ActionScriptDefault_Text">TimerEvent</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">fireObject</span>:<span class="ActionScriptDefault_Text">FireVO</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">fireObjects</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">timer</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">currentCount</span><span class="ActionScriptOperator">-</span>1<span class="ActionScriptBracket/Brace">]</span>;
+            
+            <span class="ActionScriptComment">//start the animator
+</span>            <span class="ActionScriptDefault_Text">fireObject</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">animator</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">start</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">//create the lightsource
+</span>            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">light</span>:<span class="ActionScriptDefault_Text">PointLight</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">PointLight</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">light</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">color</span> <span class="ActionScriptOperator">=</span> 0xFF3301;
+            <span class="ActionScriptDefault_Text">light</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">diffuse</span> <span class="ActionScriptOperator">=</span> 0;
+            <span class="ActionScriptDefault_Text">light</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">specular</span> <span class="ActionScriptOperator">=</span> 0;
+            <span class="ActionScriptDefault_Text">light</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">position</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">fireObject</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mesh</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">position</span>;
+            
+            <span class="ActionScriptComment">//add the lightsource to the fire object
+</span>            <span class="ActionScriptDefault_Text">fireObject</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">light</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">light</span>;
+            
+            <span class="ActionScriptComment">//update the lightpicker
+</span>            <span class="ActionScriptDefault_Text">lightPicker</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">lights</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">getAllLights</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Navigation and render loop
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">onEnterFrame</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">event</span>:<span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptReserved">if</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">move</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptBracket/Brace">{</span>
+                <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">panAngle</span> <span class="ActionScriptOperator">=</span> 0.3<span class="ActionScriptOperator">*</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mouseX</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">lastMouseX</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">+</span> <span class="ActionScriptDefault_Text">lastPanAngle</span>;
+                <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">tiltAngle</span> <span class="ActionScriptOperator">=</span> 0.3<span class="ActionScriptOperator">*</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mouseY</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">lastMouseY</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">+</span> <span class="ActionScriptDefault_Text">lastTiltAngle</span>;
+            <span class="ActionScriptBracket/Brace">}</span>
+            
+            <span class="ActionScriptComment">//animate lights
+</span>            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">fireVO</span>:<span class="ActionScriptDefault_Text">FireVO</span>;
+            <span class="ActionScriptReserved">for each</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">fireVO</span> <span class="ActionScriptReserved">in</span> <span class="ActionScriptDefault_Text">fireObjects</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptBracket/Brace">{</span>
+                <span class="ActionScriptComment">//update flame light
+</span>                <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">light</span> : <span class="ActionScriptDefault_Text">PointLight</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">fireVO</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">light</span>;
+                
+                <span class="ActionScriptReserved">if</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptOperator">!</span><span class="ActionScriptDefault_Text">light</span><span class="ActionScriptBracket/Brace">)</span>
+                    <span class="ActionScriptReserved">continue</span>;
+                
+                <span class="ActionScriptReserved">if</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">fireVO</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">strength</span> <span class="ActionScriptOperator">&lt;</span> 1<span class="ActionScriptBracket/Brace">)</span>
+                    <span class="ActionScriptDefault_Text">fireVO</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">strength</span> <span class="ActionScriptOperator">+=</span> 0.1;
+                
+                <span class="ActionScriptDefault_Text">light</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">fallOff</span> <span class="ActionScriptOperator">=</span> 380<span class="ActionScriptOperator">+</span><span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">random</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">*</span>20;
+                <span class="ActionScriptDefault_Text">light</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">radius</span> <span class="ActionScriptOperator">=</span> 200<span class="ActionScriptOperator">+</span><span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">random</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">*</span>30;
+                <span class="ActionScriptDefault_Text">light</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">diffuse</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">light</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">specular</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">fireVO</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">strength</span><span class="ActionScriptOperator">+</span><span class="ActionScriptDefault_Text">Math</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">random</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">*</span>.2;
+            <span class="ActionScriptBracket/Brace">}</span>
+            
+            <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">render</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Mouse down listener for navigation
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">onMouseDown</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">event</span>:<span class="ActionScriptDefault_Text">MouseEvent</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">lastPanAngle</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">panAngle</span>;
+            <span class="ActionScriptDefault_Text">lastTiltAngle</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">cameraController</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">tiltAngle</span>;
+            <span class="ActionScriptDefault_Text">lastMouseX</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mouseX</span>;
+            <span class="ActionScriptDefault_Text">lastMouseY</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mouseY</span>;
+            <span class="ActionScriptDefault_Text">move</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">true</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">MOUSE_LEAVE</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onStageMouseLeave</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Mouse up listener for navigation
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">onMouseUp</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">event</span>:<span class="ActionScriptDefault_Text">MouseEvent</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">move</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">false</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">removeEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">MOUSE_LEAVE</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onStageMouseLeave</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Mouse stage leave listener for navigation
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">onStageMouseLeave</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">event</span>:<span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">move</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">false</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">removeEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">MOUSE_LEAVE</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">onStageMouseLeave</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * stage listener for resize events
+         */</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">onResize</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">event</span>:<span class="ActionScriptDefault_Text">Event</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">null</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">width</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">stageWidth</span>;
+            <span class="ActionScriptDefault_Text">view</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">height</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">stageHeight</span>;
+            <span class="ActionScriptDefault_Text">SignatureBitmap</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">stageHeight</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">Signature</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">height</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+    <span class="ActionScriptBracket/Brace">}</span>
+<span class="ActionScriptBracket/Brace">}</span>
+
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">animators</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">entities</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">away3d</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">lights</span><span class="ActionScriptOperator">.</span><span class="ActionScriptOperator">*</span>;
+
+<span class="ActionScriptASDoc">/**
+ * Data class for the fire objects
+ */</span>
+<span class="ActionScriptReserved">internal</span> <span class="ActionScriptclass">class</span> <span class="ActionScriptDefault_Text">FireVO</span>
+<span class="ActionScriptBracket/Brace">{</span>
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">mesh</span> : <span class="ActionScriptDefault_Text">Mesh</span>;
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">animator</span> : <span class="ActionScriptDefault_Text">ParticleAnimator</span>;
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">light</span> : <span class="ActionScriptDefault_Text">PointLight</span>;
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">strength</span> : <span class="ActionScriptDefault_Text">Number</span> <span class="ActionScriptOperator">=</span> 0;
+    
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">FireVO</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">mesh</span>:<span class="ActionScriptDefault_Text">Mesh</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">animator</span>:<span class="ActionScriptDefault_Text">ParticleAnimator</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mesh</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">mesh</span>;
+        <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">animator</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">animator</span>;
+    <span class="ActionScriptBracket/Brace">}</span>
+<span class="ActionScriptBracket/Brace">}</span></pre></body>
+</html>

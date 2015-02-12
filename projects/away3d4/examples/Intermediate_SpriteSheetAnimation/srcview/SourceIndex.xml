@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Intermediate_SpriteSheetAnimation</title>
+	<nodes>
+		<node label="embeds">
+			<node label="spritesheets">
+				<node label="textures">
+					<node icon="imageIcon" label="back_CB0.jpg" url="source/embeds/spritesheets/textures/back_CB0.jpg.html"/>
+					<node icon="imageIcon" label="back_CB1.jpg" url="source/embeds/spritesheets/textures/back_CB1.jpg.html"/>
+					<node icon="imageIcon" label="back_CB2.jpg" url="source/embeds/spritesheets/textures/back_CB2.jpg.html"/>
+					<node icon="imageIcon" label="back_CB3.jpg" url="source/embeds/spritesheets/textures/back_CB3.jpg.html"/>
+					<node icon="imageIcon" label="back_CB4.jpg" url="source/embeds/spritesheets/textures/back_CB4.jpg.html"/>
+					<node icon="imageIcon" label="back_CB5.jpg" url="source/embeds/spritesheets/textures/back_CB5.jpg.html"/>
+				</node>
+				<node icon="swfIcon" label="digits.swf" url="source/embeds/spritesheets/digits.swf"/>
+				<node icon="imageIcon" label="testSheet1.jpg" url="source/embeds/spritesheets/testSheet1.jpg.html"/>
+				<node icon="imageIcon" label="testSheet2.jpg" url="source/embeds/spritesheets/testSheet2.jpg.html"/>
+			</node>
+			<node icon="flaIcon" label="signature.fla" url="source/embeds/signature.fla"/>
+			<node icon="swfIcon" label="signature.swf" url="source/embeds/signature.swf"/>
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node icon="htmlIcon" label="index.template.html" url="source/html-template/index.template.html"/>
+			<node icon="swfIcon" label="playerProductInstall.swf" url="source/html-template/playerProductInstall.swf"/>
+			<node label="swfobject.js" url="source/html-template/swfobject.js.txt"/>
+		</node>
+		<node label="src">
+			<node label="assets">
+				<node label="tictac">
+					<node label="textures">
+						<node icon="imageIcon" label="furniture_NM.jpg" url="source/assets/tictac/textures/furniture_NM.jpg.html"/>
+						<node icon="imageIcon" label="furniture_NM.png" url="source/assets/tictac/textures/furniture_NM.png.html"/>
+						<node icon="imageIcon" label="m_backside.jpg" url="source/assets/tictac/textures/m_backside.jpg.html"/>
+						<node icon="imageIcon" label="m_body.jpg" url="source/assets/tictac/textures/m_body.jpg.html"/>
+						<node icon="imageIcon" label="m_button.jpg" url="source/assets/tictac/textures/m_button.jpg.html"/>
+						<node icon="imageIcon" label="m_chromebody.jpg" url="source/assets/tictac/textures/m_chromebody.jpg.html"/>
+						<node icon="imageIcon" label="m_delimiter.jpg" url="source/assets/tictac/textures/m_delimiter.jpg.html"/>
+						<node icon="imageIcon" label="m_drawerbtn.jpg" url="source/assets/tictac/textures/m_drawerbtn.jpg.html"/>
+						<node icon="imageIcon" label="m_frontscreen.jpg" url="source/assets/tictac/textures/m_frontscreen.jpg.html"/>
+						<node icon="imageIcon" label="m_furniture.jpg" url="source/assets/tictac/textures/m_furniture.jpg.html"/>
+						<node icon="imageIcon" label="m_hours.jpg" url="source/assets/tictac/textures/m_hours.jpg.html"/>
+						<node icon="imageIcon" label="m_minutes.jpg" url="source/assets/tictac/textures/m_minutes.jpg.html"/>
+						<node icon="imageIcon" label="m_seconds.jpg" url="source/assets/tictac/textures/m_seconds.jpg.html"/>
+						<node icon="imageIcon" label="m_wall.jpg" url="source/assets/tictac/textures/m_wall.jpg.html"/>
+						<node icon="imageIcon" label="m_wire.jpg" url="source/assets/tictac/textures/m_wire.jpg.html"/>
+					</node>
+					<node label="tictac.awd" url="source/assets/tictac/tictac.awd"/>
+				</node>
+			</node>
+			<node icon="mxmlAppIcon" selected="true" label="Intermediate_SpriteSheetAnimation.as" url="source/Intermediate_SpriteSheetAnimation.as.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 1349K)" url="Intermediate_SpriteSheetAnimation.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex451_sdk_download">
+	</sdklink>
+</index>

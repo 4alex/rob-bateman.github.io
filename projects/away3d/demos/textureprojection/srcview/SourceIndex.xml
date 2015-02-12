@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Away3dTextureProjection</title>
+	<nodes>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="AC_OETags.js" url="source/html-template/AC_OETags.js.txt"/>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+		</node>
+		<node label="src" icon="classpathIcon" expanded="true">
+			<node label="assets">
+				<node label="bathroomtilegray3.jpg" icon="imageIcon" url="source/assets/bathroomtilegray3.jpg.html"/>
+				<node label="caustics.fla" icon="flaIcon" url="source/assets/caustics.fla"/>
+				<node label="caustics.flv" url="source/assets/caustics.flv"/>
+				<node label="caustics.swf" icon="swfIcon" url="source/assets/caustics.swf"/>
+				<node label="signature.swf" icon="swfIcon" url="source/assets/signature.swf"/>
+			</node>
+			<node selected="true" label="Away3DTextureProjection.as" icon="mxmlAppIcon" url="source/Away3DTextureProjection.as.html"/>
+		</node>
+	</nodes>
+</index>

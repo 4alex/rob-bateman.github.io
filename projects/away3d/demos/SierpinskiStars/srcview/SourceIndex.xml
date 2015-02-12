@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Advanced_SierpinskiStars</title>
+	<nodes>
+		<node label="src" icon="classpathIcon" expanded="true">
+			<node label="assets">
+				<node label="signature.swf" icon="swfIcon" url="source/assets/signature.swf"/>
+				<node label="sirius.jpg" icon="imageIcon" url="source/assets/sirius.jpg.html"/>
+			</node>
+			<node selected="true" label="Advanced_SierpinskiStars.as" icon="mxmlAppIcon" url="source/Advanced_SierpinskiStars.as.html"/>
+		</node>
+	</nodes>
+</index>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Away3DNormalMapping</title>
+	<nodes>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="AC_OETags.js" url="source/html-template/AC_OETags.js.txt"/>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+		</node>
+		<node label="src" icon="classpathIcon" expanded="true">
+			<node label="assets">
+				<node label="pedestal2.MD2" url="source/assets/pedestal2.MD2"/>
+				<node label="pedestal_marble2.jpg" icon="imageIcon" url="source/assets/pedestal_marble2.jpg.html"/>
+				<node label="signature.swf" icon="swfIcon" url="source/assets/signature.swf"/>
+				<node label="small_b_003.jpg" icon="imageIcon" url="source/assets/small_b_003.jpg.html"/>
+				<node label="small_d_003.jpg" icon="imageIcon" url="source/assets/small_d_003.jpg.html"/>
+				<node label="small_f_003.jpg" icon="imageIcon" url="source/assets/small_f_003.jpg.html"/>
+				<node label="small_l_003.jpg" icon="imageIcon" url="source/assets/small_l_003.jpg.html"/>
+				<node label="small_r_003.jpg" icon="imageIcon" url="source/assets/small_r_003.jpg.html"/>
+				<node label="small_u_003.jpg" icon="imageIcon" url="source/assets/small_u_003.jpg.html"/>
+				<node label="torso_marble2.jpg" icon="imageIcon" url="source/assets/torso_marble2.jpg.html"/>
+				<node label="torso_normal_400.jpg" icon="imageIcon" url="source/assets/torso_normal_400.jpg.html"/>
+				<node label="torsov2.MD2" url="source/assets/torsov2.MD2"/>
+			</node>
+			<node selected="true" label="Away3DNormalMapping.as" icon="mxmlAppIcon" url="source/Away3DNormalMapping.as.html"/>
+		</node>
+	</nodes>
+</index>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Intermediate_BSPBunker</title>
+	<nodes>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="AC_OETags.js" url="source/html-template/AC_OETags.js.txt"/>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+		</node>
+		<node label="src">
+			<node label="bunker">
+				<node label="images">
+					<node label="aw_11.png" icon="imageIcon" url="source/bunker/images/aw_11.png.html"/>
+					<node label="aw_13.png" icon="imageIcon" url="source/bunker/images/aw_13.png.html"/>
+					<node label="aw_15.png" icon="imageIcon" url="source/bunker/images/aw_15.png.html"/>
+					<node label="aw_17.png" icon="imageIcon" url="source/bunker/images/aw_17.png.html"/>
+					<node label="aw_19.png" icon="imageIcon" url="source/bunker/images/aw_19.png.html"/>
+					<node label="aw_21.png" icon="imageIcon" url="source/bunker/images/aw_21.png.html"/>
+					<node label="aw_23.png" icon="imageIcon" url="source/bunker/images/aw_23.png.html"/>
+					<node label="aw_25.png" icon="imageIcon" url="source/bunker/images/aw_25.png.html"/>
+					<node label="aw_27.png" icon="imageIcon" url="source/bunker/images/aw_27.png.html"/>
+					<node label="aw_29.png" icon="imageIcon" url="source/bunker/images/aw_29.png.html"/>
+					<node label="aw_3.png" icon="imageIcon" url="source/bunker/images/aw_3.png.html"/>
+					<node label="aw_31.png" icon="imageIcon" url="source/bunker/images/aw_31.png.html"/>
+					<node label="aw_33.png" icon="imageIcon" url="source/bunker/images/aw_33.png.html"/>
+					<node label="aw_35.png" icon="imageIcon" url="source/bunker/images/aw_35.png.html"/>
+					<node label="aw_37.png" icon="imageIcon" url="source/bunker/images/aw_37.png.html"/>
+					<node label="aw_39.png" icon="imageIcon" url="source/bunker/images/aw_39.png.html"/>
+					<node label="aw_5.png" icon="imageIcon" url="source/bunker/images/aw_5.png.html"/>
+					<node label="aw_7.png" icon="imageIcon" url="source/bunker/images/aw_7.png.html"/>
+					<node label="aw_9.png" icon="imageIcon" url="source/bunker/images/aw_9.png.html"/>
+				</node>
+				<node label="MyBunkerTree.awd" url="source/bunker/MyBunkerTree.awd"/>
+			</node>
+			<node selected="true" label="Intermediate_BSPBunker.as" icon="mxmlAppIcon" url="source/Intermediate_BSPBunker.as.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 1855K)" url="Intermediate_BSPBunker.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex4_sdk_download">
+	</sdklink>
+</index>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Intermediate_ParticleExplosions</title>
+	<nodes>
+		<node label="embeds">
+			<node icon="imageIcon" label="air.png" url="source/embeds/air.png.html"/>
+			<node icon="imageIcon" label="player.png" url="source/embeds/player.png.html"/>
+			<node icon="flaIcon" label="signature.fla" url="source/embeds/signature.fla"/>
+			<node icon="swfIcon" label="signature.swf" url="source/embeds/signature.swf"/>
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node icon="htmlIcon" label="index.template.html" url="source/html-template/index.template.html"/>
+			<node icon="swfIcon" label="playerProductInstall.swf" url="source/html-template/playerProductInstall.swf"/>
+			<node label="swfobject.js" url="source/html-template/swfobject.js.txt"/>
+		</node>
+		<node label="libs">
+			<node label="lib_simplegui.swc" url="source/libs/lib_simplegui.swc"/>
+			<node label="MinimalComps_0_9_9.swc" url="source/libs/MinimalComps_0_9_9.swc"/>
+			<node label="tweener.swc" url="source/libs/tweener.swc"/>
+		</node>
+		<node label="src">
+			<node icon="mxmlAppIcon" selected="true" label="Intermediate_ParticleExplosions.as" url="source/Intermediate_ParticleExplosions.as.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 382K)" url="Intermediate_ParticleExplosions.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex451_sdk_download">
+	</sdklink>
+</index>

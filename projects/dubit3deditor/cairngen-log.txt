@@ -1,0 +1,119 @@
+
+delete-cairngorm-directories:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> deleting Cairngorm directories
+
+create-cairngorm-directories:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> creating Cairngorm directories
+    [mkdir] Created dir: /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/business
+    [mkdir] Created dir: /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/commands
+    [mkdir] Created dir: /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/control
+    [mkdir] Created dir: /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/events
+    [mkdir] Created dir: /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/model
+    [mkdir] Created dir: /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/view
+    [mkdir] Created dir: /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/vo
+
+clean:
+
+create-model-locator:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): Online3dToolkitModelLocator.as.
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/model
+
+create-front-controller:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): Online3dToolkitController.as 
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/control
+
+create-service-locator:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): Online3dToolkitServices.mxml
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/business
+
+create:
+
+main:
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-include-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): HelloWorldEvent.as, HelloWorldCommand.as, HelloWorldDelegate.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/commands
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/business
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-exclude-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): TestEvent.as, TestCommand.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/commands
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-exclude-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): openModelLoadEvent.as, openModelLoadCommand.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/commands
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-exclude-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): OpenModelLoadEvent.as, OpenModelLoadCommand.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/commands
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-include-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): OpenModelWindowEvent.as, OpenModelWindowCommand.as, OpenModelWindowDelegate.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/commands
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/business
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-exclude-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): CloseWindowEvent.as, CloseWindowCommand.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/commands
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-include-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): LoadModelEvent.as, LoadModelCommand.as, LoadModelDelegate.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/commands
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/FlexWireframe/src/com/dubitlimited/online3dtoolkit/business
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-exclude-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): DisplayModelEvent.as, DisplayModelCommand.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/3DToolKit_Prototypes/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/3DToolKit_Prototypes/src/com/dubitlimited/online3dtoolkit/commands
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-include-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): LoadImagesEvent.as, LoadImagesCommand.as, LoadImagesDelegate.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/3DToolKit_Prototypes/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/3DToolKit_Prototypes/src/com/dubitlimited/online3dtoolkit/commands
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/3DToolKit_Prototypes/src/com/dubitlimited/online3dtoolkit/business
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
+
+create-sequence-include-delegate:
+     [echo] @Invoking Cairngen on [Online3dToolkit] --> Generating file(s): LoadImageEvent.as, LoadImageCommand.as, LoadImageDelegate.as
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/3DToolKit_Prototypes/src/com/dubitlimited/online3dtoolkit/events
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/3DToolKit_Prototypes/src/com/dubitlimited/online3dtoolkit/commands
+     [copy] Copying 1 file to /Users/robbateman/Work/eclipse/freelance/3DToolKit_Prototypes/src/com/dubitlimited/online3dtoolkit/business
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL

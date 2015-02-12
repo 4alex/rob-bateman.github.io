@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Intermediate_RealTimeEnvMap</title>
+	<nodes>
+		<node label="embeds">
+			<node label="skybox">
+				<node icon="imageIcon" label="sky_negX.jpg" url="source/embeds/skybox/sky_negX.jpg.html"/>
+				<node icon="imageIcon" label="sky_negY.jpg" url="source/embeds/skybox/sky_negY.jpg.html"/>
+				<node icon="imageIcon" label="sky_negZ.jpg" url="source/embeds/skybox/sky_negZ.jpg.html"/>
+				<node icon="imageIcon" label="sky_posX.jpg" url="source/embeds/skybox/sky_posX.jpg.html"/>
+				<node icon="imageIcon" label="sky_posY.jpg" url="source/embeds/skybox/sky_posY.jpg.html"/>
+				<node icon="imageIcon" label="sky_posZ.jpg" url="source/embeds/skybox/sky_posZ.jpg.html"/>
+			</node>
+			<node icon="imageIcon" label="arid.jpg" url="source/embeds/arid.jpg.html"/>
+			<node icon="imageIcon" label="desertHeightMap.jpg" url="source/embeds/desertHeightMap.jpg.html"/>
+			<node label="head.obj" url="source/embeds/head.obj"/>
+			<node label="R2D2.obj" url="source/embeds/R2D2.obj"/>
+			<node icon="imageIcon" label="r2d2_diffuse.jpg" url="source/embeds/r2d2_diffuse.jpg.html"/>
+			<node icon="flaIcon" label="signature.fla" url="source/embeds/signature.fla"/>
+			<node icon="swfIcon" label="signature.swf" url="source/embeds/signature.swf"/>
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node icon="htmlIcon" label="index.template.html" url="source/html-template/index.template.html"/>
+			<node icon="swfIcon" label="playerProductInstall.swf" url="source/html-template/playerProductInstall.swf"/>
+			<node label="swfobject.js" url="source/html-template/swfobject.js.txt"/>
+		</node>
+		<node label="src">
+			<node icon="mxmlAppIcon" selected="true" label="Intermediate_RealTimeEnvMap.as" url="source/Intermediate_RealTimeEnvMap.as.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 1197K)" url="Intermediate_RealTimeEnvMap.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex451_sdk_download">
+	</sdklink>
+</index>

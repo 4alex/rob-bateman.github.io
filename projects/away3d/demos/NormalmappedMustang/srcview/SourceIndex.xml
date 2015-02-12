@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Advanced_NormalmappedMustang</title>
+	<nodes>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="AC_OETags.js" url="source/html-template/AC_OETags.js.txt"/>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+		</node>
+		<node label="src" icon="classpathIcon" expanded="true">
+			<node label="AS3s" icon="packageIcon" expanded="true">
+				<node label="MustangGT500.as" icon="actionScriptIcon" url="source/AS3s/MustangGT500.as.html"/>
+			</node>
+			<node label="assets">
+				<node label="discbrakes.png" icon="imageIcon" url="source/assets/discbrakes.png.html"/>
+				<node label="dragradial.jpg" icon="imageIcon" url="source/assets/dragradial.jpg.html"/>
+				<node label="eleanor_hub.png" icon="imageIcon" url="source/assets/eleanor_hub.png.html"/>
+				<node label="eleanor_shadow_256.png" icon="imageIcon" url="source/assets/eleanor_shadow_256.png.html"/>
+				<node label="licenseplate.jpg" icon="imageIcon" url="source/assets/licenseplate.jpg.html"/>
+				<node label="Mustang_diffuse.jpg" icon="imageIcon" url="source/assets/Mustang_diffuse.jpg.html"/>
+				<node label="MustangObject_NRM_512.png" icon="imageIcon" url="source/assets/MustangObject_NRM_512.png.html"/>
+				<node label="signature_eddie_david.swf" icon="swfIcon" url="source/assets/signature_eddie_david.swf"/>
+			</node>
+			<node label="pbks">
+				<node label="BloomBrightness.pbj" url="source/pbks/BloomBrightness.pbj"/>
+				<node label="BloomBrightness.pbk" url="source/pbks/BloomBrightness.pbk"/>
+			</node>
+			<node selected="true" label="Advanced_NormalmappedMustang.as" icon="mxmlAppIcon" url="source/Advanced_NormalmappedMustang.as.html"/>
+		</node>
+	</nodes>
+</index>

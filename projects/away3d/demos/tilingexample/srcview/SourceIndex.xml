@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Away3DTilingExample</title>
+	<nodes>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="AC_OETags.js" url="source/html-template/AC_OETags.js.txt"/>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+		</node>
+		<node label="src" icon="classpathIcon" expanded="true">
+			<node label="assets">
+				<node label="cracks.jpg" icon="imageIcon" url="source/assets/cracks.jpg.html"/>
+				<node label="cracksOverlay.fla" icon="flaIcon" url="source/assets/cracksOverlay.fla"/>
+				<node label="cracksOverlay.png" icon="imageIcon" url="source/assets/cracksOverlay.png.html"/>
+				<node label="f360.3ds" url="source/assets/f360.3ds"/>
+				<node label="fskingr.jpg" icon="imageIcon" url="source/assets/fskingr.jpg.html"/>
+				<node label="morning_preview.jpg" icon="imageIcon" url="source/assets/morning_preview.jpg.html"/>
+				<node label="signature.swf" icon="swfIcon" url="source/assets/signature.swf"/>
+			</node>
+			<node selected="true" label="Away3DTilingExample.as" icon="mxmlAppIcon" url="source/Away3DTilingExample.as.html"/>
+		</node>
+	</nodes>
+</index>

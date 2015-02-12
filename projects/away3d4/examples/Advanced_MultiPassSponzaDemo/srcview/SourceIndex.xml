@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Advanced_MultiPassSponzaDemo</title>
+	<nodes>
+		<node label="embeds">
+			<node label="skybox">
+				<node label="hourglass_cubemap.atf" url="source/embeds/skybox/hourglass_cubemap.atf"/>
+			</node>
+			<node label="fire.atf" url="source/embeds/fire.atf"/>
+			<node icon="flaIcon" label="signature.fla" url="source/embeds/signature.fla"/>
+			<node icon="swfIcon" label="signature.swf" url="source/embeds/signature.swf"/>
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node icon="htmlIcon" label="index.template.html" url="source/html-template/index.template.html"/>
+			<node icon="swfIcon" label="playerProductInstall.swf" url="source/html-template/playerProductInstall.swf"/>
+			<node label="swfobject.js" url="source/html-template/swfobject.js.txt"/>
+		</node>
+		<node label="libs">
+			<node label="lib_simplegui.swc" url="source/libs/lib_simplegui.swc"/>
+			<node label="MinimalComps_0_9_9.swc" url="source/libs/MinimalComps_0_9_9.swc"/>
+			<node label="tweener.swc" url="source/libs/tweener.swc"/>
+		</node>
+		<node label="src">
+			<node label="assets">
+				<node label="sponza">
+					<node label="atf">
+						<node label="arch_ddn.atf" url="source/assets/sponza/atf/arch_ddn.atf"/>
+						<node label="arch_diff.atf" url="source/assets/sponza/atf/arch_diff.atf"/>
+						<node label="arch_spec.atf" url="source/assets/sponza/atf/arch_spec.atf"/>
+						<node label="background.atf" url="source/assets/sponza/atf/background.atf"/>
+						<node label="background_ddn.atf" url="source/assets/sponza/atf/background_ddn.atf"/>
+						<node label="bricks_a_ddn.atf" url="source/assets/sponza/atf/bricks_a_ddn.atf"/>
+						<node label="bricks_a_diff.atf" url="source/assets/sponza/atf/bricks_a_diff.atf"/>
+						<node label="bricks_a_spec.atf" url="source/assets/sponza/atf/bricks_a_spec.atf"/>
+						<node label="ceiling_a_diff.atf" url="source/assets/sponza/atf/ceiling_a_diff.atf"/>
+						<node label="ceiling_a_spec.atf" url="source/assets/sponza/atf/ceiling_a_spec.atf"/>
+						<node label="chain_texture.atf" url="source/assets/sponza/atf/chain_texture.atf"/>
+						<node label="chain_texture_ddn.atf" url="source/assets/sponza/atf/chain_texture_ddn.atf"/>
+						<node label="column_a_ddn.atf" url="source/assets/sponza/atf/column_a_ddn.atf"/>
+						<node label="column_a_diff.atf" url="source/assets/sponza/atf/column_a_diff.atf"/>
+						<node label="column_a_spec.atf" url="source/assets/sponza/atf/column_a_spec.atf"/>
+						<node label="column_b_ddn.atf" url="source/assets/sponza/atf/column_b_ddn.atf"/>
+						<node label="column_b_diff.atf" url="source/assets/sponza/atf/column_b_diff.atf"/>
+						<node label="column_b_spec.atf" url="source/assets/sponza/atf/column_b_spec.atf"/>
+						<node label="column_c_ddn.atf" url="source/assets/sponza/atf/column_c_ddn.atf"/>
+						<node label="column_c_diff.atf" url="source/assets/sponza/atf/column_c_diff.atf"/>
+						<node label="column_c_spec.atf" url="source/assets/sponza/atf/column_c_spec.atf"/>
+						<node label="curtain_blue_diff.atf" url="source/assets/sponza/atf/curtain_blue_diff.atf"/>
+						<node label="curtain_diff.atf" url="source/assets/sponza/atf/curtain_diff.atf"/>
+						<node label="curtain_green_diff.atf" url="source/assets/sponza/atf/curtain_green_diff.atf"/>
+						<node label="curtain_spec.atf" url="source/assets/sponza/atf/curtain_spec.atf"/>
+						<node label="details_diff.atf" url="source/assets/sponza/atf/details_diff.atf"/>
+						<node label="details_spec.atf" url="source/assets/sponza/atf/details_spec.atf"/>
+						<node label="fabric_blue_diff.atf" url="source/assets/sponza/atf/fabric_blue_diff.atf"/>
+						<node label="fabric_diff.atf" url="source/assets/sponza/atf/fabric_diff.atf"/>
+						<node label="fabric_green_diff.atf" url="source/assets/sponza/atf/fabric_green_diff.atf"/>
+						<node label="fabric_spec.atf" url="source/assets/sponza/atf/fabric_spec.atf"/>
+						<node label="flagpole_diff.atf" url="source/assets/sponza/atf/flagpole_diff.atf"/>
+						<node label="flagpole_spec.atf" url="source/assets/sponza/atf/flagpole_spec.atf"/>
+						<node label="floor_a_diff.atf" url="source/assets/sponza/atf/floor_a_diff.atf"/>
+						<node label="floor_a_spec.atf" url="source/assets/sponza/atf/floor_a_spec.atf"/>
+						<node label="gi_flag.atf" url="source/assets/sponza/atf/gi_flag.atf"/>
+						<node label="lion.atf" url="source/assets/sponza/atf/lion.atf"/>
+						<node label="lion2_ddn.atf" url="source/assets/sponza/atf/lion2_ddn.atf"/>
+						<node label="r2d2-texture.atf" url="source/assets/sponza/atf/r2d2-texture.atf"/>
+						<node label="roof_diff.atf" url="source/assets/sponza/atf/roof_diff.atf"/>
+						<node label="thorn_ddn.atf" url="source/assets/sponza/atf/thorn_ddn.atf"/>
+						<node label="thorn_diff.atf" url="source/assets/sponza/atf/thorn_diff.atf"/>
+						<node label="thorn_spec.atf" url="source/assets/sponza/atf/thorn_spec.atf"/>
+						<node label="vase_ddn.atf" url="source/assets/sponza/atf/vase_ddn.atf"/>
+						<node label="vase_dif.atf" url="source/assets/sponza/atf/vase_dif.atf"/>
+						<node label="vase_hanging.atf" url="source/assets/sponza/atf/vase_hanging.atf"/>
+						<node label="vase_plant.atf" url="source/assets/sponza/atf/vase_plant.atf"/>
+						<node label="vase_plant_spec.atf" url="source/assets/sponza/atf/vase_plant_spec.atf"/>
+						<node label="vase_round.atf" url="source/assets/sponza/atf/vase_round.atf"/>
+						<node label="vase_round_ddn.atf" url="source/assets/sponza/atf/vase_round_ddn.atf"/>
+						<node label="vase_round_spec.atf" url="source/assets/sponza/atf/vase_round_spec.atf"/>
+					</node>
+					<node icon="imageIcon" label="arch_ddn.jpg" url="source/assets/sponza/arch_ddn.jpg.html"/>
+					<node icon="imageIcon" label="arch_diff.jpg" url="source/assets/sponza/arch_diff.jpg.html"/>
+					<node icon="imageIcon" label="arch_spec.jpg" url="source/assets/sponza/arch_spec.jpg.html"/>
+					<node icon="imageIcon" label="background.jpg" url="source/assets/sponza/background.jpg.html"/>
+					<node icon="imageIcon" label="background_ddn.jpg" url="source/assets/sponza/background_ddn.jpg.html"/>
+					<node icon="imageIcon" label="bricks_a_ddn.jpg" url="source/assets/sponza/bricks_a_ddn.jpg.html"/>
+					<node icon="imageIcon" label="bricks_a_diff.jpg" url="source/assets/sponza/bricks_a_diff.jpg.html"/>
+					<node icon="imageIcon" label="bricks_a_spec.jpg" url="source/assets/sponza/bricks_a_spec.jpg.html"/>
+					<node icon="imageIcon" label="ceiling_a_diff.jpg" url="source/assets/sponza/ceiling_a_diff.jpg.html"/>
+					<node icon="imageIcon" label="ceiling_a_spec.jpg" url="source/assets/sponza/ceiling_a_spec.jpg.html"/>
+					<node icon="imageIcon" label="chain_texture.png" url="source/assets/sponza/chain_texture.png.html"/>
+					<node icon="imageIcon" label="chain_texture_ddn.jpg" url="source/assets/sponza/chain_texture_ddn.jpg.html"/>
+					<node icon="imageIcon" label="column_a_ddn.jpg" url="source/assets/sponza/column_a_ddn.jpg.html"/>
+					<node icon="imageIcon" label="column_a_diff.jpg" url="source/assets/sponza/column_a_diff.jpg.html"/>
+					<node icon="imageIcon" label="column_a_spec.jpg" url="source/assets/sponza/column_a_spec.jpg.html"/>
+					<node icon="imageIcon" label="column_b_ddn.jpg" url="source/assets/sponza/column_b_ddn.jpg.html"/>
+					<node icon="imageIcon" label="column_b_diff.jpg" url="source/assets/sponza/column_b_diff.jpg.html"/>
+					<node icon="imageIcon" label="column_b_spec.jpg" url="source/assets/sponza/column_b_spec.jpg.html"/>
+					<node icon="imageIcon" label="column_c_ddn.jpg" url="source/assets/sponza/column_c_ddn.jpg.html"/>
+					<node icon="imageIcon" label="column_c_diff.jpg" url="source/assets/sponza/column_c_diff.jpg.html"/>
+					<node icon="imageIcon" label="column_c_spec.jpg" url="source/assets/sponza/column_c_spec.jpg.html"/>
+					<node icon="imageIcon" label="curtain_blue_diff.jpg" url="source/assets/sponza/curtain_blue_diff.jpg.html"/>
+					<node icon="imageIcon" label="curtain_diff.jpg" url="source/assets/sponza/curtain_diff.jpg.html"/>
+					<node icon="imageIcon" label="curtain_green_diff.jpg" url="source/assets/sponza/curtain_green_diff.jpg.html"/>
+					<node icon="imageIcon" label="curtain_spec.jpg" url="source/assets/sponza/curtain_spec.jpg.html"/>
+					<node icon="imageIcon" label="details_diff.jpg" url="source/assets/sponza/details_diff.jpg.html"/>
+					<node icon="imageIcon" label="details_spec.jpg" url="source/assets/sponza/details_spec.jpg.html"/>
+					<node icon="imageIcon" label="fabric_blue_diff.jpg" url="source/assets/sponza/fabric_blue_diff.jpg.html"/>
+					<node icon="imageIcon" label="fabric_diff.jpg" url="source/assets/sponza/fabric_diff.jpg.html"/>
+					<node icon="imageIcon" label="fabric_green_diff.jpg" url="source/assets/sponza/fabric_green_diff.jpg.html"/>
+					<node icon="imageIcon" label="fabric_spec.jpg" url="source/assets/sponza/fabric_spec.jpg.html"/>
+					<node icon="imageIcon" label="flagpole_diff.jpg" url="source/assets/sponza/flagpole_diff.jpg.html"/>
+					<node icon="imageIcon" label="flagpole_spec.jpg" url="source/assets/sponza/flagpole_spec.jpg.html"/>
+					<node icon="imageIcon" label="floor_a_diff.jpg" url="source/assets/sponza/floor_a_diff.jpg.html"/>
+					<node icon="imageIcon" label="floor_a_spec.jpg" url="source/assets/sponza/floor_a_spec.jpg.html"/>
+					<node icon="imageIcon" label="gi_flag.jpg" url="source/assets/sponza/gi_flag.jpg.html"/>
+					<node icon="imageIcon" label="lion.jpg" url="source/assets/sponza/lion.jpg.html"/>
+					<node icon="imageIcon" label="lion2_ddn.jpg" url="source/assets/sponza/lion2_ddn.jpg.html"/>
+					<node icon="imageIcon" label="r2d2 texture.jpg" url="source/assets/sponza/r2d2 texture.jpg.html"/>
+					<node icon="imageIcon" label="roof_diff.jpg" url="source/assets/sponza/roof_diff.jpg.html"/>
+					<node label="sponza.awd" url="source/assets/sponza/sponza.awd"/>
+					<node icon="imageIcon" label="thorn_ddn.jpg" url="source/assets/sponza/thorn_ddn.jpg.html"/>
+					<node icon="imageIcon" label="thorn_diff.jpg" url="source/assets/sponza/thorn_diff.jpg.html"/>
+					<node icon="imageIcon" label="thorn_diff.png" url="source/assets/sponza/thorn_diff.png.html"/>
+					<node icon="imageIcon" label="thorn_spec.jpg" url="source/assets/sponza/thorn_spec.jpg.html"/>
+					<node icon="imageIcon" label="vase_ddn.jpg" url="source/assets/sponza/vase_ddn.jpg.html"/>
+					<node icon="imageIcon" label="vase_dif.jpg" url="source/assets/sponza/vase_dif.jpg.html"/>
+					<node icon="imageIcon" label="vase_hanging.jpg" url="source/assets/sponza/vase_hanging.jpg.html"/>
+					<node icon="imageIcon" label="vase_plant.png" url="source/assets/sponza/vase_plant.png.html"/>
+					<node icon="imageIcon" label="vase_plant_spec.jpg" url="source/assets/sponza/vase_plant_spec.jpg.html"/>
+					<node icon="imageIcon" label="vase_round.jpg" url="source/assets/sponza/vase_round.jpg.html"/>
+					<node icon="imageIcon" label="vase_round_ddn.jpg" url="source/assets/sponza/vase_round_ddn.jpg.html"/>
+					<node icon="imageIcon" label="vase_round_spec.jpg" url="source/assets/sponza/vase_round_spec.jpg.html"/>
+				</node>
+			</node>
+			<node icon="mxmlAppIcon" selected="true" label="Advanced_MultiPassSponzaDemo.as" url="source/Advanced_MultiPassSponzaDemo.as.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 15519K)" url="Advanced_MultiPassSponzaDemo.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex451_sdk_download">
+	</sdklink>
+</index>

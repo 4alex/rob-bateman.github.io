@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of TechDemos</title>
+	<nodes>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="AC_OETags.js" url="source/html-template/AC_OETags.js.txt"/>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+		</node>
+		<node label="images">
+			<node label="jeep1.3ds" url="source/images/jeep1.3ds"/>
+			<node label="jeep1.jpg" icon="imageIcon" url="source/images/jeep1.jpg.html"/>
+			<node label="signature.swf" icon="swfIcon" url="source/images/signature.swf"/>
+		</node>
+		<node selected="true" label="Jeep3DSTest.as" icon="mxmlAppIcon" url="source/Jeep3DSTest.as.html"/>
+	</nodes>
+</index>

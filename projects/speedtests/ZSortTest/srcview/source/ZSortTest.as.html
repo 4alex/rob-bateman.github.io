@@ -1,0 +1,371 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ZSortTest.as</title>
+<link rel="stylesheet" type="text/css" href="../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="ActionScriptpackage">package</span> 
+<span class="ActionScriptBracket/Brace">{</span>
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">com</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">adobe</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">viewsource</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ViewSource</span>;
+    
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">display</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Sprite</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">events</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Event</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">events</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">MouseEvent</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">text</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">TextField</span>;
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">flash</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">utils</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getTimer</span>;
+    
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">project</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">demo</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">modifier</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">particle</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Particle3D</span>;
+    
+    <span class="ActionScriptASDoc">/**
+    * @author Simo Santavirta / (jac) EvoFlash (evo.bombsquad.org)
+    */</span>
+    <span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptMetadata">SWF</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptString">"#000000"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">frameRate</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">"60"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">quality</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">"high"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">width</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">"800"</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">height</span><span class="ActionScriptOperator">=</span><span class="ActionScriptString">"600"</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptclass">class</span> <span class="ActionScriptDefault_Text">ZSortTest</span> <span class="ActionScriptReserved">extends</span> <span class="ActionScriptDefault_Text">Sprite</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">count</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> 100000;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">particles</span>:<span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">Particle3D</span><span class="ActionScriptBracket/Brace">&gt;</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">particleArray</span>:<span class="ActionScriptDefault_Text">Array</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">first</span>:<span class="ActionScriptDefault_Text">Particle3D</span>;
+        
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">resultTf</span>:<span class="ActionScriptDefault_Text">TextField</span>;
+        
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">ZSortTest</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptDefault_Text">ViewSource</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addMenuItem</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptString">"srcview/index.html"</span><span class="ActionScriptBracket/Brace">)</span>; 
+            
+            <span class="ActionScriptDefault_Text">particleArray</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Array</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">particles</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">Particle3D</span><span class="ActionScriptBracket/Brace">&gt;</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">count</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">l</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">count</span><span class="ActionScriptOperator">-</span>1<span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptReserved">for</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">i</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">l</span>; <span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">&gt;</span> <span class="ActionScriptOperator">-</span>1; <span class="ActionScriptDefault_Text">i</span><span class="ActionScriptOperator">--</span><span class="ActionScriptBracket/Brace">)</span>
+            <span class="ActionScriptBracket/Brace">{</span>
+                <span class="ActionScriptDefault_Text">particleArray</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Particle3D</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+                <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">x</span> <span class="ActionScriptOperator">=</span> 1<span class="ActionScriptComment">//1000 * Math.random();
+</span>                <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">y</span> <span class="ActionScriptOperator">=</span> 1<span class="ActionScriptComment">//-500 + 1000*Math.random();
+</span>                <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">z</span> <span class="ActionScriptOperator">=</span> 50000 <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">i</span><span class="ActionScriptComment">//-500 + 1000*Math.random();
+</span>                <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">i</span>;
+                <span class="ActionScriptReserved">if</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">&lt;</span> <span class="ActionScriptDefault_Text">l</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">next</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptOperator">+</span>1<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>;
+                <span class="ActionScriptReserved">if</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">&lt;</span> <span class="ActionScriptDefault_Text">l</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptOperator">+</span>1<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">prev</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span>;
+            <span class="ActionScriptBracket/Brace">}</span>
+            <span class="ActionScriptDefault_Text">first</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span>0<span class="ActionScriptBracket/Brace">]</span>;
+            
+            <span class="ActionScriptDefault_Text">resultTf</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">TextField</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">resultTf</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">textColor</span> <span class="ActionScriptOperator">=</span> 0xFFFFFF;
+            <span class="ActionScriptDefault_Text">resultTf</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">width</span> <span class="ActionScriptOperator">=</span> 1024;
+            <span class="ActionScriptDefault_Text">resultTf</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">height</span> <span class="ActionScriptOperator">=</span> 576;
+            <span class="ActionScriptDefault_Text">resultTf</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">multiline</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">true</span>;
+            <span class="ActionScriptDefault_Text">resultTf</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">wordWrap</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">true</span>;
+            <span class="ActionScriptDefault_Text">resultTf</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">selectable</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">true</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addChild</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">resultTf</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ENTER_FRAME</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">render</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptDefault_Text">stage</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">addEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">MouseEvent</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">CLICK</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">click</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">click</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">event</span>:<span class="ActionScriptDefault_Text">MouseEvent</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">removeEventListener</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ENTER_FRAME</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">render</span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">time</span>:<span class="ActionScriptDefault_Text">int</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">output</span>:<span class="ActionScriptDefault_Text">int</span>;
+        <span class="ActionScriptReserved">private</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">render</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">event</span>:<span class="ActionScriptDefault_Text">Event</span><span class="ActionScriptBracket/Brace">)</span>:<span class="ActionScriptReserved">void</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptComment">/*
+            time = getTimer();
+            
+            particles.sort(sort);
+            
+            for(var i:int = 0; i &lt; count; i++)
+            {
+                output = particles[i].i;
+            }
+            
+            resultTf.appendText("Vector sort: "+ (getTimer() - time) + "\n");
+            //*/</span>
+            
+            <span class="ActionScriptComment">/*
+            time = getTimer();
+            
+            shellSort(particles);
+            
+            for(var i:int = 0; i &lt; count; i++)
+            {
+                output = particles[i].i;
+            }
+            
+            //trace("Vector shellShort method: ", (getTimer() - time));
+            resultTf.appendText("Vector shellShort method: "+ (getTimer() - time) + "\n");
+            //*/</span>
+            
+            <span class="ActionScriptComment">/*
+            time = getTimer();
+            
+            var n:int = count;
+            var inc:int = int(n/2 + 0.5);
+            var a:Particle3D, b:Particle3D;
+            var j:int, i:int;
+            var temp:Number;
+            while(inc) 
+            {
+                for(i=inc; i&lt;n; i++) 
+                {
+                    a = particles[i];
+                    temp = a.z;
+                    j = i;
+                    b = particles[int(j - inc)];
+                    while(j &gt;= inc &amp;&amp; b.z &gt; temp) 
+                    {
+                        a.z = b.z;
+                        j = int(j - inc);
+                    }
+                    particles[j].z = temp
+                }
+                inc = int(inc / 2.2 + 0.5);
+            }
+            
+            
+            for(i = 0; i &lt; count; i++)
+            {
+                output = particles[i].i;
+            }
+            
+            //trace("Vector shellShort: ", (getTimer() - time));
+            resultTf.appendText("Vector shellShort: "+ (getTimer() - time) + "\n");
+            //*/</span>
+            
+            <span class="ActionScriptComment">/*
+            time = getTimer();
+            
+            particleArray.sort(sort);
+            
+            for(var i:int = 0; i &lt; count; i++)
+            {
+                output = particleArray[i].i;
+            }
+            
+            //trace("Array sort: ", (getTimer() - time));
+            resultTf.appendText("Array sort: "+ (getTimer() - time) + "\n");
+            //*/</span>
+            
+            <span class="ActionScriptComment">/*
+            time = getTimer();
+            
+            particleArray.sortOn("z", Array.NUMERIC);
+            
+            for(var i:int = 0; i &lt; count; i++)
+            {
+                output = particleArray[i].i;
+            }
+            
+            //trace("Array sortOn: ", (getTimer() - time));
+            resultTf.appendText("Array sortOn: "+ (getTimer() - time) + "\n");
+            //*/</span>
+            
+            
+            <span class="ActionScriptComment">/*
+            time = getTimer();
+            
+            // Z-SORT
+            //
+            // Insertion sort by Michael Baczynski http://lab.polygonal.de/ 
+            // Only slightly modified.
+            //
+            // (simppafi: I cannot think of any other developer I've learned more then Michael Baczynski.)
+            //
+            
+            // Jedi+Voodoo : 358
+            
+            var f:Particle3D = first;
+            var n:Particle3D, j:Particle3D, p:Particle3D, c:Particle3D;
+            c = f.next;
+            while(c) 
+            {
+                n = c.next;
+                p = c.prev;
+                if (c.z &gt; p.z) 
+                {
+                    j = p;
+                    while(j.prev) 
+                    {
+                        if (c.z &gt; j.prev.z) 
+                        {
+                            j = j.prev;
+                        }else{
+                            break;
+                        }
+                    }
+                    if (n) {
+                        p.next = n;
+                        n.prev = p;
+                    } else {
+                        p.next = null;
+                    }
+                    //n ? (p.next = n, (n.prev = p)) : p.next = null;
+                    if (j == f) {
+                        c.prev = null;
+                        c.next = j;
+                        j.prev = c;
+                        f = c;
+                    } else {
+                        c.prev = j.prev;
+                        j.prev.next = c;
+                        c.next = j;
+                        j.prev = c;
+                    }
+                }
+                c = n;
+            }
+            
+            first = f;
+            while(f)
+            {
+                output = f.i;
+                f = f.next;
+            }
+            
+            //trace("Insertion sort + linked list: " + (getTimer() - time));
+            resultTf.appendText("Jedi+Voodoo : "+ (getTimer() - time) + "\n");
+            //*/</span>
+            
+            
+            <span class="ActionScriptComment">/*
+            time = getTimer();
+            
+            // Z-SORT
+            //
+            // Linkedlist Radix sort by Rob Bateman http://www.infiniteturtles.co.uk
+            
+            var q0:Vector.&lt;Particle3D&gt; = new Vector.&lt;Particle3D&gt;(256, true);
+            var q1:Vector.&lt;Particle3D&gt; = new Vector.&lt;Particle3D&gt;(256, true);
+            
+            var i:int = 0;
+            var k:int;
+            var f:Particle3D = first;
+            var p:Particle3D, c:Particle3D;
+            c = f;
+            while (c) {
+                c.sort = q0[k = (255 &amp; c.z)];
+                q0[k] = c;
+                c = c.next;
+            }
+            
+            i = 256;
+            while (i--) {
+                c = q0[i];
+                while (c) {
+                    p = c.sort;
+                    c.sort = q1[k = (65280 &amp; c.z) &gt;&gt; 8];
+                    q1[k] = c;
+                    c = p;
+                }
+            }
+            
+            i = 0;
+            k = 0;
+            //trace("sorted----");
+            while (i &lt; 255) {
+                c = q1[i];
+                while (c) {
+                    output = c.z;
+                    //trace(output);
+                    c = c.sort;
+                }
+                i++;
+            }
+            
+            //trace("Linkedlist Radix sort: " + (getTimer() - time));
+            resultTf.appendText("Linkedlist Radix sort: "+ (getTimer() - time) + "\n");
+            //*/</span>
+            
+            <span class="ActionScriptComment">///*
+</span>            <span class="ActionScriptDefault_Text">time</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">getTimer</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+            
+            <span class="ActionScriptComment">// Z-SORT
+</span>            <span class="ActionScriptComment">//
+</span>            <span class="ActionScriptComment">// Radix sort by Rob Bateman http://www.infiniteturtles.co.uk
+</span>            
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">q0</span>:<span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span><span class="ActionScriptBracket/Brace">(</span>256<span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">q1</span>:<span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span><span class="ActionScriptBracket/Brace">(</span>256<span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">np0</span>:<span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">length</span> <span class="ActionScriptOperator">+</span> 1<span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">np1</span>:<span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">length</span> <span class="ActionScriptOperator">+</span> 1<span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">data</span>:<span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Vector</span><span class="ActionScriptBracket/Brace">.&lt;</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">&gt;</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">length</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptReserved">true</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">p</span>:<span class="ActionScriptDefault_Text">Particle3D</span>;
+            
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">length</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">length</span>;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">i</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> 0;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">j</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> 0;
+            <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">k</span>:<span class="ActionScriptDefault_Text">int</span>;
+            
+            <span class="ActionScriptReserved">while</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">&lt;</span> <span class="ActionScriptDefault_Text">length</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptBracket/Brace">{</span>
+                <span class="ActionScriptDefault_Text">p</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span>;
+                <span class="ActionScriptDefault_Text">np0</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptOperator">+</span>1<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">q0</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">k</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptBracket/Brace">(</span>255 <span class="ActionScriptOperator">&amp;</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">data</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">p</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">z</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>;
+                <span class="ActionScriptDefault_Text">q0</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">k</span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptOperator">++</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptBracket/Brace">}</span>
+            
+            <span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">=</span> 256;
+            <span class="ActionScriptReserved">while</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptOperator">--</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptBracket/Brace">{</span>
+                <span class="ActionScriptDefault_Text">j</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">q0</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptBracket/Brace">]</span>;
+                <span class="ActionScriptReserved">while</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">j</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptBracket/Brace">{</span>
+                    <span class="ActionScriptDefault_Text">np1</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">j</span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">q1</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">k</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptBracket/Brace">(</span>65280 <span class="ActionScriptOperator">&amp;</span> <span class="ActionScriptDefault_Text">data</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">j</span><span class="ActionScriptOperator">-</span>1<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">&gt;&gt;</span> 8<span class="ActionScriptBracket/Brace">]</span>;
+                    <span class="ActionScriptDefault_Text">j</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">np0</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">q1</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">k</span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">j</span><span class="ActionScriptBracket/Brace">]</span>;
+                <span class="ActionScriptBracket/Brace">}</span>
+            <span class="ActionScriptBracket/Brace">}</span>
+            
+            <span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">=</span> 0;
+            <span class="ActionScriptDefault_Text">k</span> <span class="ActionScriptOperator">=</span> 0;
+            
+            <span class="ActionScriptReserved">while</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span> <span class="ActionScriptOperator">&lt;</span> 255<span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptBracket/Brace">{</span>
+                <span class="ActionScriptDefault_Text">j</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">q1</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">i</span><span class="ActionScriptOperator">++</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>;
+                <span class="ActionScriptReserved">while</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">j</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptBracket/Brace">{</span>
+                    <span class="ActionScriptDefault_Text">p</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">particles</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">int</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">j</span><span class="ActionScriptOperator">-</span>1<span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>;
+                    <span class="ActionScriptDefault_Text">output</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">p</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">z</span>;
+                    <span class="ActionScriptDefault_Text">j</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">np1</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptDefault_Text">j</span><span class="ActionScriptBracket/Brace">]</span>;
+                <span class="ActionScriptBracket/Brace">}</span>
+            <span class="ActionScriptBracket/Brace">}</span>
+            
+            <span class="ActionScriptComment">//trace("Radix sort: " + (getTimer() - time));
+</span>            <span class="ActionScriptDefault_Text">resultTf</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">appendText</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptString">"Radix sort: "</span><span class="ActionScriptOperator">+</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">getTimer</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">-</span> <span class="ActionScriptDefault_Text">time</span><span class="ActionScriptBracket/Brace">)</span> <span class="ActionScriptOperator">+</span> <span class="ActionScriptString">"\n"</span><span class="ActionScriptBracket/Brace">)</span>;
+            <span class="ActionScriptComment">//*/
+</span>        <span class="ActionScriptBracket/Brace">}</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Modified code of Tuomas Artman http://www.artman.fi/
+        final private function sort(a:Particle3D, b:Particle3D):int {
+            return (a.z==b.z ? 0 : (a.z &lt; b.z) ? -1 : 1);
+        }
+         **/</span>
+        
+        <span class="ActionScriptASDoc">/**
+         * Modified from AS3 port of Tuomas Artman http://www.artman.fi/
+        final private function shellSort(data:Vector.&lt;Particle3D&gt;):void {
+            var n:int = data.length;
+            var inc:int = int(n/2 + 0.5);
+            var a:Particle3D, b:Particle3D;
+            var j:int, i:int;
+            var temp:Number;
+            while(inc) 
+            {
+                for(i=inc; i&lt;n; i++) 
+                {
+                    a = data[i];
+                    temp = a.z;
+                    j = i;
+                    b = data[int(j - inc)];
+                    while(j &gt;= inc &amp;&amp; b.z &gt; temp) 
+                    {
+                        a.z = b.z;
+                        j = int(j - inc);
+                    }
+                    data[j].z = temp
+                }
+                inc = int(inc / 2.2 + 0.5);
+            }
+        }    
+         **/</span>
+        
+    <span class="ActionScriptBracket/Brace">}</span>
+<span class="ActionScriptBracket/Brace">}</span></pre></body>
+</html>

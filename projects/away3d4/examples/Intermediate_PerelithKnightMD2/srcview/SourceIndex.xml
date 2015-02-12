@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Intermediate_PerelithKnightMD2</title>
+	<nodes>
+		<node label="embeds">
+			<node label="pknight">
+				<node label="pknight.md2" url="source/embeds/pknight/pknight.md2"/>
+				<node icon="imageIcon" label="pknight1.png" url="source/embeds/pknight/pknight1.png.html"/>
+				<node icon="imageIcon" label="pknight2.png" url="source/embeds/pknight/pknight2.png.html"/>
+				<node icon="imageIcon" label="pknight3.png" url="source/embeds/pknight/pknight3.png.html"/>
+				<node icon="imageIcon" label="pknight4.png" url="source/embeds/pknight/pknight4.png.html"/>
+			</node>
+			<node icon="imageIcon" label="floor_diffuse.jpg" url="source/embeds/floor_diffuse.jpg.html"/>
+			<node icon="flaIcon" label="signature.fla" url="source/embeds/signature.fla"/>
+			<node icon="swfIcon" label="signature.swf" url="source/embeds/signature.swf"/>
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node icon="htmlIcon" label="index.template.html" url="source/html-template/index.template.html"/>
+			<node icon="swfIcon" label="playerProductInstall.swf" url="source/html-template/playerProductInstall.swf"/>
+			<node label="swfobject.js" url="source/html-template/swfobject.js.txt"/>
+		</node>
+		<node label="pb">
+			<node label="NormalMap.pbj" url="source/pb/NormalMap.pbj"/>
+			<node label="Outline.pbj" url="source/pb/Outline.pbj"/>
+			<node label="Sharpen.pbj" url="source/pb/Sharpen.pbj"/>
+		</node>
+		<node label="src">
+			<node icon="packageIcon" label="utils" expanded="true">
+				<node icon="actionScriptIcon" label="BitmapFilterEffects.as" url="source/utils/BitmapFilterEffects.as.html"/>
+			</node>
+			<node icon="mxmlAppIcon" selected="true" label="Intermediate_PerelithKnightMD2.as" url="source/Intermediate_PerelithKnightMD2.as.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 619K)" url="Intermediate_PerelithKnightMD2.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex451_sdk_download">
+	</sdklink>
+</index>

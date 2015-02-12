@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Advanced_FrustumHotelRoom</title>
+	<nodes>
+		<node label="src" icon="classpathIcon" expanded="true">
+			<node label="assets">
+				<node label="room">
+					<node label="alarm.jpg" icon="imageIcon" url="source/assets/room/alarm.jpg.html"/>
+					<node label="Bed.jpg" icon="imageIcon" url="source/assets/room/Bed.jpg.html"/>
+					<node label="Bedside .jpg" icon="imageIcon" url="source/assets/room/Bedside .jpg.html"/>
+					<node label="books.jpg" icon="imageIcon" url="source/assets/room/books.jpg.html"/>
+					<node label="Chair.jpg" icon="imageIcon" url="source/assets/room/Chair.jpg.html"/>
+					<node label="Clock.jpg" icon="imageIcon" url="source/assets/room/Clock.jpg.html"/>
+					<node label="collision.png" icon="imageIcon" url="source/assets/room/collision.png.html"/>
+					<node label="collision.psd" url="source/assets/room/collision.psd"/>
+					<node label="Door fra.jpg" icon="imageIcon" url="source/assets/room/Door fra.jpg.html"/>
+					<node label="Door01.jpg" icon="imageIcon" url="source/assets/room/Door01.jpg.html"/>
+					<node label="Doorlig.jpg" icon="imageIcon" url="source/assets/room/Doorlig.jpg.html"/>
+					<node label="Doorligs.jpg" icon="imageIcon" url="source/assets/room/Doorligs.jpg.html"/>
+					<node label="Floor.jpg" icon="imageIcon" url="source/assets/room/Floor.jpg.html"/>
+					<node label="interior.3DS" url="source/assets/room/interior.3DS"/>
+					<node label="Lamp sha.jpg" icon="imageIcon" url="source/assets/room/Lamp sha.jpg.html"/>
+					<node label="Lamp.jpg" icon="imageIcon" url="source/assets/room/Lamp.jpg.html"/>
+					<node label="Lampsma.jpg" icon="imageIcon" url="source/assets/room/Lampsma.jpg.html"/>
+					<node label="Lampsmas.jpg" icon="imageIcon" url="source/assets/room/Lampsmas.jpg.html"/>
+					<node label="matress.jpg" icon="imageIcon" url="source/assets/room/matress.jpg.html"/>
+					<node label="picture.jpg" icon="imageIcon" url="source/assets/room/picture.jpg.html"/>
+					<node label="Pillows.jpg" icon="imageIcon" url="source/assets/room/Pillows.jpg.html"/>
+					<node label="Plane01.jpg" icon="imageIcon" url="source/assets/room/Plane01.jpg.html"/>
+					<node label="Plane02.jpg" icon="imageIcon" url="source/assets/room/Plane02.jpg.html"/>
+					<node label="Plane03.jpg" icon="imageIcon" url="source/assets/room/Plane03.jpg.html"/>
+					<node label="plant.jpg" icon="imageIcon" url="source/assets/room/plant.jpg.html"/>
+					<node label="Speaker1.jpg" icon="imageIcon" url="source/assets/room/Speaker1.jpg.html"/>
+					<node label="Speakers.jpg" icon="imageIcon" url="source/assets/room/Speakers.jpg.html"/>
+					<node label="TV Cabin.jpg" icon="imageIcon" url="source/assets/room/TV Cabin.jpg.html"/>
+					<node label="TV.jpg" icon="imageIcon" url="source/assets/room/TV.jpg.html"/>
+					<node label="Vase.jpg" icon="imageIcon" url="source/assets/room/Vase.jpg.html"/>
+					<node label="Wall fro.jpg" icon="imageIcon" url="source/assets/room/Wall fro.jpg.html"/>
+					<node label="wall_b.jpg" icon="imageIcon" url="source/assets/room/wall_b.jpg.html"/>
+					<node label="wall_f.jpg" icon="imageIcon" url="source/assets/room/wall_f.jpg.html"/>
+					<node label="wall_l.jpg" icon="imageIcon" url="source/assets/room/wall_l.jpg.html"/>
+					<node label="wall_r.jpg" icon="imageIcon" url="source/assets/room/wall_r.jpg.html"/>
+					<node label="wineglss.jpg" icon="imageIcon" url="source/assets/room/wineglss.jpg.html"/>
+				</node>
+			</node>
+			<node selected="true" label="Advanced_FrustumHotelRoom.as" icon="mxmlAppIcon" url="source/Advanced_FrustumHotelRoom.as.html"/>
+		</node>
+	</nodes>
+</index>

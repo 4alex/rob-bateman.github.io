@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FillTextures>
+	<Categories>
+		<Category>
+			<id>bricks</id>
+			<Name>Bricks</Name>
+			<Items>
+				<Item>
+					<id>0</id>
+					<Name>Brickwall</Name>
+					<Type>Image</Type>
+					<Thumbnail>
+						<URL>textures/Bricks.gif</URL>
+						<width>64</width>
+						<height>64</height>
+					</Thumbnail>
+					<Texture>
+						<TextureURL>textures/Bricks.gif</TextureURL>
+					</Texture>
+				</Item>
+				<Item>
+					<id>1</id>
+					<Name>Brickwall</Name>
+					<Type>Image</Type>
+					<Thumbnail>
+						<URL>textures/Bricks.gif</URL>
+						<width>64</width>
+						<height>64</height>
+					</Thumbnail>
+					<Texture>
+						<TextureURL>textures/Bricks.gif</TextureURL>
+					</Texture>
+				</Item>
+			</Items>
+		</Category>
+	</Categories>
+</FillTextures>

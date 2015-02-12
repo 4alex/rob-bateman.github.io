@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Intermediate_MonsterHeadShading</title>
+	<nodes>
+		<node label="embeds">
+			<node icon="imageIcon" label="diffuseGradient.jpg" url="source/embeds/diffuseGradient.jpg.html"/>
+			<node icon="flaIcon" label="signature.fla" url="source/embeds/signature.fla"/>
+			<node icon="swfIcon" label="signature.swf" url="source/embeds/signature.swf"/>
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node icon="htmlIcon" label="index.template.html" url="source/html-template/index.template.html"/>
+			<node icon="swfIcon" label="playerProductInstall.swf" url="source/html-template/playerProductInstall.swf"/>
+			<node label="swfobject.js" url="source/html-template/swfobject.js.txt"/>
+		</node>
+		<node label="libs">
+			<node label="lib_simplegui.swc" url="source/libs/lib_simplegui.swc"/>
+		</node>
+		<node label="src">
+			<node label="assets">
+				<node label="monsterhead">
+					<node label="MonsterHead.awd" url="source/assets/monsterhead/MonsterHead.awd"/>
+					<node icon="imageIcon" label="monsterhead_diffuse.jpg" url="source/assets/monsterhead/monsterhead_diffuse.jpg.html"/>
+					<node icon="imageIcon" label="monsterhead_normals.jpg" url="source/assets/monsterhead/monsterhead_normals.jpg.html"/>
+					<node icon="imageIcon" label="monsterhead_specular.jpg" url="source/assets/monsterhead/monsterhead_specular.jpg.html"/>
+				</node>
+			</node>
+			<node icon="mxmlAppIcon" selected="true" label="Intermediate_MonsterHeadShading.as" url="source/Intermediate_MonsterHeadShading.as.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 9123K)" url="Intermediate_MonsterHeadShading.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex451_sdk_download">
+	</sdklink>
+</index>

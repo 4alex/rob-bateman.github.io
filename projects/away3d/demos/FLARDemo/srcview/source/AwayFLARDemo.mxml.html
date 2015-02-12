@@ -1,0 +1,57 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>AwayFLARDemo.mxml</title>
+<link rel="stylesheet" type="text/css" href="../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="MXMLComment">&lt;!--</span><span class="MXMLComment">
+
+FLARToolkit example in Away3d
+
+Demonstrates:
+
+How to setup the FLARToolkit with the Away3d engine.
+How to define trackable objects with FLARBaseNode
+How to reset the camera source in actionscript
+
+code by Rob Bateman
+rob@infiniteturtles.co.uk
+http://www.infiniteturtles.co.uk
+
+This code is distributed under the MIT License
+
+Copyright (c)  
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+//</span><span class="MXMLComment">--&gt;</span>
+
+<span class="MXMLComponent_Tag">&lt;app:AwayFLARDemoUI</span><span class="MXMLDefault_Text"> xmlns:mx=&quot;</span><span class="MXMLString">http://www.adobe.com/2006/mxml</span><span class="MXMLDefault_Text">&quot; xmlns:app=&quot;</span><span class="MXMLString">*</span><span class="MXMLDefault_Text">&quot; layout=&quot;</span><span class="MXMLString">absolute</span><span class="MXMLDefault_Text">&quot; width=&quot;</span><span class="MXMLString">800</span><span class="MXMLDefault_Text">&quot; height=&quot;</span><span class="MXMLString">600</span><span class="MXMLDefault_Text">&quot; backgroundColor=&quot;</span><span class="MXMLString">#000000</span><span class="MXMLDefault_Text">&quot;</span><span class="MXMLComponent_Tag">&gt;</span>
+    <span class="MXMLComponent_Tag">&lt;app:AwayFLARView</span><span class="MXMLDefault_Text"> id=&quot;</span><span class="MXMLString">awayFLARView</span><span class="MXMLDefault_Text">&quot; </span><span class="MXMLComponent_Tag">/&gt;</span>
+    <span class="MXMLComponent_Tag">&lt;mx:Panel</span><span class="MXMLDefault_Text"> id=&quot;</span><span class="MXMLString">cameraPanel</span><span class="MXMLDefault_Text">&quot; title=&quot;</span><span class="MXMLString">Choose your video</span><span class="MXMLDefault_Text">&quot; width=&quot;</span><span class="MXMLString">300</span><span class="MXMLDefault_Text">&quot; height=&quot;</span><span class="MXMLString">100</span><span class="MXMLDefault_Text">&quot; horizontalCenter=&quot;</span><span class="MXMLString">0</span><span class="MXMLDefault_Text">&quot; horizontalAlign=&quot;</span><span class="MXMLString">center</span><span class="MXMLDefault_Text">&quot; verticalAlign=&quot;</span><span class="MXMLString">middle</span><span class="MXMLDefault_Text">&quot; verticalCenter=&quot;</span><span class="MXMLString">0</span><span class="MXMLDefault_Text">&quot;</span><span class="MXMLComponent_Tag">&gt;</span>
+        <span class="MXMLComponent_Tag">&lt;mx:HBox&gt;</span>
+            <span class="MXMLComponent_Tag">&lt;mx:ComboBox</span><span class="MXMLDefault_Text"> id=&quot;</span><span class="MXMLString">camCombo</span><span class="MXMLDefault_Text">&quot; </span><span class="MXMLComponent_Tag">/&gt;</span>
+            <span class="MXMLComponent_Tag">&lt;mx:Button</span><span class="MXMLDefault_Text"> label=&quot;</span><span class="MXMLString">OK</span><span class="MXMLDefault_Text">&quot; id=&quot;</span><span class="MXMLString">closeButton</span><span class="MXMLDefault_Text">&quot; </span><span class="MXMLComponent_Tag">/&gt;</span>
+        <span class="MXMLComponent_Tag">&lt;/mx:HBox&gt;</span>
+    <span class="MXMLComponent_Tag">&lt;/mx:Panel&gt;</span>
+<span class="MXMLComponent_Tag">&lt;/app:AwayFLARDemoUI&gt;</span></pre></body>
+</html>
