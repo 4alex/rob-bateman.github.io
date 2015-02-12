@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>infinite turtles</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="Graphics, Science and the Web">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="infinite turtles">
+    <meta name="twitter:description" content="Graphics, Science and the Web">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="infinite turtles">
+    <meta property="og:description" content="Graphics, Science and the Web">
+
+    <meta name="twitter:site" content="@robnet">
+    
+    <meta name="twitter:creator" content="@robnet">
+    
+    <meta name="google-site-verification" content="">
+    
+    <meta property="fb:admins" content="">
+
+    <link href="http://localhost:2368/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="http://localhost:2368/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="http://fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400&amp;subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://localhost:2368/blog/assets/css/main.min.css?v=de03027c0d"/>
+
+    <script type="text/javascript">
+      var ga_ua = 'UA-XXXXX-X';
+      
+      var disqus_shortname = 'infiniteturtles';
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="http://localhost:2368/blog/assets/js/head-scripts.min.js?v=de03027c0d"></script>
+
+    <link rel="canonical" href="http://infiniteturtles.co.uk/blog/" />
+    <link rel="next" href="http://infiniteturtles.co.uk/blog/page/2/" />
+    <meta name="generator" content="Ghost 0.5" />
+    <link rel="alternate" type="application/rss+xml" title="infinite turtles" href="http://infiniteturtles.co.uk/blog/rss/" />
+  </head>
+  <body class="home-template">
+
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="http://infiniteturtles.co.uk/blog/" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://infiniteturtles.co.uk/blog/rss/">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          <li class="drawer-list-divider"></li>
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://twitter.com/robnet" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://github.com/rob-bateman" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<aside role="banner" class="cover">
+  <div data-load-image="/content/images/2015/02/IMG_3722.jpg" class="cover-image"></div>
+  <div class="cover-container">
+    <h1 class="cover-title">infinite turtles</h1>
+    <p class="cover-description">Graphics, Science and the Web</p>
+  </div>
+</aside>
+<section class="wrapper" tabindex="0">
+  <div class="wrapper-container">
+
+    <section class="post-list">
+        <article itemscope itemtype="http://schema.org/BlogPosting"
+          role="article" class="post-item post tag-getting-started">
+          <header class="post-item-header">
+            <h2 itemprop="name" class="post-item-title">
+              <a href="http://localhost:2368/blog/welcome-to-ghost/" itemprop="url" data-pjax title="Time for a refresh">
+                Time for a refresh
+              </a>
+            </h2>
+          </header>
+          <section itemprop="description" class="post-item-excerpt">
+            <p>Interesting thing, change. One minute you're downloading Wordpress plugins for anti-spam and tag clouds, the next you're looking at the ultra-minimal nirvana of a mobile-ready markdown-loving npm-installing marvel of Ghost. Ironically, I first came across&hellip;</p>
+          </section>
+          <footer class="post-item-footer">
+            <ul class="post-item-meta-list">
+              <li class="post-item-meta-item">
+                <time datetime="2014-12-20" itemprop="datePublished">
+                  2 months ago
+                </time>
+              </li>
+                <li class="post-item-meta-item">
+                    <a itemprop="articleSection" href="http://localhost:2368/blog/tag/getting-started/" data-pjax>Getting Started</a> 
+                </li>
+              <li class="post-item-meta-item">
+                <a href="http://localhost:2368/blog/welcome-to-ghost/#disqus_thread" data-pjax data-disqus-identifier="1">Comments</a>
+              </li>
+            </ul>
+          </footer>
+        </article>
+        <article itemscope itemtype="http://schema.org/BlogPosting"
+          role="article" class="post-item post tag-webgl">
+          <header class="post-item-header">
+            <h2 itemprop="name" class="post-item-title">
+              <a href="http://localhost:2368/blog/reasons-to-be-talky/" itemprop="url" data-pjax title="Reasons to be talky">
+                Reasons to be talky
+              </a>
+            </h2>
+          </header>
+          <section itemprop="description" class="post-item-excerpt">
+            <p>So this is a little last-minute, but nevertheless extremely welcome – I’ll be speaking at this year’s Reasons to be Creative conference in Brighton in less that two weeks time! The conference is something&hellip;</p>
+          </section>
+          <footer class="post-item-footer">
+            <ul class="post-item-meta-list">
+              <li class="post-item-meta-item">
+                <time datetime="2014-08-21" itemprop="datePublished">
+                  6 months ago
+                </time>
+              </li>
+                <li class="post-item-meta-item">
+                    <a itemprop="articleSection" href="http://localhost:2368/blog/tag/webgl/" data-pjax>WebGL</a> 
+                </li>
+              <li class="post-item-meta-item">
+                <a href="http://localhost:2368/blog/reasons-to-be-talky/#disqus_thread" data-pjax data-disqus-identifier="127">Comments</a>
+              </li>
+            </ul>
+          </footer>
+        </article>
+        <article itemscope itemtype="http://schema.org/BlogPosting"
+          role="article" class="post-item post">
+          <header class="post-item-header">
+            <h2 itemprop="name" class="post-item-title">
+              <a href="http://localhost:2368/blog/you-shall-have-a-fish-eye-on-a-little-dish-eye/" itemprop="url" data-pjax title="You shall have a fish-eye, on a little dish-eye">
+                You shall have a fish-eye, on a little dish-eye
+              </a>
+            </h2>
+          </header>
+          <section itemprop="description" class="post-item-excerpt">
+            <p>While experimenting for an Away Studios project, I recently came up against the thorny issue of wide-angled rendering with a high field of view (fov). In Away3D it is possible to set the fov property&hellip;</p>
+          </section>
+          <footer class="post-item-footer">
+            <ul class="post-item-meta-list">
+              <li class="post-item-meta-item">
+                <time datetime="2014-07-08" itemprop="datePublished">
+                  7 months ago
+                </time>
+              </li>
+              <li class="post-item-meta-item">
+                <a href="http://localhost:2368/blog/you-shall-have-a-fish-eye-on-a-little-dish-eye/#disqus_thread" data-pjax data-disqus-identifier="126">Comments</a>
+              </li>
+            </ul>
+          </footer>
+        </article>
+        <article itemscope itemtype="http://schema.org/BlogPosting"
+          role="article" class="post-item post">
+          <header class="post-item-header">
+            <h2 itemprop="name" class="post-item-title">
+              <a href="http://localhost:2368/blog/devgamm-moscow-multi-mania-typescript-training/" itemprop="url" data-pjax title="DevGAMM Moscow, Multi-Mania, Typescript training">
+                DevGAMM Moscow, Multi-Mania, Typescript training
+              </a>
+            </h2>
+          </header>
+          <section itemprop="description" class="post-item-excerpt">
+            <p>Fresh from several months of condensed development, I am finally letting myself out of the house again. The reason? Two conference presentations around some of the new work coming out of The Away Foundation, as&hellip;</p>
+          </section>
+          <footer class="post-item-footer">
+            <ul class="post-item-meta-list">
+              <li class="post-item-meta-item">
+                <time datetime="2014-05-09" itemprop="datePublished">
+                  9 months ago
+                </time>
+              </li>
+              <li class="post-item-meta-item">
+                <a href="http://localhost:2368/blog/devgamm-moscow-multi-mania-typescript-training/#disqus_thread" data-pjax data-disqus-identifier="125">Comments</a>
+              </li>
+            </ul>
+          </footer>
+        </article>
+        <article itemscope itemtype="http://schema.org/BlogPosting"
+          role="article" class="post-item post">
+          <header class="post-item-header">
+            <h2 itemprop="name" class="post-item-title">
+              <a href="http://localhost:2368/blog/paper-prototyping-for-games-workshop-at-techmixmags-digital-summer-camp/" itemprop="url" data-pjax title="Paper prototyping for games - workshop at TechmixMag&#x27;s Digital Summer Camp">
+                Paper prototyping for games - workshop at TechmixMag&#x27;s Digital Summer Camp
+              </a>
+            </h2>
+          </header>
+          <section itemprop="description" class="post-item-excerpt">
+            <p>What with all the other stuff going on at the moment, a visit to the Hackney Community College on Friday for this year’s Digital Summer Camp should be a welcome change. I’ll be&hellip;</p>
+          </section>
+          <footer class="post-item-footer">
+            <ul class="post-item-meta-list">
+              <li class="post-item-meta-item">
+                <time datetime="2013-07-11" itemprop="datePublished">
+                  2 years ago
+                </time>
+              </li>
+              <li class="post-item-meta-item">
+                <a href="http://localhost:2368/blog/paper-prototyping-for-games-workshop-at-techmixmags-digital-summer-camp/#disqus_thread" data-pjax data-disqus-identifier="124">Comments</a>
+              </li>
+            </ul>
+          </footer>
+        </article>
+    </section>
+
+      <nav role="pagination" class="post-list-pagination">
+  <span class="post-list-pagination-item post-list-pagination-item-current">Page 1 of 23</span>
+    <a href="http://localhost:2368/blog/page/2/" class="post-list-pagination-item post-list-pagination-item-next" data-pjax>
+      Older&nbsp;<i class="fa fa-angle-double-right"></i>
+    </a>
+</nav>
+
+
+    <footer role="contentinfo" class="footer">
+      <p><small>© 2015. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Proudly published with <a href="http://ghost.org" target="_blank">Ghost</a></small></p>
+    </footer>
+  </div>
+</section>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="http://localhost:2368/blog/public/jquery.js?v=de03027c0d"></script>
+
+    <script src="http://localhost:2368/blog/assets/js/foot-scripts.min.js?v=de03027c0d"></script>
+
+    <script type="text/javascript">
+
+      if(GHOSTIUM.haveGA) {
+        (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
+        function(){(g[s].q=g[s].q||[]).push(arguments)});g[s].s=+new Date;
+        t=h.createElement(o);z=h.getElementsByTagName(o)[0];
+        t.src='//www.google-analytics.com/analytics.js';
+        z.parentNode.insertBefore(t,z)}(window,document,'script','ga'));
+        ga('create',ga_ua);ga('send','pageview');
+      }
+
+      if(GHOSTIUM.haveDisqus) {
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+      }
+    </script>
+  </body>
+</html>
